@@ -1,11 +1,12 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import './LoginView.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { LoginResponse } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { LoginForm } from '../../components/form/LoginForm';
 import { api, HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
+import { useAuth } from '../../hooks/useAuth';
 
 interface LoginData {
   username: string;
@@ -19,6 +20,9 @@ export function LoginView() {
     username: '',
     password: '',
   });
+
+  const isAuth = useAuth();
+  // if (isAuth) return <Navigate to="/profile" />;
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,6 +43,7 @@ export function LoginView() {
 
   return (
     <section className="LoginView">
+      {isAuth && <Navigate to="/" />}
       <ViewTitle>Logowanie</ViewTitle>
       <LoginForm
         form={form}

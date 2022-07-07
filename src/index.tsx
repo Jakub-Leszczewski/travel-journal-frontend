@@ -4,6 +4,7 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
+import { Auth } from './components/Auth/Auth';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Auth>
+        <App />
+      </Auth>
     </BrowserRouter>
   </React.StrictMode>,
 );
