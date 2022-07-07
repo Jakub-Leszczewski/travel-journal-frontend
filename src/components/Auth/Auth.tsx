@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { GetUserResponse, GetUserFromTokenResponse } from 'types';
+import { GetUserFromTokenResponse, UserSaveResponseData } from 'types';
 import { api } from '../../utils/api';
 import { apiUrl } from '../../config';
 
@@ -8,30 +8,29 @@ interface Props {
 }
 
 interface AuthContextInterface {
-  user: GetUserResponse | null;
+  user: UserSaveResponseData | null;
   refreshUser: () => void;
-  saveUserData: (user: GetUserResponse | null) => void;
+  saveUserData: (user: UserSaveResponseData | null) => void;
 }
 
 export const AuthContext = createContext<AuthContextInterface>({
   user: null,
   refreshUser: () => {},
-  saveUserData: (user: GetUserResponse | null) => {},
+  saveUserData: (user: UserSaveResponseData | null) => {},
 });
 
 export function Auth({ children }: Props) {
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
-  const [user, setUser] = useState<GetUserResponse | null>(null);
+  const [user, setUser] = useState<UserSaveResponseData | null>(null);
 
   useEffect(() => {
     (async () => {
       if (user === null) {
         const { status, body } = await api<GetUserFromTokenResponse>(`${apiUrl}/auth/user`);
 
-        if (status === 200) {
-          setUser(body);
-          setInitialLoading(false);
-        }
+        if (status === 200) setUser(body);
+
+        setInitialLoading(false);
       }
     })();
   }, [user]);
@@ -40,7 +39,7 @@ export function Auth({ children }: Props) {
     setUser(null);
   };
 
-  const saveUserData = (user: GetUserResponse | null) => {
+  const saveUserData = (user: UserSaveResponseData | null) => {
     setUser(user);
   };
 

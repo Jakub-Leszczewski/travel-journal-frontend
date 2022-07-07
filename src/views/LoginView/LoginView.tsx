@@ -3,10 +3,11 @@ import './LoginView.css';
 import { Link, Navigate } from 'react-router-dom';
 import { LoginResponse } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
-import { LoginForm } from '../../components/form/LoginForm';
+import { LoginForm } from '../../components/form/LoginForm/LoginForm';
 import { api, HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
 import { useAuth } from '../../hooks/useAuth';
+import { useSaveUserData } from '../../hooks/useSaveUserData';
 
 interface LoginData {
   username: string;
@@ -14,15 +15,13 @@ interface LoginData {
 }
 
 export function LoginView() {
-  const [submitStatus, setSubmitStatus] = useState<number | null>(null);
-  const [data, setData] = useState();
   const [form, setForm] = useState<LoginData>({
     username: '',
     password: '',
   });
 
   const isAuth = useAuth();
-  // if (isAuth) return <Navigate to="/profile" />;
+  const saveUserData = useSaveUserData();
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,6 +30,8 @@ export function LoginView() {
       method: HttpMethod.POST,
       payload: form,
     });
+
+    if (status === 200) saveUserData(body);
   };
 
   const changeFormHandler = (e: ChangeEvent<HTMLInputElement>) => {

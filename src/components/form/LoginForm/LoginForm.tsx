@@ -1,8 +1,8 @@
 import React, { ChangeEvent, FormEvent } from 'react';
 import './LoginForm.css';
-import { ShortTextInput } from '../common/ShortTextInput/ShortTextInput';
-import { PasswordInput } from '../common/PasswordInput/PasswordInput';
-import { WhiteButton } from '../common/WhiteButton/WhiteButton';
+import { ShortTextInput } from '../../common/ShortTextInput/ShortTextInput';
+import { PasswordInput } from '../../common/PasswordInput/PasswordInput';
+import { WhiteButton } from '../../common/WhiteButton/WhiteButton';
 
 interface Props {
   form: {
