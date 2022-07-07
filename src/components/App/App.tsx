@@ -6,6 +6,7 @@ import { Auth } from '../Auth/Auth';
 import { LoginView } from '../../views/LoginView/LoginView';
 import { IndexView } from '../../views/IndexView/IndexView';
 import { useAuth } from '../../hooks/useAuth';
+import { SignupView } from '../../views/SignupView/SignupView';
 
 function App() {
   const isAuth = useAuth();
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<IndexView />} />
         <Route path="/login" element={<LoginView />} />
-        <Route path="*" element={<p>NotFound</p>} />
+        <Route path="/signup" element={<SignupView />} />
         <Route
           path="/profile"
           element={(

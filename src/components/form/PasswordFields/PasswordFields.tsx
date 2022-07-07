@@ -53,6 +53,8 @@ export function PasswordFields({ form, changeFormHandler }: Props) {
           onChange={changeFormHandler}
           placeholder="Hasło"
           onBlur={onPasswordBlur}
+          minLength={8}
+          maxLength={36}
           required
         />
 
@@ -62,6 +64,8 @@ export function PasswordFields({ form, changeFormHandler }: Props) {
           onChange={changeFormHandler}
           placeholder="Powtórz hasło"
           onBlur={onRepeatPasswordBlur}
+          minLength={8}
+          maxLength={36}
           required
         />
       </div>

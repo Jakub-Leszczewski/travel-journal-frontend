@@ -19,6 +19,8 @@ export function NameFields({ form, changeFormHandler }: Props) {
         onChange={changeFormHandler}
         placeholder="Imie"
         required
+        minLength={2}
+        maxLength={64}
       />
 
       <ShortTextInput
@@ -27,6 +29,8 @@ export function NameFields({ form, changeFormHandler }: Props) {
         onChange={changeFormHandler}
         placeholder="Nazwisko"
         required
+        minLength={2}
+        maxLength={64}
       />
     </div>
   );
