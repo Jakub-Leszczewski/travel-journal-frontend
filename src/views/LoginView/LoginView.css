@@ -1,0 +1,41 @@
+.LoginView {
+    background: rgba(0, 0, 0, 0.84);
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(30px);
+    border-radius: 20px;
+    padding: 20px 10px;
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+.LoginView>.ViewTitle {
+    margin-bottom: 30px;
+}
+
+.LoginView__TextButton {
+    font-size: .8rem;
+    text-decoration: none;
+    position: relative;
+    margin: 10px auto;
+    font-weight: 500;
+}
+
+@media only screen and (min-width: 350px) {
+    .LoginView {
+        max-width: 80%;
+        padding: 20px;
+    }
+}
+
+@media only screen and (min-width: 550px) {
+    .LoginView {
+        max-width: 450px;
+    }
+}
+

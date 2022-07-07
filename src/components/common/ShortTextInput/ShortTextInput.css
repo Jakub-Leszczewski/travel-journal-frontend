@@ -1,0 +1,18 @@
+.ShortTextInput {
+    background: none;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+    height: 30px;
+    width: 100%;
+    font-size: .9rem;
+}
+
+.ShortTextInput:focus {
+    outline: none;
+}
+
+.ShortTextInput::placeholder {
+    color: rgba(255, 255, 255, 0.67);
+    font-size: .8rem;
+    font-weight: 100;
+}
