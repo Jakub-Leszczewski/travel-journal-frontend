@@ -1,0 +1,28 @@
+.NameFields {
+    display: flex;
+    flex-direction: column;
+}
+
+.NameFields>.ShortTextInput {
+    margin-bottom: 25px;
+}
+
+@media only screen and (min-width: 570px) {
+    .NameFields {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 25px;
+    }
+
+    .NameFields>.ShortTextInput {
+        margin-bottom: 0;
+    }
+
+    .NameFields>.ShortTextInput:first-child {
+        margin-right: 10px;
+    }
+
+    .NameFields>.ShortTextInput:last-child {
+        margin-left: 10px;
+    }
+}
