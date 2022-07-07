@@ -1,6 +1,5 @@
 .SignupView {
     background: rgba(0, 0, 0, 0.84);
-    width: 100%;
     height: fit-content;
     position: absolute;
     top: 50%;
@@ -9,9 +8,16 @@
     backdrop-filter: blur(30px);
     border-radius: 20px;
     padding: 20px 10px;
-    max-width: 95%;
+    width: 95%;
+    max-height: 90vh;
+    overflow: auto;
+}
+
+.SignupView__container {
     display: flex;
     flex-direction: column;
+    max-width: 390px;
+    margin: 0 10px;
 }
 
 .SignupView>.ViewTitle {
@@ -26,16 +32,34 @@
     font-weight: 500;
 }
 
+.SignupView_message {
+    font-size: .7rem;
+}
+
 @media only screen and (min-width: 350px) {
     .SignupView {
-        max-width: 80%;
+        width: 90%;
         padding: 20px;
+    }
+
+    .SignupView__container {
+        margin: 0 20px;
+    }
+}
+
+@media only screen and (min-width: 450px) {
+    .SignupView {
+        width: 80%;
+    }
+
+    .SignupView__container {
+        margin: 0 50px;
     }
 }
 
 @media only screen and (min-width: 570px) {
     .SignupView {
-        max-width: 550px;
+        width: 550px;
     }
 }
 

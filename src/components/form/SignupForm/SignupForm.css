@@ -1,6 +1,5 @@
 .SignupForm {
-    margin: 0 20px;
-    max-width: 390px;
+    width: 100%;
 }
 
 .SignupForm>.ShortTextInput  {
@@ -14,7 +13,7 @@
 
 @media only screen and (min-width: 450px) {
     .SignupForm {
-        margin: 0 50px;
+        margin: 0 auto;
     }
 }
 
