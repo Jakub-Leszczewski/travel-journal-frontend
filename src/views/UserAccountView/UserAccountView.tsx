@@ -5,7 +5,7 @@ import './UserAccountView.css';
 import { Navigate } from 'react-router-dom';
 import { ErrorResponse, UpdateUserResponse } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
-import { api, HttpMethod } from '../../utils/api';
+import { HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
 import { useAuth } from '../../hooks/useAuth';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -16,6 +16,8 @@ import { UpdateAccountForm } from '../../components/form/UpdateAccountForm/Updat
 import { useUser } from '../../hooks/useUser';
 import { PasswordConfirm } from '../../components/PasswordConfirm/PasswordConfirm';
 import { useSaveUserData } from '../../hooks/useSaveUserData';
+import { createFormData } from '../../utils/create-form-data';
+import { apiFormData } from '../../utils/apiFormData';
 
 interface SignupData {
   firstName: string;
@@ -24,12 +26,12 @@ interface SignupData {
   newPassword: string;
   repeatNewPassword: string;
   password: string;
+  file: any;
 }
 
 export function UserAccountView() {
   const user = useUser();
   const saveUserData = useSaveUserData();
-
   const isAuth = useAuth();
   const [isEditView, setIsEditView] = useState<boolean>(false);
   const [isConfirm, setIsConfirm] = useState<boolean>(false);
@@ -42,6 +44,7 @@ export function UserAccountView() {
     newPassword: '',
     repeatNewPassword: '',
     password: '',
+    file: undefined,
   };
   const [form, setForm] = useState<SignupData>(initialForm);
 
@@ -53,15 +56,10 @@ export function UserAccountView() {
   const callApi = async () => {
     if (user) {
       const { repeatNewPassword, ...createUserData } = form;
-      const { status, body } = await api<UpdateUserResponse | ErrorResponse>(`${apiUrl}/user/${user.id}`, {
+      const formData = createFormData(createUserData);
+      const { status, body } = await apiFormData<UpdateUserResponse | ErrorResponse>(`${apiUrl}/api/user/${user.id}`, {
         method: HttpMethod.PATCH,
-        payload: {
-          firstName: createUserData.firstName || undefined,
-          lastName: createUserData.lastName || undefined,
-          password: createUserData.password || undefined,
-          newPassword: createUserData.newPassword || undefined,
-          bio: createUserData.bio || undefined,
-        },
+        payload: formData,
       });
 
       if (status !== 401) setIsConfirm(false);
@@ -90,6 +88,15 @@ export function UserAccountView() {
     }));
   };
 
+  const changeFromHandlerFile = (e: any) => {
+    setMessage(null);
+    setMessage(null);
+    setForm((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.files[0],
+    }));
+  };
+
   const toggleEdit = () => setIsEditView((prev) => !prev);
 
   return (
@@ -102,7 +109,7 @@ export function UserAccountView() {
           email={user?.email || ''}
           firstName={user?.firstName || ''}
           lastName={user?.lastName || ''}
-          imageUrl=""
+          imageUrl={user?.avatar ? `${apiUrl}${user.avatar}` : ''}
           postsCount={43}
           travelsCount={12}
         />
@@ -122,14 +129,15 @@ export function UserAccountView() {
             : (
               <div className="UserAccountView__form-container">
                 <UpdateAccountForm
+                  changeFromHandlerFile={changeFromHandlerFile}
                   onSubmitHandler={onSubmitHandler}
                   changeFormHandler={changeFormHandler}
                   form={form}
                 />
               </div>
             )
-        }
 
+        }
       </div>
 
       {isConfirm && (

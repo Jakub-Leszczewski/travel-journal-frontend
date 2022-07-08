@@ -27,7 +27,7 @@ export function LoginView() {
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const { status, body } = await api<LoginResponse | ErrorResponse>(`${apiUrl}/auth/login`, {
+    const { status, body } = await api<LoginResponse | ErrorResponse>(`${apiUrl}/api/auth/login`, {
       method: HttpMethod.POST,
       payload: form,
     });

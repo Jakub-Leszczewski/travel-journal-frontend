@@ -1,5 +1,5 @@
 import React, {
-  ChangeEvent, FormEvent, useMemo, useState,
+  ChangeEvent, FormEvent,
 } from 'react';
 import './UpdateAccountForm.css';
 import { WhiteButton } from '../../common/WhiteButton/WhiteButton';
@@ -7,6 +7,7 @@ import { NameFields } from '../NamesFields/NameFields';
 import { NewPasswordFields } from '../NewPasswordFields/NewPasswordFields';
 import { LongTextInput } from '../../common/LongTextInput/LongTextInput';
 import { Validation } from '../../../utils/Validation';
+import { FileInput } from '../../FileInput/FileInput';
 
 interface Props {
   form: {
@@ -16,13 +17,17 @@ interface Props {
     repeatNewPassword: string;
     password: string;
     bio: string
+    file: any
   }
 
   changeFormHandler: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  changeFromHandlerFile: (e: any) => void;
   onSubmitHandler: (e: FormEvent<HTMLFormElement>) => void;
 }
 
-export function UpdateAccountForm({ form, onSubmitHandler, changeFormHandler }: Props) {
+export function UpdateAccountForm({
+  form, onSubmitHandler, changeFormHandler, changeFromHandlerFile,
+}: Props) {
   const submitDisabled = (
     (form.newPassword && !Validation.passwordValidation(form.newPassword))
     || (form.newPassword !== form.repeatNewPassword)
@@ -45,6 +50,13 @@ export function UpdateAccountForm({ form, onSubmitHandler, changeFormHandler }: 
       <NewPasswordFields
         form={form}
         changeFormHandler={changeFormHandler}
+      />
+
+      <FileInput
+        file={form.file}
+        changeFormHandlerFile={changeFromHandlerFile}
+        name="file"
+        placeholder="Dodaj zdjęcie profilowe"
       />
 
       <WhiteButton disabled={submitDisabled}>Zapisz</WhiteButton>
