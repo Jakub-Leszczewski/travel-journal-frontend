@@ -3,20 +3,19 @@ import './LongTextInput.css';
 
 interface Props {
   value?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder?: string;
   required?: boolean;
-  type?: React.HTMLInputTypeAttribute;
   name?: string;
   minLength?: number;
   maxLength?: number;
 }
 
 export function LongTextInput({
-  value, onChange, placeholder, required, type, name, maxLength, minLength,
+  value, onChange, placeholder, required, name, maxLength, minLength,
 }: Props) {
   return (
-    <input
+    <textarea
       className="LongTextInput"
       name={name}
       value={value}
@@ -25,7 +24,6 @@ export function LongTextInput({
       required={required}
       minLength={minLength}
       maxLength={maxLength}
-      type={type ?? 'text'}
     />
   );
 }
