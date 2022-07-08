@@ -1,0 +1,18 @@
+.InfoBar {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    align-items: start;
+    overflow-wrap: anywhere;
+    margin-bottom: 10px;
+}
+
+.InfoBar>i {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.InfoBar>p {
+    font-size: .8rem;
+    text-align: justify;
+}
