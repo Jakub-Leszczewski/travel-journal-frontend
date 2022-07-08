@@ -9,7 +9,6 @@
     border-radius: 20px;
     padding: 20px 30px;
     width: 95%;
-    max-height: 90vh;
     max-width: 600px;
     overflow: auto;
 }

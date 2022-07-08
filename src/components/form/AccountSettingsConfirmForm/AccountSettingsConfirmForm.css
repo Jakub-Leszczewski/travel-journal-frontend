@@ -1,0 +1,22 @@
+.AccountSettingsConfirmForm {
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+}
+
+.AccountSettingsConfirmForm>.PasswordInput {
+    margin: 10px auto 0 auto;
+    height: 30px;
+}
+
+.AccountSettingsConfirmForm>.WhiteButton {
+    margin: 10px 0 0 0;
+    height: 30px;
+    width: fit-content;
+    border-radius: 15px;
+}
+
+.AccountSettingsConfirmView__error {
+    color: red;
+    font-size: 0.7rem;
+}

@@ -1,5 +1,7 @@
 .App {
-    background: url('../../assets/images/bg.webp') center / cover;
-    height: 100vh;
+    background: url('../../assets/images/bg.webp') center / cover fixed;
+    min-height: 100vh;
     width: 100vw;
+    overflow: auto;
+    position: relative;
 }

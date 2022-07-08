@@ -5,11 +5,15 @@ interface Props {
   onClick?: () => void;
   children?: React.ReactNode;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
-export function WhiteButton({ children, onClick, type }: Props) {
+export function WhiteButton({
+  children, onClick, type, disabled,
+}: Props) {
   return (
     <button
+      disabled={disabled}
       className="WhiteButton"
       type={type}
       onClick={onClick}

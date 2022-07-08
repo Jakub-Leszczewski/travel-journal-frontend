@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import './LongTextInput.css';
+import './ShortTextInput.css';
 
 interface Props {
   value?: string;
@@ -12,12 +12,12 @@ interface Props {
   maxLength?: number;
 }
 
-export function LongTextInput({
+export function ShortTextInput({
   value, onChange, placeholder, required, type, name, maxLength, minLength,
 }: Props) {
   return (
     <input
-      className="LongTextInput"
+      className="ShortTextInput"
       name={name}
       value={value}
       onChange={onChange}
