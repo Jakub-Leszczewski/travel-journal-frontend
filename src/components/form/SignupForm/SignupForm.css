@@ -1,24 +1,5 @@
-.SignupForm {
-    width: 100%;
-}
+.SignupForm {width: 100%;}
 
-.SignupForm>.ShortTextInput  {
-    margin-bottom: 25px;
-}
+.SignupForm>.ShortTextInput  {margin-bottom: 25px;}
 
-.SignupForm>.PasswordInput  {
-    margin-bottom: 35px;
-}
-
-
-@media only screen and (min-width: 450px) {
-    .SignupForm {
-        margin: 0 auto;
-    }
-}
-
-@media only screen and (min-width: 570px) {
-    .SignupForm {
-        margin: 0 auto;
-    }
-}
+.SignupForm>.PasswordInput  {margin-bottom: 35px;}

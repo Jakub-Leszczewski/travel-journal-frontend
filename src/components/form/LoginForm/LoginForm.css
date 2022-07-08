@@ -1,11 +1,5 @@
-.LoginForm {
-    width: 100%;
-}
+.LoginForm {width: 100%;}
 
-.LoginForm>.ShortTextInput  {
-    margin-bottom: 25px;
-}
+.LoginForm>.ShortTextInput  {margin-bottom: 25px;}
 
-.LoginForm>.PasswordInput  {
-    margin-bottom: 35px;
-}
+.LoginForm>.PasswordInput  {margin-bottom: 35px;}

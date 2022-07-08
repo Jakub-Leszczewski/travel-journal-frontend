@@ -7,6 +7,7 @@ import { LoginView } from '../../views/LoginView/LoginView';
 import { IndexView } from '../../views/IndexView/IndexView';
 import { useAuth } from '../../hooks/useAuth';
 import { SignupView } from '../../views/SignupView/SignupView';
+import { UserAccountView } from '../../views/UserAccountView/UserAccountView';
 
 function App() {
   const isAuth = useAuth();
@@ -24,6 +25,17 @@ function App() {
               isAuth={isAuth}
             >
               profil
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/account"
+          element={(
+            <ProtectedRoute
+              navigateTo="/login"
+              isAuth={isAuth}
+            >
+              <UserAccountView />
             </ProtectedRoute>
           )}
         />

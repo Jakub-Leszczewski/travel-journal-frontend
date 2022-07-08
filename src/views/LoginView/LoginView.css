@@ -7,20 +7,21 @@
     transform: translate(-50%, -50%);
     backdrop-filter: blur(30px);
     border-radius: 20px;
-    padding: 20px 10px;
+    padding: 20px 30px;
     width: 95%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-x: auto;
 }
 
 .LoginView__container {
     display: flex;
-    max-width: 270px;
-    margin: 0 10px;
+    max-width: 300px;
+    margin: 0 auto;
     flex-direction: column;
 }
 
-.LoginView>.ViewTitle {
-    margin-bottom: 30px;
-}
+.LoginView>.ViewTitle {margin-bottom: 30px;}
 
 .LoginView__TextButton {
     font-size: .8rem;
@@ -30,9 +31,7 @@
     font-weight: 500;
 }
 
-.LoginView_message {
-    font-size: .7rem;
-}
+.LoginView_message {font-size: .7rem;}
 
 @media only screen and (min-width: 350px) {
     .LoginView {
@@ -46,18 +45,6 @@
 }
 
 @media only screen and (min-width: 450px) {
-    .LoginView {
-        width: 80%;
-    }
-
-    .LoginView__container {
-        margin: 0 auto;
-    }
-}
-
-@media only screen and (min-width: 550px) {
-    .LoginView {
-        width: 450px;
-    }
+    .LoginView {width: 80%;}
 }
 

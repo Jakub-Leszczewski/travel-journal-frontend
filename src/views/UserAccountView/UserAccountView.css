@@ -1,4 +1,4 @@
-.SignupView {
+.UserAccountView {
     background: rgba(0, 0, 0, 0.84);
     height: fit-content;
     position: absolute;
@@ -7,23 +7,26 @@
     transform: translate(-50%, -50%);
     backdrop-filter: blur(30px);
     border-radius: 20px;
-    padding: 20px 30px;
+    padding: 20px 10px;
     width: 95%;
-    max-height: 90vh;
     max-width: 600px;
-    overflow: auto;
+    max-height: 90vh;
+    overflow-x: auto;
 }
 
-.SignupView__container {
+.UserAccountView__container {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
     margin: 0 auto;
+    max-width: 400px;
+    overflow-y: auto;
 }
 
-.SignupView>.ViewTitle {margin-bottom: 30px;}
+.UserAccountView>.ViewTitle {
+    margin-bottom: 30px;
+}
 
-.SignupView__TextButton {
+.UserAccountView__TextButton {
     font-size: .8rem;
     text-decoration: none;
     position: relative;
@@ -31,9 +34,11 @@
     font-weight: 500;
 }
 
-.SignupView_message {font-size: .7rem;}
+.UserAccountView_message {
+    font-size: .7rem;
+}
 
 @media only screen and (min-width: 350px) {
-    .SignupView {width: 80%;}
+    .UserAccountView {width: 80%;}
 }
 
