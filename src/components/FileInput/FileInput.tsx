@@ -11,7 +11,6 @@ interface Props {
 export function FileInput({
   name, placeholder, file, changeFormHandlerFile,
 }: Props) {
-  console.log(file);
   return (
     <label className="FileInput">
       <i className="bi bi-camera-fill" />
