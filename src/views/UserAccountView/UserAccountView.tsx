@@ -2,13 +2,10 @@ import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
 import './UserAccountView.css';
-import { Navigate } from 'react-router-dom';
 import { ErrorResponse, UpdateUserResponse } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
-import { useAuth } from '../../hooks/useAuth';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import { InfoBar } from '../../components/InfoBar/InfoBar';
 import { UserStaticData } from '../../components/UserStaticData/UserStaticData';
 import { WhiteButton } from '../../components/common/WhiteButton/WhiteButton';
@@ -26,13 +23,12 @@ interface SignupData {
   newPassword: string;
   repeatNewPassword: string;
   password: string;
-  file: any;
+  photo: any;
 }
 
 export function UserAccountView() {
   const user = useUser();
   const saveUserData = useSaveUserData();
-  const isAuth = useAuth();
   const [isEditView, setIsEditView] = useState<boolean>(false);
   const [isConfirm, setIsConfirm] = useState<boolean>(false);
   const [message, setMessage] = useState<string | string[] | null>(null);
@@ -44,7 +40,7 @@ export function UserAccountView() {
     newPassword: '',
     repeatNewPassword: '',
     password: '',
-    file: undefined,
+    photo: undefined,
   };
   const [form, setForm] = useState<SignupData>(initialForm);
 
@@ -100,58 +96,59 @@ export function UserAccountView() {
   const toggleEdit = () => setIsEditView((prev) => !prev);
 
   return (
-    <section className="UserAccountView">
-      {!isAuth && <Navigate to="/login" />}
-      <ViewTitle>Twoje konto</ViewTitle>
+    <main className="UserAccountView">
+      <section className="UserAccountView__window">
+        <ViewTitle>Twoje konto</ViewTitle>
 
-      <div className="UserAccountView__container">
-        <UserStaticData
-          email={user?.email || ''}
-          firstName={user?.firstName || ''}
-          lastName={user?.lastName || ''}
-          imageUrl={user?.avatar ? `${apiUrl}${user.avatar}` : ''}
-          postsCount={43}
-          travelsCount={12}
-        />
+        <div className="UserAccountView__container">
+          <UserStaticData
+            email={user?.email || ''}
+            firstName={user?.firstName || ''}
+            lastName={user?.lastName || ''}
+            imageUrl={user?.avatar ? `${apiUrl}${user.avatar}` : ''}
+            postsCount={43}
+            travelsCount={12}
+          />
 
-        {
-          !isEditView
-            ? (
-              <div className="UserAccountView__static-container">
-                <InfoBar
-                  text={user?.bio ?? ''}
-                  bootstrapIconName="bi bi-chat-dots-fill"
-                />
+          {
+            !isEditView
+              ? (
+                <div className="UserAccountView__static-container">
+                  <InfoBar
+                    text={user?.bio ?? ''}
+                    bootstrapIconName="bi bi-chat-dots-fill"
+                  />
 
-                <WhiteButton onClick={toggleEdit}>Edytuj</WhiteButton>
-              </div>
-            )
-            : (
-              <div className="UserAccountView__form-container">
-                <UpdateAccountForm
-                  changeFromHandlerFile={changeFromHandlerFile}
-                  onSubmitHandler={onSubmitHandler}
-                  changeFormHandler={changeFormHandler}
-                  form={form}
-                />
-              </div>
-            )
+                  <WhiteButton onClick={toggleEdit}>Edytuj</WhiteButton>
+                </div>
+              )
+              : (
+                <div className="UserAccountView__form-container">
+                  <UpdateAccountForm
+                    changeFromHandlerFile={changeFromHandlerFile}
+                    onSubmitHandler={onSubmitHandler}
+                    changeFormHandler={changeFormHandler}
+                    form={form}
+                  />
+                </div>
+              )
 
-        }
-      </div>
+          }
+        </div>
 
-      {isConfirm && (
-      <PasswordConfirm
-        changeFormHandler={changeFormHandler}
-        message={message}
-        form={form}
-        header="Potwierdź zmiany aktualnym hasłem"
-        onConfirmHandler={async (e) => {
-          e.preventDefault();
-          await callApi();
-        }}
-      />
-      )}
-    </section>
+        {isConfirm && (
+          <PasswordConfirm
+            changeFormHandler={changeFormHandler}
+            message={message}
+            form={form}
+            header="Potwierdź zmiany aktualnym hasłem"
+            onConfirmHandler={async (e) => {
+              e.preventDefault();
+              await callApi();
+            }}
+          />
+        )}
+      </section>
+    </main>
   );
 }

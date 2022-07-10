@@ -1,42 +1,72 @@
 import React from 'react';
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import { ProtectedRoute } from '../ProtectedRoute/ProtectedRoute';
-import { Auth } from '../Auth/Auth';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { ProtectRoute } from '../ProtectRoute/ProtectRoute';
 import { LoginView } from '../../views/LoginView/LoginView';
 import { IndexView } from '../../views/IndexView/IndexView';
 import { useAuth } from '../../hooks/useAuth';
 import { SignupView } from '../../views/SignupView/SignupView';
 import { UserAccountView } from '../../views/UserAccountView/UserAccountView';
+import { useUser } from '../../hooks/useUser';
+import { ProfileView } from '../../views/ProfileView/ProfileView';
 
 function App() {
   const isAuth = useAuth();
+  const userData = useUser();
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<IndexView />} />
-        <Route path="/login" element={<LoginView />} />
-        <Route path="/signup" element={<SignupView />} />
         <Route
-          path="/profile"
+          path="/login"
           element={(
-            <ProtectedRoute
-              navigateTo="/login"
-              isAuth={isAuth}
-            >
-              profil
-            </ProtectedRoute>
-          )}
+            <ProtectRoute isAuth={!isAuth} navigateTo="/">
+              <LoginView />
+            </ProtectRoute>
+        )}
         />
         <Route
-          path="/account"
+          path="/signup"
           element={(
-            <ProtectedRoute
-              navigateTo="/login"
-              isAuth={isAuth}
-            >
+            <ProtectRoute isAuth={!isAuth} navigateTo="/">
+              <SignupView />
+            </ProtectRoute>
+        )}
+        />
+
+        <Route
+          path="/"
+          element={(
+            <ProtectRoute navigateTo="/login" isAuth={isAuth}>
+              <IndexView />
+            </ProtectRoute>
+        )}
+        />
+
+        <Route
+          path="/profile/"
+          element={(
+            <ProtectRoute navigateTo="/login" isAuth={isAuth}>
+              <Navigate to={`/profile/${userData?.id}`} />
+            </ProtectRoute>
+          )}
+        />
+
+        <Route
+          path="/profile/:id"
+          element={(
+            <ProtectRoute navigateTo="/login" isAuth={isAuth}>
+              <ProfileView />
+            </ProtectRoute>
+          )}
+        />
+
+        <Route
+          path="/account/"
+          element={(
+            <ProtectRoute navigateTo="/login" isAuth={isAuth}>
               <UserAccountView />
-            </ProtectedRoute>
+            </ProtectRoute>
           )}
         />
       </Routes>

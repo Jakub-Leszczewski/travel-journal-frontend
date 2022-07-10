@@ -45,22 +45,23 @@ export function LoginView() {
   };
 
   return (
-    <section className="LoginView">
-      {isAuth && <Navigate to="/" />}
-      <ViewTitle>Logowanie</ViewTitle>
-      <div className="LoginView__container">
-        {
-          message instanceof Array
-            ? message.map((e, i) => (<p key={i} className="LoginView_message">{e}</p>))
-            : message && <p className="LoginView_message">{message}</p>
-        }
-        <LoginForm
-          form={form}
-          onSubmitHandler={onSubmitHandler}
-          changeFormHandler={changeFormHandler}
-        />
-        <Link className="LoginView__TextButton" to="/signup">Stwórz konto</Link>
-      </div>
-    </section>
+    <main className="LoginView">
+      <section className="LoginView__window">
+        <ViewTitle>Logowanie</ViewTitle>
+        <div className="LoginView__container">
+          {
+            message instanceof Array
+              ? message.map((e, i) => (<p key={i} className="LoginView_message">{e}</p>))
+              : message && <p className="LoginView_message">{message}</p>
+          }
+          <LoginForm
+            form={form}
+            onSubmitHandler={onSubmitHandler}
+            changeFormHandler={changeFormHandler}
+          />
+          <Link className="LoginView__TextButton" to="/signup">Stwórz konto</Link>
+        </div>
+      </section>
+    </main>
   );
 }

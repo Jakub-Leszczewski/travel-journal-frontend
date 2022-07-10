@@ -17,7 +17,7 @@ interface Props {
     repeatNewPassword: string;
     password: string;
     bio: string
-    file: any
+    photo: any
   }
 
   changeFormHandler: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
@@ -53,9 +53,9 @@ export function UpdateAccountForm({
       />
 
       <FileInput
-        file={form.file}
+        file={form.photo}
         changeFormHandlerFile={changeFromHandlerFile}
-        name="file"
+        name="photo"
         placeholder="Dodaj zdjęcie profilowe"
       />
 

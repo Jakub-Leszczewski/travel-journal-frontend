@@ -26,6 +26,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
+  background: url('./assets/images/bg.webp') center / cover fixed;
 }
 ol, ul {
   list-style: none;
@@ -53,4 +54,9 @@ table {
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+:root {
+  overflow-x: hidden;
+  overflow-y: auto;
 }

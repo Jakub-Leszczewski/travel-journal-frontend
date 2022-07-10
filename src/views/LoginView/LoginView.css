@@ -1,16 +1,20 @@
 .LoginView {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.LoginView__window {
     background: rgba(0, 0, 0, 0.84);
     height: fit-content;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     backdrop-filter: blur(30px);
     border-radius: 20px;
     padding: 20px 30px;
-    width: 95%;
+    width: 100%;
     max-width: 500px;
-    overflow-x: auto;
+    margin: 20px;
 }
 
 .LoginView__container {
@@ -20,7 +24,7 @@
     flex-direction: column;
 }
 
-.LoginView>.ViewTitle {margin-bottom: 30px;}
+.LoginView__window>.ViewTitle {margin-bottom: 30px;}
 
 .LoginView__TextButton {
     font-size: .8rem;
@@ -31,19 +35,4 @@
 }
 
 .LoginView_message {font-size: .7rem;}
-
-@media only screen and (min-width: 350px) {
-    .LoginView {
-        width: 80%;
-        padding: 20px;
-    }
-
-    .LoginView__container {
-        margin: 0 auto;
-    }
-}
-
-@media only screen and (min-width: 450px) {
-    .LoginView {width: 80%;}
-}
 

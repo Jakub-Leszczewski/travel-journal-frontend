@@ -7,7 +7,7 @@ interface Props {
   isAuth: boolean
 }
 
-export function ProtectedRoute({
+export function ProtectRoute({
   children, navigateTo, isAuth,
 }: Props): any {
   const location = useLocation();

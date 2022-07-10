@@ -1,8 +1,8 @@
 .InfoBar {
     display: flex;
+    align-items: baseline;
     width: 100%;
     max-width: 100%;
-    align-items: start;
     overflow-wrap: anywhere;
     margin-bottom: 10px;
 }

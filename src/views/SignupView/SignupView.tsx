@@ -55,24 +55,27 @@ export function SignupView() {
   };
 
   return (
-    <section className="SignupView">
-      {isAuth && <Navigate to="/" />}
-      {submitStatus === 201 && <Navigate to="/login" />}
-      <ViewTitle>Rejestracja</ViewTitle>
+    <main className="SignupView">
 
-      <div className="SignupView__container">
-        {
-          message instanceof Array
-            ? message.map((e, i) => (<p key={i} className="SignupView_message">{e}</p>))
-            : message && <p className="SignupView_message">{message}</p>
-        }
-        <SignupForm
-          form={form}
-          onSubmitHandler={onSubmitHandler}
-          changeFormHandler={changeFormHandler}
-        />
-        <Link className="SignupView__TextButton" to="/login">Zaloguj się</Link>
-      </div>
-    </section>
+      <section className="SignupView__window">
+        {submitStatus === 201 && <Navigate to="/login" />}
+        <ViewTitle>Rejestracja</ViewTitle>
+
+        <div className="SignupView__container">
+          {
+            message instanceof Array
+              ? message.map((e, i) => (<p key={i} className="SignupView_message">{e}</p>))
+              : message && <p className="SignupView_message">{message}</p>
+          }
+          <SignupForm
+            form={form}
+            onSubmitHandler={onSubmitHandler}
+            changeFormHandler={changeFormHandler}
+          />
+          <Link className="SignupView__TextButton" to="/login">Zaloguj się</Link>
+        </div>
+      </section>
+
+    </main>
   );
 }
