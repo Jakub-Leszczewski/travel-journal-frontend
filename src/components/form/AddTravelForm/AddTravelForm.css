@@ -1,0 +1,9 @@
+.SignupForm {width: 100%;}
+
+.SignupForm>.ShortTextInput  {margin-bottom: 25px;}
+
+.SignupForm>.LongTextInput  {margin-bottom: 15px;}
+
+.SignupForm>.PasswordInput  {margin-bottom: 25px;}
+
+.SignupForm>.FileInput  {margin-bottom: 35px;}
