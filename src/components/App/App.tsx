@@ -10,6 +10,7 @@ import { UserAccountView } from '../../views/UserAccountView/UserAccountView';
 import { useUser } from '../../hooks/useUser';
 import { ProfileView } from '../../views/ProfileView/ProfileView';
 import { AddTravelView } from '../../views/AddTravelView/AddTravelView';
+import { TravelView } from '../../views/TravelView/TravelView';
 
 function App() {
   const isAuth = useAuth();
@@ -76,6 +77,15 @@ function App() {
           element={(
             <ProtectRoute navigateTo="/login" isAuth={isAuth}>
               <AddTravelView />
+            </ProtectRoute>
+          )}
+        />
+
+        <Route
+          path="/travel/:id"
+          element={(
+            <ProtectRoute navigateTo="/login" isAuth={isAuth}>
+              <TravelView />
             </ProtectRoute>
           )}
         />
