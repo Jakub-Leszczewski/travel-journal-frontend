@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProfileView.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ErrorResponse, GetTravelsResponse } from 'types';
 import { useApi } from '../../hooks/useApi';
 import { apiUrl } from '../../config';
@@ -24,16 +24,20 @@ export function ProfileView() {
         <div className="ProfileView__container">
           {
             status === 200 && body && !('error' in body) ? body.map((e) => (
-              <ShortTravelInfo
-                key={e.photo}
-                title={e.title}
-                destination={e.destination}
-                travelStartAt={new Date(e.travelStartAt)}
-                travelEndAt={new Date(e.travelEndAt)}
-                comradesCount={e.comradesCount}
-                description={e.description}
-                photoUrl={e.photo}
-              />
+              <Link
+                to={`/travel/${e.id}`}
+                key={e.id}
+              >
+                <ShortTravelInfo
+                  title={e.title}
+                  destination={e.destination}
+                  travelStartAt={new Date(e.travelStartAt)}
+                  travelEndAt={new Date(e.travelEndAt)}
+                  comradesCount={e.comradesCount}
+                  description={e.description}
+                  photoUrl={e.photo}
+                />
+              </Link>
             )) : (
               <div className="ProfileView__forbidden">
                 <p>Brak dostępu do tych treść.</p>

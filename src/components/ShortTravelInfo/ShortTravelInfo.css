@@ -3,6 +3,12 @@
     background: rgba(0, 0, 0, 0.84);
     margin: 30px 0;
     border-radius: 15px;
+    transition: transform .25s ease;
+    text-decoration: none;
+}
+
+.ShortTravelInfo:hover {
+    transform: scale(1.01);
 }
 
 .ShortTravelInfo__header {
