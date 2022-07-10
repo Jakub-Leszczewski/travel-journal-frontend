@@ -6,15 +6,13 @@ import { ErrorResponse, UpdateUserResponse } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
-import { InfoBar } from '../../components/InfoBar/InfoBar';
 import { UserStaticData } from '../../components/UserStaticData/UserStaticData';
-import { WhiteButton } from '../../components/common/WhiteButton/WhiteButton';
-import { UpdateAccountForm } from '../../components/form/UpdateAccountForm/UpdateAccountForm';
 import { useUser } from '../../hooks/useUser';
 import { PasswordConfirm } from '../../components/PasswordConfirm/PasswordConfirm';
 import { useSaveUserData } from '../../hooks/useSaveUserData';
-import { createFormData } from '../../utils/create-form-data';
 import { apiFormData } from '../../utils/apiFormData';
+import { CreateFormData } from '../../utils/create-form-data';
+import { UserDynamicData } from '../../components/UserDynamicData/UserDynamicData';
 
 interface SignupData {
   firstName: string;
@@ -43,7 +41,6 @@ export function UserAccountView() {
     photo: undefined,
   };
   const [form, setForm] = useState<SignupData>(initialForm);
-
   useEffect(() => {
     setForm(initialForm);
     setIsEditView(false);
@@ -52,7 +49,7 @@ export function UserAccountView() {
   const callApi = async () => {
     if (user) {
       const { repeatNewPassword, ...createUserData } = form;
-      const formData = createFormData(createUserData);
+      const formData = CreateFormData.createFormDataRemoveEmpty(createUserData);
       const { status, body } = await apiFormData<UpdateUserResponse | ErrorResponse>(`${apiUrl}/api/user/${user.id}`, {
         method: HttpMethod.PATCH,
         payload: formData,
@@ -110,30 +107,16 @@ export function UserAccountView() {
             travelsCount={12}
           />
 
-          {
-            !isEditView
-              ? (
-                <div className="UserAccountView__static-container">
-                  <InfoBar
-                    text={user?.bio ?? ''}
-                    bootstrapIconName="bi bi-chat-dots-fill"
-                  />
-
-                  <WhiteButton onClick={toggleEdit}>Edytuj</WhiteButton>
-                </div>
-              )
-              : (
-                <div className="UserAccountView__form-container">
-                  <UpdateAccountForm
-                    changeFromHandlerFile={changeFromHandlerFile}
-                    onSubmitHandler={onSubmitHandler}
-                    changeFormHandler={changeFormHandler}
-                    form={form}
-                  />
-                </div>
-              )
-
-          }
+          <UserDynamicData
+            isEditView={isEditView}
+            toggleEdit={toggleEdit}
+            message={message}
+            user={user}
+            form={form}
+            changeFormHandler={changeFormHandler}
+            changeFromHandlerFile={changeFromHandlerFile}
+            onSubmitHandler={onSubmitHandler}
+          />
         </div>
 
         {isConfirm && (
