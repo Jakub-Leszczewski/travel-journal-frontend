@@ -1,3 +1,11 @@
+.SignupView {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    width: 100vw;
+}
+
 .SignupView__window {
     background: rgba(0, 0, 0, 0.84);
     height: fit-content;
@@ -7,14 +15,6 @@
     width: 100%;
     max-width: 600px;
     margin: 20px;
-}
-
-.SignupView {
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    display: flex;
-    width: 100vw;
 }
 
 .SignupView__container {

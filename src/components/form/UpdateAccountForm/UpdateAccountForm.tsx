@@ -45,6 +45,8 @@ export function UpdateAccountForm({
         placeholder="bio"
         value={form.bio}
         onChange={changeFormHandler}
+        minLength={3}
+        maxLength={512}
       />
 
       <NewPasswordFields

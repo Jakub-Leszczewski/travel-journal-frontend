@@ -10,10 +10,12 @@ interface Props {
   name?: string;
   minLength?: number;
   maxLength?: number;
+  min?: number;
+  max?: number;
 }
 
 export function ShortTextInput({
-  value, onChange, placeholder, required, type, name, maxLength, minLength,
+  value, onChange, placeholder, required, type, name, maxLength, minLength, min, max,
 }: Props) {
   return (
     <input
@@ -26,6 +28,8 @@ export function ShortTextInput({
       minLength={minLength}
       maxLength={maxLength}
       type={type ?? 'text'}
+      min={min}
+      max={max}
     />
   );
 }
