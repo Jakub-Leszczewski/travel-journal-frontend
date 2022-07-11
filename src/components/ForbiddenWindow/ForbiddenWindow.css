@@ -1,0 +1,10 @@
+.ForbiddenWindow__forbidden {
+    background: rgba(0, 0, 0, 0.84);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.ForbiddenWindow__forbidden>p {
+    text-align: center;
+    margin-bottom: 20px;
+}

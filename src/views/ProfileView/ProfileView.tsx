@@ -8,6 +8,7 @@ import { AddButton } from '../../components/common/AddButton/AddButton';
 import { ShortTravelInfo } from '../../components/ShortTravelInfo/ShortTravelInfo';
 import { WhiteButton } from '../../components/common/WhiteButton/WhiteButton';
 import { useCompareUserId } from '../../hooks/useCompareUserId';
+import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
 
 export function ProfileView() {
   const idCompare = useCompareUserId();
@@ -38,12 +39,7 @@ export function ProfileView() {
                   photoUrl={e.photo}
                 />
               </Link>
-            )) : (
-              <div className="ProfileView__forbidden">
-                <p>Brak dostępu do tych treść.</p>
-                <Link to="/"><WhiteButton>Strona główna</WhiteButton></Link>
-              </div>
-            )
+            )) : (<ForbiddenWindow />)
           }
         </div>
       </section>
