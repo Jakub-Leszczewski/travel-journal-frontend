@@ -86,7 +86,7 @@ export function UpdateTravelView() {
     <main className="UpdateTravelView">
       {(travelStatus !== 200 && travelStatus !== null) && <Navigate to="/profile" />}
       <section className="UpdateTravelView__window">
-        <ViewTitle>Nowa podróż</ViewTitle>
+        <ViewTitle>Edytuj podróż</ViewTitle>
         <div className="UpdateTravelView__container">
           <ErrorMessage message={message} />
           <TravelForm

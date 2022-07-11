@@ -1,56 +1,48 @@
 import React, {
-  ChangeEvent, FormEvent, useEffect, useState,
+  ChangeEvent, FormEvent, useState,
 } from 'react';
 import './AddPostView.css';
-import { CreateTravelDtoInterface, ErrorResponse } from 'types';
+import { CreatePostDtoInterface, CreateTravelDtoInterface, ErrorResponse } from 'types';
 import { Navigate, useParams } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
-import { TravelForm } from '../../components/form/TravelForm/TravelForm';
 import { apiFormData } from '../../utils/apiFormData';
 import { apiUrl } from '../../config';
 import { HttpMethod } from '../../utils/api';
-import { useUser } from '../../hooks/useUser';
 import { CreateFormData } from '../../utils/create-form-data';
 import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
+import { PostForm } from '../../components/form/PostForm/PostForm';
 
 export function AddPostView() {
-  const user = useUser();
+  const params = useParams();
   const [message, setMessage] = useState<string | string[] | null>(null);
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
 
-  const initialForm: CreateTravelDtoInterface = {
+  const initialForm: CreatePostDtoInterface = {
     title: '',
     destination: '',
     description: '',
-    startAt: new Date().toISOString().substring(0, 10),
-    endAt: new Date().toISOString().substring(0, 10),
-    comradesCount: 0,
     photo: undefined,
   };
 
-  const [form, setForm] = useState<CreateTravelDtoInterface>(initialForm);
-  useEffect(() => {
-    setForm(initialForm);
-  }, [user]);
+  const [form, setForm] = useState<CreatePostDtoInterface>(initialForm);
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (user) {
-      const formData = CreateFormData.createFormData(form);
-      const { status, body } = await apiFormData<CreateTravelDtoInterface | ErrorResponse>(
-        `${apiUrl}/api/user/${user.id}/travel`,
-        {
-          method: HttpMethod.POST,
-          payload: formData,
-        },
-      );
 
-      if (status !== 201 && body && 'message' in body) {
-        setMessage(body.message ?? null);
-      }
+    const formData = CreateFormData.createFormData(form);
+    const { status, body } = await apiFormData<CreateTravelDtoInterface | ErrorResponse>(
+      `${apiUrl}/api/travel/${params.id}/post`,
+      {
+        method: HttpMethod.POST,
+        payload: formData,
+      },
+    );
 
-      setSubmitStatus(status);
+    if (status !== 201 && body && 'message' in body) {
+      setMessage(body.message ?? null);
     }
+
+    setSubmitStatus(status);
   };
 
   const changeFormHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -73,12 +65,12 @@ export function AddPostView() {
 
   return (
     <main className="AddPostView">
-      {submitStatus === 201 && <Navigate to="/profile" />}
+      {submitStatus === 201 && <Navigate to={`/travel/${params.id}`} />}
       <section className="AddPostView__window">
-        <ViewTitle>Nowa podróż</ViewTitle>
+        <ViewTitle>Nowy post</ViewTitle>
         <div className="AddPostView__container">
           <ErrorMessage message={message} />
-          <TravelForm
+          <PostForm
             required
             changeFromHandlerFile={changeFromHandlerFile}
             onSubmitHandler={onSubmitHandler}
