@@ -23,8 +23,8 @@ export function TravelView() {
               <TravelInfo
                 title={travelBody.title}
                 destination={travelBody.destination}
-                travelStartAt={new Date(travelBody.travelStartAt)}
-                travelEndAt={new Date(travelBody.travelEndAt)}
+                startAt={new Date(travelBody.startAt)}
+                endAt={new Date(travelBody.endAt)}
                 comradesCount={travelBody.comradesCount}
                 description={travelBody.description}
                 photoUrl={travelBody.photo}
@@ -33,7 +33,7 @@ export function TravelView() {
             : (<ForbiddenWindow />)
         }
 
-        <Link to="/post/add"><AddButton /></Link>
+        <Link to={`/travel/${params.id}/post/add`}><AddButton /></Link>
         <div className="TravelView__post-container">
           {
             postStatus === 200 && postBody && !('error' in postBody) ? postBody.map((e, i) => (

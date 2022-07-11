@@ -11,6 +11,7 @@ import { apiUrl } from '../../config';
 import { HttpMethod } from '../../utils/api';
 import { useUser } from '../../hooks/useUser';
 import { CreateFormData } from '../../utils/create-form-data';
+import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
 
 export function AddTravelView() {
   const user = useUser();
@@ -21,8 +22,8 @@ export function AddTravelView() {
     title: '',
     destination: '',
     description: '',
-    travelStartAt: new Date().toISOString().substring(0, 10),
-    travelEndAt: new Date().toISOString().substring(0, 10),
+    startAt: new Date().toISOString().substring(0, 10),
+    endAt: new Date().toISOString().substring(0, 10),
     comradesCount: 0,
     photo: undefined,
   };
@@ -76,11 +77,7 @@ export function AddTravelView() {
       <section className="AddTravelView__window">
         <ViewTitle>Nowa podróż</ViewTitle>
         <div className="AddTravelView__container">
-          {
-            message instanceof Array
-              ? message.map((e, i) => (<p key={i} className="AddTravelView_message">{e}</p>))
-              : message && <p className="AddTravelView_message">{message}</p>
-          }
+          <ErrorMessage message={message} />
           <TravelForm
             required
             changeFromHandlerFile={changeFromHandlerFile}

@@ -49,14 +49,14 @@ export function ProfileView() {
                 destination={e.destination}
                 description={e.description}
                 comradesCount={e.comradesCount}
-                travelStartAt={new Date(e.travelStartAt)}
-                travelEndAt={new Date(e.travelEndAt)}
+                travelStartAt={new Date(e.startAt)}
+                travelEndAt={new Date(e.endAt)}
                 photoUrl={e.photo}
                 authorId={e.authorId}
                 excludeTravel={excludeTravel}
                 refreshTravels={refreshTravelsHandler}
               />
-            )) : (<ForbiddenWindow />)
+            )) : (status !== null) && <ForbiddenWindow />
           }
         </div>
       </section>

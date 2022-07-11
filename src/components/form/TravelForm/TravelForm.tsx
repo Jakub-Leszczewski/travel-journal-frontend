@@ -2,6 +2,7 @@ import React, {
   ChangeEvent, FormEvent,
 } from 'react';
 import './TravelForm.css';
+import { CreateTravelDtoInterface } from 'types';
 import { WhiteButton } from '../../common/WhiteButton/WhiteButton';
 import { LongTextInput } from '../../common/LongTextInput/LongTextInput';
 import { ShortTextInput } from '../../common/ShortTextInput/ShortTextInput';
@@ -9,16 +10,7 @@ import { DateBetweenFields } from '../DateBetweenFields/DateBetweenFields';
 import { ComradesAndPhotoFields } from '../ComradesAndPhotoFields/ComradesAndPhotoFields';
 
 interface Props {
-  form: {
-    title: string;
-    destination: string;
-    description: string;
-    travelStartAt: string;
-    travelEndAt: string;
-    comradesCount: number;
-    photo: any;
-  }
-
+  form: CreateTravelDtoInterface;
   required?: boolean;
   changeFormHandler: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   changeFromHandlerFile: (e: any) => void;
@@ -54,8 +46,8 @@ export function TravelForm({
         required
         changeFormHandler={changeFormHandler}
         form={{
-          startAt: form.travelStartAt,
-          endAt: form.travelEndAt,
+          startAt: form.startAt,
+          endAt: form.endAt,
         }}
       />
 

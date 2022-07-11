@@ -3,3 +3,8 @@
 .LoginForm>.ShortTextInput  {margin-bottom: 25px;}
 
 .LoginForm>.PasswordInput  {margin-bottom: 35px;}
+
+.LoginForm>.WhiteButton {
+    left: 50%;
+    transform: translateX(-50%);
+}

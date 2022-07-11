@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import './LoginView.css';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ErrorResponse, LoginResponse } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { LoginForm } from '../../components/form/LoginForm/LoginForm';
@@ -8,6 +8,7 @@ import { api, HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
 import { useAuth } from '../../hooks/useAuth';
 import { useSaveUserData } from '../../hooks/useSaveUserData';
+import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
 
 interface LoginData {
   username: string;
@@ -49,11 +50,7 @@ export function LoginView() {
       <section className="LoginView__window">
         <ViewTitle>Logowanie</ViewTitle>
         <div className="LoginView__container">
-          {
-            message instanceof Array
-              ? message.map((e, i) => (<p key={i} className="LoginView_message">{e}</p>))
-              : message && <p className="LoginView_message">{message}</p>
-          }
+          <ErrorMessage message={message} />
           <LoginForm
             form={form}
             onSubmitHandler={onSubmitHandler}

@@ -18,7 +18,7 @@ export function DateBetweenFields({ form, changeFormHandler, required }: Props) 
         od:
         <ShortTextInput
           value={form.startAt}
-          name="travelStartAt"
+          name="startAt"
           onChange={changeFormHandler}
           required={required}
           type="date"
@@ -29,7 +29,7 @@ export function DateBetweenFields({ form, changeFormHandler, required }: Props) 
         do:
         <ShortTextInput
           value={form.endAt}
-          name="travelEndAt"
+          name="endAt"
           onChange={changeFormHandler}
           required={required}
           type="date"

@@ -5,6 +5,7 @@ import { InfoBar } from '../InfoBar/InfoBar';
 import { WhiteButton } from '../common/WhiteButton/WhiteButton';
 import { UpdateAccountFormInterface } from '../../views/UserAccountView/UserAccountView';
 import { UpdateAccountForm } from '../form/UpdateAccountForm/UpdateAccountForm';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 
 interface Props {
   isEditView: boolean;
@@ -37,11 +38,7 @@ export function UserDynamicData({
           )
           : (
             <div className="UserDynamicData__form-container">
-              {
-                message instanceof Array
-                  ? message.map((e, i) => (<p key={i} className="UserDynamicData_message">{e}</p>))
-                  : message && <p className="UserDynamicData_message">{message}</p>
-              }
+              <ErrorMessage message={message} />
               <UpdateAccountForm
                 cancelEdit={() => setEditHandler(false)}
                 changeFromHandlerFile={changeFromHandlerFile}

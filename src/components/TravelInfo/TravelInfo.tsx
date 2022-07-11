@@ -6,15 +6,15 @@ import { apiUrl } from '../../config';
 interface Props {
   title: string,
   destination: string,
-  travelStartAt: Date,
-  travelEndAt: Date,
+  startAt: Date,
+  endAt: Date,
   comradesCount: number,
   description: string
   photoUrl: string
 }
 
 export function TravelInfo({
-  title, destination, travelStartAt, travelEndAt, comradesCount, description, photoUrl,
+  title, destination, startAt, endAt, comradesCount, description, photoUrl,
 }: Props) {
   return (
     <section className="TravelInfo">
@@ -32,7 +32,7 @@ export function TravelInfo({
           info={[
             { text: destination, bootstrapIconName: 'bi bi-geo-alt-fill' },
             {
-              text: `${travelStartAt.toLocaleDateString()} - ${travelEndAt.toLocaleDateString()}`,
+              text: `${startAt.toLocaleDateString()} - ${endAt.toLocaleDateString()}`,
               bootstrapIconName: 'bi bi-calendar-week-fill',
             },
             { text: comradesCount ? String(comradesCount) : 'Samotna podróż', bootstrapIconName: 'bi bi-people-fill' },
