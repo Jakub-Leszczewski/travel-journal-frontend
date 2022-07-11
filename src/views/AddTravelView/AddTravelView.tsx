@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import './AddTravelView.css';
 import { CreateTravelResponse, ErrorResponse } from 'types';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { AddTravelForm } from '../../components/form/AddTravelForm/AddTravelForm';
 import { apiFormData } from '../../utils/apiFormData';
@@ -25,6 +25,7 @@ interface CreateTravelData {
 export function AddTravelView() {
   const user = useUser();
   const [message, setMessage] = useState<string | string[] | null>(null);
+  const [submitStatus, setSubmitStatus] = useState<number | null>(null);
 
   const initialForm: CreateTravelData = {
     title: '',
@@ -53,9 +54,11 @@ export function AddTravelView() {
         },
       );
 
-      if (status !== 200 && body && 'message' in body) {
+      if (status !== 201 && body && 'message' in body) {
         setMessage(body.message ?? null);
       }
+
+      setSubmitStatus(status);
     }
   };
 
@@ -79,6 +82,7 @@ export function AddTravelView() {
 
   return (
     <main className="AddTravelView">
+      {submitStatus === 201 && <Navigate to="/profile" />}
       <section className="AddTravelView__window">
         <ViewTitle>Nowa podróż</ViewTitle>
         <div className="AddTravelView__container">

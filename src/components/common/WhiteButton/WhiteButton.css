@@ -7,8 +7,6 @@
     background: rgba(255, 255, 255, 0.96);
     padding: 0 30px;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     cursor: pointer;
     transition: background-color .25s;
 }

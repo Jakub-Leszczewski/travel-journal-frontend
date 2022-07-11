@@ -49,7 +49,7 @@ export function UserAccountView() {
   const callApi = async () => {
     if (user) {
       const { repeatNewPassword, ...createUserData } = form;
-      const formData = CreateFormData.createFormDataRemoveEmpty(createUserData);
+      const formData = CreateFormData.createFormDataRemoveEmpty(createUserData, ['bio']);
       const { status, body } = await apiFormData<UpdateUserResponse | ErrorResponse>(`${apiUrl}/api/user/${user.id}`, {
         method: HttpMethod.PATCH,
         payload: formData,
@@ -90,7 +90,22 @@ export function UserAccountView() {
     }));
   };
 
-  const toggleEdit = () => setIsEditView((prev) => !prev);
+  const setConfirmHandler = (confirmVisible: boolean) => {
+    setIsConfirm(confirmVisible);
+
+    if (!confirmVisible) {
+      setForm((prev) => ({
+        ...prev,
+        password: '',
+        repeatNewPassword: '',
+        newPassword: '',
+      }));
+    }
+  };
+
+  const setEditHandler = (editVisible: boolean) => {
+    setIsEditView(editVisible);
+  };
 
   return (
     <main className="UserAccountView">
@@ -109,7 +124,7 @@ export function UserAccountView() {
 
           <UserDynamicData
             isEditView={isEditView}
-            toggleEdit={toggleEdit}
+            setEditHandler={setEditHandler}
             message={message}
             user={user}
             form={form}
@@ -121,6 +136,7 @@ export function UserAccountView() {
 
         {isConfirm && (
           <PasswordConfirm
+            setConfirmHandler={setConfirmHandler}
             changeFormHandler={changeFormHandler}
             message={message}
             form={form}

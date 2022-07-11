@@ -9,14 +9,18 @@
     height: 30px;
 }
 
-.AccountSettingsConfirmForm>.WhiteButton {
-    margin: 10px 0 0 0;
+.AccountSettingsConfirmForm__button-container>.WhiteButton {
     height: 30px;
     width: fit-content;
     border-radius: 15px;
+    margin: 5px;
+
 }
 
-.AccountSettingsConfirmView__error {
-    color: red;
-    font-size: 0.7rem;
+.AccountSettingsConfirmForm__button-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    flex-wrap: wrap;
 }

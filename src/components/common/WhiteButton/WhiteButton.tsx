@@ -15,7 +15,7 @@ export function WhiteButton({
     <button
       disabled={disabled}
       className="WhiteButton"
-      type={type}
+      type={type ?? 'submit'}
       onClick={onClick}
     >
       {children}

@@ -7,7 +7,7 @@ import { UpdateAccountForm } from '../form/UpdateAccountForm/UpdateAccountForm';
 
 interface Props {
   isEditView: boolean;
-  toggleEdit: () => void;
+  setEditHandler: (editVisible: boolean) => void;
   message: string | string[] | null;
   user: UserSaveResponseData | null
   form: {
@@ -26,7 +26,7 @@ interface Props {
 }
 
 export function UserDynamicData({
-  isEditView, toggleEdit, message, changeFromHandlerFile, changeFormHandler, onSubmitHandler, form, user,
+  isEditView, setEditHandler, message, changeFromHandlerFile, changeFormHandler, onSubmitHandler, form, user,
 }: Props) {
   return (
     <div>
@@ -39,7 +39,7 @@ export function UserDynamicData({
                 bootstrapIconName="bi bi-chat-dots-fill"
               />
 
-              <WhiteButton onClick={toggleEdit}>Edytuj</WhiteButton>
+              <WhiteButton onClick={() => setEditHandler(true)}>Edytuj</WhiteButton>
             </div>
           )
           : (
@@ -50,6 +50,7 @@ export function UserDynamicData({
                   : message && <p className="UserDynamicData_message">{message}</p>
               }
               <UpdateAccountForm
+                cancelEdit={() => setEditHandler(false)}
                 changeFromHandlerFile={changeFromHandlerFile}
                 onSubmitHandler={onSubmitHandler}
                 changeFormHandler={changeFormHandler}

@@ -23,10 +23,11 @@ interface Props {
   changeFormHandler: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   changeFromHandlerFile: (e: any) => void;
   onSubmitHandler: (e: FormEvent<HTMLFormElement>) => void;
+  cancelEdit: () => void;
 }
 
 export function UpdateAccountForm({
-  form, onSubmitHandler, changeFormHandler, changeFromHandlerFile,
+  form, onSubmitHandler, changeFormHandler, changeFromHandlerFile, cancelEdit,
 }: Props) {
   const submitDisabled = (
     (form.newPassword && !Validation.passwordValidation(form.newPassword))
@@ -34,7 +35,7 @@ export function UpdateAccountForm({
   );
 
   return (
-    <form className="SignupForm" onSubmit={onSubmitHandler}>
+    <form className="UpdateAccountForm" onSubmit={onSubmitHandler}>
       <NameFields
         form={form}
         changeFormHandler={changeFormHandler}
@@ -45,7 +46,7 @@ export function UpdateAccountForm({
         placeholder="bio"
         value={form.bio}
         onChange={changeFormHandler}
-        minLength={3}
+        minLength={0}
         maxLength={512}
       />
 
@@ -61,7 +62,10 @@ export function UpdateAccountForm({
         placeholder="Dodaj zdjęcie profilowe"
       />
 
-      <WhiteButton disabled={submitDisabled}>Zapisz</WhiteButton>
+      <div className="UpdateAccountForm__buton-container">
+        <WhiteButton disabled={submitDisabled}>Zapisz</WhiteButton>
+        <WhiteButton type="button" onClick={cancelEdit}>Anuluj</WhiteButton>
+      </div>
     </form>
   );
 }

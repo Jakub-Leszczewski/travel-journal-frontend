@@ -1,3 +1,8 @@
 .UserDynamicData_message {
     font-size: .7rem;
 }
+
+.UserDynamicData__static-container>.WhiteButton {
+    left: 50%;
+    transform: translateX(-50%);
+}

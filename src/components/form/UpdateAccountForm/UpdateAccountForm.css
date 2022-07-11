@@ -1,9 +1,20 @@
-.SignupForm {width: 100%;}
+.UpdateAccountForm {width: 100%;}
 
-.SignupForm>.ShortTextInput  {margin-bottom: 25px;}
+.UpdateAccountForm>.ShortTextInput  {margin-bottom: 25px;}
 
-.SignupForm>.LongTextInput  {margin-bottom: 15px;}
+.UpdateAccountForm>.LongTextInput  {margin-bottom: 15px;}
 
-.SignupForm>.PasswordInput  {margin-bottom: 25px;}
+.UpdateAccountForm>.PasswordInput  {margin-bottom: 25px;}
 
-.SignupForm>.FileInput  {margin-bottom: 35px;}
+.UpdateAccountForm>.FileInput  {margin-bottom: 35px;}
+
+.UpdateAccountForm__buton-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.UpdateAccountForm__buton-container>.WhiteButton {
+    margin: 5px;
+}

@@ -7,13 +7,14 @@ interface Props {
   message: string | string[] | null;
   changeFormHandler: (e: ChangeEvent<HTMLInputElement>) => void;
   onConfirmHandler: (e: FormEvent<HTMLFormElement>) => void;
+  setConfirmHandler: (confirmVisible: boolean) => void;
   form: {
     password: string;
   }
 }
 
 export function PasswordConfirm({
-  message, form, header, changeFormHandler, onConfirmHandler,
+  message, form, header, changeFormHandler, onConfirmHandler, setConfirmHandler,
 }: Props) {
   return (
     <section className="PasswordConfirm">
@@ -28,6 +29,7 @@ export function PasswordConfirm({
           form={form.password}
           changeFormHandler={changeFormHandler}
           onSubmitHandler={onConfirmHandler}
+          canceHandler={() => setConfirmHandler(false)}
         />
       </div>
     </section>
