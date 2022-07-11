@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { DeleteTravelResponse, ErrorResponse } from 'types';
 import { UserInfo } from '../UserInfo/UserInfo';
 import { apiUrl } from '../../config';
-import { EditRemove } from '../EditRemoveButtons/EditRemove';
+import { EditRemove } from '../EditRemove/EditRemove';
 import { api, HttpMethod } from '../../utils/api';
 import { useUser } from '../../hooks/useUser';
 

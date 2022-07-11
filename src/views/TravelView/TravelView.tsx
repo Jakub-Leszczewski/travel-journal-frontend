@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './TravelView.css';
 import { Link, useParams } from 'react-router-dom';
 import { ErrorResponse, GetPostsResponse, GetTravelResponse } from 'types';
@@ -8,11 +8,28 @@ import { apiUrl } from '../../config';
 import { TravelInfo } from '../../components/TravelInfo/TravelInfo';
 import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
 import { PostTransparent } from '../../components/PostTransparent/PostTransparent';
+import { ReactComponent } from '*.svg';
 
 export function TravelView() {
   const params = useParams();
+  const [refreshFlag, setRefreshFlag] = useState<boolean>();
+  const [excludedPostId, setExcludedPostId] = useState<string | null>(null);
   const [travelStatus, travelBody] = useApi<GetTravelResponse | ErrorResponse>(`${apiUrl}/api/travel/${params.id}`);
-  const [postStatus, postBody] = useApi<GetPostsResponse | ErrorResponse>(`${apiUrl}/api/travel/${params.id}/post`);
+  const [postStatus, postBody] = useApi<GetPostsResponse | ErrorResponse>(`${apiUrl}/api/travel/${params.id}/post`, [
+    params, refreshFlag,
+  ]);
+
+  useEffect(() => {
+    setExcludedPostId(null);
+  }, [postBody]);
+
+  const refreshPostHandler = () => {
+    setRefreshFlag((prev) => !prev);
+  };
+
+  const excludePost = (postId: string) => {
+    setExcludedPostId(postId);
+  };
 
   return (
     <main className="UserAccountView">
@@ -36,19 +53,23 @@ export function TravelView() {
         <Link to={`/travel/${params.id}/post/add`}><AddButton /></Link>
         <div className="TravelView__post-container">
           {
-            postStatus === 200 && postBody && !('error' in postBody) ? postBody.map((e, i) => (
-              <>
+            postStatus === 200 && postBody && !('error' in postBody) ? postBody.map((e, i) => e.id !== excludedPostId
+              && (
+              <React.Fragment key={e.id}>
                 <PostTransparent
+                  id={e.id}
                   title={e.title}
                   destination={e.destination}
                   createdAt={new Date(e.createdAt)}
                   description={e.description}
                   photoUrl={e.photo}
+                  refreshPostHandler={refreshPostHandler}
+                  excludePost={excludePost}
                 />
 
                 {i < postBody.length - 1 && <hr className="TravelView__hr" />}
-              </>
-            )) : (<ForbiddenWindow />)
+              </React.Fragment>
+              )) : (<ForbiddenWindow />)
           }
         </div>
       </section>

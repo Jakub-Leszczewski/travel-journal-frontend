@@ -4,9 +4,13 @@
     border-radius: 15px;
 }
 
+.PostTransparent>.EditRemove>button {
+    margin: 0 5px;
+}
+
 .PostTransparent__header {
     width: 100%;
-    padding: 5px;
+    padding: 0 5px 5px 5px;
 }
 
 .PostTransparent__img-container {
