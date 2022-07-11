@@ -8,7 +8,7 @@ interface Props {
   changeFormHandler: (e: ChangeEvent<HTMLInputElement>) => void;
   canceHandler: () => void;
   form: {
-    password?: string;
+    password: string;
   };
 }
 

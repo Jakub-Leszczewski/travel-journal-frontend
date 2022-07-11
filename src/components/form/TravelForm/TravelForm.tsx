@@ -1,7 +1,7 @@
 import React, {
   ChangeEvent, FormEvent,
 } from 'react';
-import './AddTravelForm.css';
+import './TravelForm.css';
 import { WhiteButton } from '../../common/WhiteButton/WhiteButton';
 import { LongTextInput } from '../../common/LongTextInput/LongTextInput';
 import { ShortTextInput } from '../../common/ShortTextInput/ShortTextInput';
@@ -19,16 +19,17 @@ interface Props {
     photo: any;
   }
 
+  required?: boolean;
   changeFormHandler: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   changeFromHandlerFile: (e: any) => void;
   onSubmitHandler: (e: FormEvent<HTMLFormElement>) => void;
 }
 
-export function AddTravelForm({
-  form, onSubmitHandler, changeFormHandler, changeFromHandlerFile,
+export function TravelForm({
+  form, onSubmitHandler, changeFormHandler, changeFromHandlerFile, required,
 }: Props) {
   return (
-    <form className="SignupForm" onSubmit={onSubmitHandler}>
+    <form className="TravelForm" onSubmit={onSubmitHandler}>
       <ShortTextInput
         placeholder="Tytuł"
         name="title"
@@ -36,7 +37,7 @@ export function AddTravelForm({
         value={form.title}
         minLength={2}
         maxLength={128}
-        required
+        required={required}
       />
 
       <ShortTextInput
@@ -46,7 +47,7 @@ export function AddTravelForm({
         value={form.destination}
         minLength={2}
         maxLength={128}
-        required
+        required={required}
       />
 
       <DateBetweenFields
@@ -68,7 +69,7 @@ export function AddTravelForm({
       />
 
       <ComradesAndPhotoFields
-        required
+        required={required}
         form={form}
         changeFormHandler={changeFormHandler}
         changeFromHandlerFile={changeFromHandlerFile}

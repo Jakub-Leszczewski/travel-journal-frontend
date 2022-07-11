@@ -24,7 +24,7 @@ export function PasswordInput({
       maxLength={maxLength}
       minLength={minLength}
       name={name}
-      value={value ?? ''}
+      value={value}
       onChange={onChange}
       type="password"
       placeholder={`${placeholder ?? ''}${required ? '*' : ''}`}

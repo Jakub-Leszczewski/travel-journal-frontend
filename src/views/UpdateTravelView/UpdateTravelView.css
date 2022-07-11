@@ -1,0 +1,29 @@
+.UpdateTravelView {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    width: 100vw;
+}
+
+.UpdateTravelView__window {
+    background: rgba(0, 0, 0, 0.84);
+    height: fit-content;
+    backdrop-filter: blur(30px);
+    border-radius: 20px;
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px;
+}
+
+.UpdateTravelView__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.UpdateTravelView_message {
+    font-size: .7rem;
+}

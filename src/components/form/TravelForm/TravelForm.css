@@ -1,0 +1,14 @@
+.TravelForm {width: 100%;}
+
+.TravelForm>.ShortTextInput  {margin-bottom: 25px;}
+
+.TravelForm>.LongTextInput  {margin-bottom: 15px;}
+
+.TravelForm>.PasswordInput  {margin-bottom: 25px;}
+
+.TravelForm>.FileInput  {margin-bottom: 35px;}
+
+.TravelForm>.WhiteButton {
+    left: 50%;
+    transform: translateX(-50%);
+}

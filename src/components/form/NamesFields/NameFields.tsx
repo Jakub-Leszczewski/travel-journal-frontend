@@ -4,8 +4,8 @@ import './NameFields.css';
 
 interface Props {
   form: {
-    firstName?: string;
-    lastName?: string;
+    firstName: string;
+    lastName: string;
   }
   changeFormHandler: (e: ChangeEvent<HTMLInputElement>) => void
 }
@@ -14,7 +14,7 @@ export function NameFields({ form, changeFormHandler }: Props) {
   return (
     <div className="NameFields">
       <ShortTextInput
-        value={form.firstName ?? ''}
+        value={form.firstName}
         name="firstName"
         onChange={changeFormHandler}
         placeholder="Imie"
@@ -24,7 +24,7 @@ export function NameFields({ form, changeFormHandler }: Props) {
       />
 
       <ShortTextInput
-        value={form.lastName ?? ''}
+        value={form.lastName}
         name="lastName"
         onChange={changeFormHandler}
         placeholder="Nazwisko"

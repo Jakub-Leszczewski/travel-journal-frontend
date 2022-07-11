@@ -1,7 +1,7 @@
 import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
-import './AddTravelView.css';
+import './UpdateTravelView.css';
 import { CreateTravelDtoInterface, ErrorResponse } from 'types';
 import { Navigate } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
@@ -12,7 +12,7 @@ import { HttpMethod } from '../../utils/api';
 import { useUser } from '../../hooks/useUser';
 import { CreateFormData } from '../../utils/create-form-data';
 
-export function AddTravelView() {
+export function UpdateTravelView() {
   const user = useUser();
   const [message, setMessage] = useState<string | string[] | null>(null);
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
@@ -71,18 +71,17 @@ export function AddTravelView() {
   };
 
   return (
-    <main className="AddTravelView">
+    <main className="UpdateTravelView">
       {submitStatus === 201 && <Navigate to="/profile" />}
-      <section className="AddTravelView__window">
+      <section className="UpdateTravelView__window">
         <ViewTitle>Nowa podróż</ViewTitle>
-        <div className="AddTravelView__container">
+        <div className="UpdateTravelView__container">
           {
             message instanceof Array
-              ? message.map((e, i) => (<p key={i} className="AddTravelView_message">{e}</p>))
-              : message && <p className="AddTravelView_message">{message}</p>
+              ? message.map((e, i) => (<p key={i} className="UpdateTravelView_message">{e}</p>))
+              : message && <p className="UpdateTravelView_message">{message}</p>
           }
           <TravelForm
-            required
             changeFromHandlerFile={changeFromHandlerFile}
             onSubmitHandler={onSubmitHandler}
             changeFormHandler={changeFormHandler}

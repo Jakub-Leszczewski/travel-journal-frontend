@@ -9,7 +9,7 @@ interface Props {
   onConfirmHandler: (e: FormEvent<HTMLFormElement>) => void;
   setConfirmHandler: (confirmVisible: boolean) => void;
   form: {
-    password?: string;
+    password: string;
   };
 }
 

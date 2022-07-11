@@ -5,8 +5,8 @@ import { Validation } from '../../../utils/Validation';
 
 interface Props {
     form: {
-      newPassword?: string;
-      repeatNewPassword?: string;
+      newPassword: string;
+      repeatNewPassword: string;
     }
     changeFormHandler: (e: ChangeEvent<HTMLInputElement>) => void
 }
@@ -36,7 +36,7 @@ export function NewPasswordFields({ form, changeFormHandler }: Props) {
             )
         }
         {
-          Validation.passwordValidation(form.newPassword ?? '')
+          Validation.passwordValidation(form.newPassword)
           || !passwordWasFocus
           || (!form.newPassword && !form.repeatNewPassword)
             ? null
