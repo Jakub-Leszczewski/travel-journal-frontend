@@ -42,18 +42,19 @@ export function ProfileView() {
           {
             status === 200 && body && !('error' in body) ? body.map((e) => e.id !== excludedTravelId && (
               <ShortTravelInfo
-                excludeTravel={excludeTravel}
-                refreshTravels={refreshTravelsHandler}
                 key={e.id}
+                to={`/travel/${e.id}`}
                 id={e.id}
                 title={e.title}
                 destination={e.destination}
+                description={e.description}
+                comradesCount={e.comradesCount}
                 travelStartAt={new Date(e.travelStartAt)}
                 travelEndAt={new Date(e.travelEndAt)}
-                comradesCount={e.comradesCount}
-                description={e.description}
                 photoUrl={e.photo}
-                to={`/travel/${e.id}`}
+                authorId={e.authorId}
+                excludeTravel={excludeTravel}
+                refreshTravels={refreshTravelsHandler}
               />
             )) : (<ForbiddenWindow />)
           }

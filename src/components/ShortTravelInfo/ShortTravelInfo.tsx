@@ -6,23 +6,26 @@ import { UserInfo } from '../UserInfo/UserInfo';
 import { apiUrl } from '../../config';
 import { EditRemove } from '../EditRemoveButtons/EditRemove';
 import { api, HttpMethod } from '../../utils/api';
+import { useUser } from '../../hooks/useUser';
 
 interface Props {
-  id: string
-  title: string,
-  destination: string,
-  travelStartAt: Date,
-  travelEndAt: Date,
-  comradesCount: number,
-  description: string
-  photoUrl: string
-  to: string,
+  id: string;
+  to: string;
+  title: string;
+  destination: string;
+  travelStartAt: Date;
+  travelEndAt: Date;
+  comradesCount: number;
+  description: string;
+  photoUrl: string;
+  authorId: string;
   refreshTravels: () => void;
   excludeTravel: (travelId: string) => void;
 }
 
 export function ShortTravelInfo({
   id,
+  to,
   title,
   destination,
   travelStartAt,
@@ -30,10 +33,12 @@ export function ShortTravelInfo({
   comradesCount,
   description,
   photoUrl,
-  to,
   refreshTravels,
   excludeTravel,
+  authorId,
 }: Props) {
+  const userData = useUser();
+
   const deleteHandler = async () => {
     await api<DeleteTravelResponse | ErrorResponse>(`${apiUrl}/api/travel/${id}`, {
       method: HttpMethod.DELETE,
@@ -44,13 +49,18 @@ export function ShortTravelInfo({
 
   return (
     <section className="ShortTravelInfo">
-      <EditRemove
-        editPageUrl={`/travel/${id}/edit`}
-        deleteHandler={() => {
-          deleteHandler();
-          excludeTravel(id);
-        }}
-      />
+      {
+        userData?.id === authorId
+        && (
+        <EditRemove
+          editPageUrl={`/travel/${id}/edit`}
+          deleteHandler={() => {
+            deleteHandler();
+            excludeTravel(id);
+          }}
+        />
+        )
+      }
       <Link to={to}>
         <header className="ShortTravelInfo__header">
           <div className="ShortTravelInfo__img-container">
