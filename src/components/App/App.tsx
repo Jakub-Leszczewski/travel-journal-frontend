@@ -14,6 +14,7 @@ import { TravelView } from '../../views/TravelView/TravelView';
 import { UpdateTravelView } from '../../views/UpdateTravelView/UpdateTravelView';
 import { AddPostView } from '../../views/AddPostView/AddPostView';
 import { UpdatePostView } from '../../views/UpdatePostView/UpdatePostView';
+import { MainNav } from '../MainNav/MainNav';
 
 function App() {
   const isAuth = useAuth();
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+      <MainNav />
       <Routes>
         <Route
           path="/login"

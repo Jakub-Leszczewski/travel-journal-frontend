@@ -2,7 +2,9 @@ import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
 import './UserAccountView.css';
-import { ErrorResponse, UpdateUserDtoInterface, UpdateUserResponse } from 'types';
+import {
+  ErrorResponse, GetUserStatsResponse, UpdateUserDtoInterface, UpdateUserResponse,
+} from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
@@ -13,6 +15,7 @@ import { useSaveUserData } from '../../hooks/useSaveUserData';
 import { apiFormData } from '../../utils/apiFormData';
 import { CreateFormData } from '../../utils/create-form-data';
 import { UserDynamicData } from '../../components/UserDynamicData/UserDynamicData';
+import { useApi } from '../../hooks/useApi';
 
 export type UpdateAccountFormInterface = UpdateUserDtoInterface & {repeatNewPassword: string}
 
@@ -22,6 +25,9 @@ export function UserAccountView() {
   const [isEditView, setIsEditView] = useState<boolean>(false);
   const [isConfirm, setIsConfirm] = useState<boolean>(false);
   const [message, setMessage] = useState<string | string[] | null>(null);
+  const [userStatsStatus, userStatsBody] = useApi<GetUserStatsResponse | ErrorResponse>(
+    `${apiUrl}/api/user/${user?.id}/stats`,
+  );
 
   const initialForm: UpdateAccountFormInterface = {
     firstName: user?.firstName ?? '',
@@ -111,8 +117,16 @@ export function UserAccountView() {
             firstName={user?.firstName || ''}
             lastName={user?.lastName || ''}
             imageUrl={user?.avatar ? `${apiUrl}${user.avatar}` : ''}
-            postsCount={43}
-            travelsCount={12}
+            postsCount={
+              userStatsStatus === 200 && userStatsBody && !('error' in userStatsBody)
+                ? userStatsBody.postCount
+                : 0
+            }
+            travelsCount={
+              userStatsStatus === 200 && userStatsBody && !('error' in userStatsBody)
+                ? userStatsBody.travelCount
+                : 0
+            }
           />
 
           <UserDynamicData

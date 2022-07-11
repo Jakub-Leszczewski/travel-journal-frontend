@@ -1,0 +1,14 @@
+.MainNav {
+    display: flex;
+    justify-content: end;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+}
+
+.MainNav>.UserAvatar {
+    height: 70px;
+    width: 70px;
+    margin: 10px;
+    box-shadow: 2px 2px 10px black;
+}

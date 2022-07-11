@@ -5,7 +5,7 @@ import './UpdatePostView.css';
 import {
   ErrorResponse, GetPostResponse, UpdatePostDtoInterface, UpdateTravelResponse,
 } from 'types';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { apiFormData } from '../../utils/apiFormData';
 import { apiUrl } from '../../config';
@@ -17,7 +17,6 @@ import { useApi } from '../../hooks/useApi';
 
 export function UpdatePostView() {
   const params = useParams();
-  const navigate = useNavigate();
   const [message, setMessage] = useState<string | string[] | null>(null);
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
   const [postStatus, postBody] = useApi<GetPostResponse | ErrorResponse>(`${apiUrl}/api/post/${params.id}`);

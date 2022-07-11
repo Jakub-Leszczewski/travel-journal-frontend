@@ -14,7 +14,7 @@
     padding: 0;
     width: 100%;
     max-width: 800px;
-    margin: 20px;
+    margin: 100px 20px 20px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +26,8 @@
 }
 
 .TravelView__hr {
-    margin: 50px;
+    margin: 50px auto;
+    width: 90%;
 }
 
 .TravelView__window .AddButton {

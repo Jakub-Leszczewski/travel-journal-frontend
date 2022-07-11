@@ -6,7 +6,6 @@ import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { LoginForm } from '../../components/form/LoginForm/LoginForm';
 import { api, HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
-import { useAuth } from '../../hooks/useAuth';
 import { useSaveUserData } from '../../hooks/useSaveUserData';
 import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
 
@@ -22,7 +21,6 @@ export function LoginView() {
     password: '',
   });
 
-  const isAuth = useAuth();
   const saveUserData = useSaveUserData();
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
