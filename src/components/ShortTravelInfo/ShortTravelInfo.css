@@ -4,6 +4,7 @@
     margin: 30px 0;
     border-radius: 15px;
     transition: transform .25s ease;
+    backdrop-filter: blur(15px);
 }
 
 .ShortTravelInfo:hover {

@@ -22,8 +22,6 @@ interface Props {
 export function PostTransparent({
   id, title, destination, description, createdAt, photoUrl, refreshPostHandler, excludePost,
 }: Props) {
-  const params = useParams();
-
   const deleteHandler = async () => {
     const { status, body } = await api<DeletePostResponse | ErrorResponse>(`${apiUrl}/api/post/${id}`, {
       method: HttpMethod.DELETE,
@@ -37,7 +35,7 @@ export function PostTransparent({
   return (
     <section className="PostTransparent">
       <EditRemove
-        editPageUrl={`/post/${params.id}/edit`}
+        editPageUrl={`/post/${id}/edit`}
         deleteHandler={() => {
           deleteHandler();
           excludePost(id);

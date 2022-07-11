@@ -2,7 +2,7 @@ import React, {
   ChangeEvent, FormEvent, useState,
 } from 'react';
 import './AddPostView.css';
-import { CreatePostDtoInterface, CreateTravelDtoInterface, ErrorResponse } from 'types';
+import { CreatePostDtoInterface, CreateTravelResponse, ErrorResponse } from 'types';
 import { Navigate, useParams } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { apiFormData } from '../../utils/apiFormData';
@@ -30,7 +30,7 @@ export function AddPostView() {
     e.preventDefault();
 
     const formData = CreateFormData.createFormData(form);
-    const { status, body } = await apiFormData<CreateTravelDtoInterface | ErrorResponse>(
+    const { status, body } = await apiFormData<CreateTravelResponse | ErrorResponse>(
       `${apiUrl}/api/travel/${params.id}/post`,
       {
         method: HttpMethod.POST,

@@ -1,56 +1,53 @@
 import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
-import './UpdateTravelView.css';
+import './UpdatePostView.css';
 import {
-  ErrorResponse, GetTravelResponse, UpdateTravelDtoInterface, UpdateTravelResponse,
+  ErrorResponse, GetPostResponse, UpdatePostDtoInterface, UpdateTravelResponse,
 } from 'types';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
-import { TravelForm } from '../../components/form/TravelForm/TravelForm';
 import { apiFormData } from '../../utils/apiFormData';
 import { apiUrl } from '../../config';
 import { HttpMethod } from '../../utils/api';
 import { CreateFormData } from '../../utils/create-form-data';
-import { useApi } from '../../hooks/useApi';
 import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
+import { PostForm } from '../../components/form/PostForm/PostForm';
+import { useApi } from '../../hooks/useApi';
 
-export function UpdateTravelView() {
+export function UpdatePostView() {
   const params = useParams();
-  const [travelStatus, travelBody] = useApi<GetTravelResponse | ErrorResponse>(`${apiUrl}/api/travel/${params.id}`);
-  const [submitStatus, setSubmitStatus] = useState<number | null>(null);
+  const navigate = useNavigate();
   const [message, setMessage] = useState<string | string[] | null>(null);
+  const [submitStatus, setSubmitStatus] = useState<number | null>(null);
+  const [postStatus, postBody] = useApi<GetPostResponse | ErrorResponse>(`${apiUrl}/api/post/${params.id}`);
 
-  const initialForm: UpdateTravelDtoInterface = {
+  const initialForm: UpdatePostDtoInterface = {
     title: '',
     destination: '',
     description: '',
-    startAt: new Date().toISOString().substring(0, 10),
-    endAt: new Date().toISOString().substring(0, 10),
-    comradesCount: 0,
     photo: undefined,
   };
 
-  const [form, setForm] = useState<UpdateTravelDtoInterface>(initialForm);
+  const [form, setForm] = useState<UpdatePostDtoInterface>(initialForm);
+
   useEffect(() => {
-    if (travelStatus === 200 && travelBody && !('error' in travelBody)) {
+    if (postStatus === 200 && postBody && !('error' in postBody)) {
       setForm((prev) => ({
         ...prev,
-        title: travelBody.title,
-        destination: travelBody.destination,
-        description: travelBody.description,
-        startAt: new Date(travelBody.startAt).toISOString().substring(0, 10),
-        endAt: new Date(travelBody.endAt).toISOString().substring(0, 10),
-        comradesCount: travelBody.comradesCount,
+        title: postBody.title,
+        destination: postBody.destination,
+        description: postBody.description,
       }));
     }
-  }, [travelBody]);
+  }, [postBody]);
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = CreateFormData.createFormDataRemoveEmpty(form, ['description']);
+
+    const formData = CreateFormData.createFormData(form);
     const { status, body } = await apiFormData<UpdateTravelResponse | ErrorResponse>(
-      `${apiUrl}/api/travel/${params.id}`,
+      `${apiUrl}/api/post/${params.id}`,
       {
         method: HttpMethod.PATCH,
         payload: formData,
@@ -83,14 +80,20 @@ export function UpdateTravelView() {
   };
 
   return (
-    <main className="UpdateTravelView">
-      {(travelStatus !== 200 && travelStatus !== null) && <Navigate to="/profile" />}
-      {(submitStatus === 200) && <Navigate to="/profile" />}
-      <section className="UpdateTravelView__window">
-        <ViewTitle>Edytuj podróż</ViewTitle>
-        <div className="UpdateTravelView__container">
+    <main className="UpdatePostView">
+      {
+        submitStatus === 200
+        && postStatus === 200
+        && postBody
+        && !('error' in postBody)
+        && <Navigate to={`/travel/${postBody.travelId}`} />
+      }
+      <section className="UpdatePostView__window">
+        <ViewTitle>Edytuj post</ViewTitle>
+        <div className="UpdatePostView__container">
           <ErrorMessage message={message} />
-          <TravelForm
+          <PostForm
+            required
             changeFromHandlerFile={changeFromHandlerFile}
             onSubmitHandler={onSubmitHandler}
             changeFormHandler={changeFormHandler}

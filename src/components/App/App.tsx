@@ -13,6 +13,7 @@ import { AddTravelView } from '../../views/AddTravelView/AddTravelView';
 import { TravelView } from '../../views/TravelView/TravelView';
 import { UpdateTravelView } from '../../views/UpdateTravelView/UpdateTravelView';
 import { AddPostView } from '../../views/AddPostView/AddPostView';
+import { UpdatePostView } from '../../views/UpdatePostView/UpdatePostView';
 
 function App() {
   const isAuth = useAuth();
@@ -106,6 +107,15 @@ function App() {
           element={(
             <ProtectRoute navigateTo="/login" isAuth={isAuth}>
               <AddPostView />
+            </ProtectRoute>
+          )}
+        />
+
+        <Route
+          path="/post/:id/edit"
+          element={(
+            <ProtectRoute navigateTo="/login" isAuth={isAuth}>
+              <UpdatePostView />
             </ProtectRoute>
           )}
         />

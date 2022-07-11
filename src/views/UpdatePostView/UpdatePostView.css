@@ -1,4 +1,4 @@
-.AddPostView {
+.UpdatePostView {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -6,7 +6,7 @@
     width: 100vw;
 }
 
-.AddPostView__window {
+.UpdatePostView__window {
     background: rgba(0, 0, 0, 0.84);
     height: fit-content;
     backdrop-filter: blur(15px);
@@ -17,7 +17,7 @@
     margin: 20px;
 }
 
-.AddPostView__container {
+.UpdatePostView__container {
     display: flex;
     flex-direction: column;
     max-width: 400px;
