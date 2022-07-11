@@ -1,0 +1,54 @@
+.TravelView {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    width: 100vw;
+}
+
+.TravelView__window {
+    background: rgba(0, 0, 0, 0.84);
+    height: fit-content;
+    backdrop-filter: blur(30px);
+    border-radius: 20px;
+    padding: 0;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.TravelView__post-container {
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.TravelView__hr {
+    margin: 50px;
+}
+
+.TravelView__window .AddButton {
+    margin: 30px 0;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.87);
+}
+
+@media only screen and (min-width: 350px) {
+    .TravelView__post-container {
+        padding: 5px 20px;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .TravelView__post-container {
+        padding: 5px 40px;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .TravelView__post-container {
+        padding: 5px 100px;
+    }
+}
