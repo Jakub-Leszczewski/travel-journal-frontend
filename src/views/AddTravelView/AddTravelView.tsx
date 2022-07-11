@@ -2,7 +2,7 @@ import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
 import './AddTravelView.css';
-import { CreateTravelResponse, ErrorResponse } from 'types';
+import { CreateTravelDtoInterface, ErrorResponse } from 'types';
 import { Navigate } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { AddTravelForm } from '../../components/form/AddTravelForm/AddTravelForm';
@@ -12,22 +12,12 @@ import { HttpMethod } from '../../utils/api';
 import { useUser } from '../../hooks/useUser';
 import { CreateFormData } from '../../utils/create-form-data';
 
-interface CreateTravelData {
-  title: string;
-  destination: string;
-  description: string;
-  travelStartAt: string;
-  travelEndAt: string;
-  comradesCount: number;
-  photo: any;
-}
-
 export function AddTravelView() {
   const user = useUser();
   const [message, setMessage] = useState<string | string[] | null>(null);
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
 
-  const initialForm: CreateTravelData = {
+  const initialForm: CreateTravelDtoInterface = {
     title: '',
     destination: '',
     description: '',
@@ -37,7 +27,7 @@ export function AddTravelView() {
     photo: undefined,
   };
 
-  const [form, setForm] = useState<CreateTravelData>(initialForm);
+  const [form, setForm] = useState<CreateTravelDtoInterface>(initialForm);
   useEffect(() => {
     setForm(initialForm);
   }, [user]);
@@ -46,7 +36,7 @@ export function AddTravelView() {
     e.preventDefault();
     if (user) {
       const formData = CreateFormData.createFormData(form);
-      const { status, body } = await apiFormData<CreateTravelResponse | ErrorResponse>(
+      const { status, body } = await apiFormData<CreateTravelDtoInterface | ErrorResponse>(
         `${apiUrl}/api/user/${user.id}/travel`,
         {
           method: HttpMethod.POST,

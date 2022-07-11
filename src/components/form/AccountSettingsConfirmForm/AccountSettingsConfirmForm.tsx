@@ -7,7 +7,9 @@ interface Props {
   onSubmitHandler: (e: FormEvent<HTMLFormElement>) => void;
   changeFormHandler: (e: ChangeEvent<HTMLInputElement>) => void;
   canceHandler: () => void;
-  form: string;
+  form: {
+    password?: string;
+  };
 }
 
 export function AccountSettingsConfirmForm({
@@ -17,7 +19,7 @@ export function AccountSettingsConfirmForm({
     <form onSubmit={onSubmitHandler} className="AccountSettingsConfirmForm">
       <PasswordInput
         placeholder="Hasło"
-        value={form}
+        value={form.password}
         onChange={changeFormHandler}
         name="password"
       />

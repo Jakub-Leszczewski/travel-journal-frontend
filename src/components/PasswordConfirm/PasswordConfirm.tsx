@@ -9,8 +9,8 @@ interface Props {
   onConfirmHandler: (e: FormEvent<HTMLFormElement>) => void;
   setConfirmHandler: (confirmVisible: boolean) => void;
   form: {
-    password: string;
-  }
+    password?: string;
+  };
 }
 
 export function PasswordConfirm({
@@ -26,7 +26,7 @@ export function PasswordConfirm({
             : message && <p className="PasswordConfirm__message">{message}</p>
         }
         <AccountSettingsConfirmForm
-          form={form.password}
+          form={form}
           changeFormHandler={changeFormHandler}
           onSubmitHandler={onConfirmHandler}
           canceHandler={() => setConfirmHandler(false)}

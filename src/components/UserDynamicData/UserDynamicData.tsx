@@ -3,6 +3,7 @@ import './UserDynamicData.css';
 import { UserSaveResponseData } from 'types';
 import { InfoBar } from '../InfoBar/InfoBar';
 import { WhiteButton } from '../common/WhiteButton/WhiteButton';
+import { UpdateAccountFormInterface } from '../../views/UserAccountView/UserAccountView';
 import { UpdateAccountForm } from '../form/UpdateAccountForm/UpdateAccountForm';
 
 interface Props {
@@ -10,15 +11,7 @@ interface Props {
   setEditHandler: (editVisible: boolean) => void;
   message: string | string[] | null;
   user: UserSaveResponseData | null
-  form: {
-    firstName: string;
-    lastName: string;
-    newPassword: string;
-    repeatNewPassword: string;
-    password: string;
-    bio: string
-    photo: any
-  }
+  form: UpdateAccountFormInterface;
 
   changeFormHandler: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   changeFromHandlerFile: (e: any) => void;

@@ -1,26 +1,18 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import './SignupView.css';
 import { Link, Navigate } from 'react-router-dom';
-import { LoginResponse, ErrorResponse } from 'types';
+import { LoginResponse, ErrorResponse, CreateUserDtoInterface } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { api, HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
-import { useAuth } from '../../hooks/useAuth';
 import { SignupForm } from '../../components/form/SignupForm/SignupForm';
 
-interface SignupData {
-  firstName: string;
-  lastName: string;
-  username: string;
-  email: string;
-  password: string;
-  repeatPassword: string;
-}
+type CreateUser = CreateUserDtoInterface & {repeatPassword: string};
 
 export function SignupView() {
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
   const [message, setMessage] = useState<string | string[] | null>(null);
-  const [form, setForm] = useState<SignupData>({
+  const [form, setForm] = useState<CreateUser>({
     firstName: '',
     lastName: '',
     username: '',
@@ -28,8 +20,6 @@ export function SignupView() {
     password: '',
     repeatPassword: '',
   });
-
-  const isAuth = useAuth();
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

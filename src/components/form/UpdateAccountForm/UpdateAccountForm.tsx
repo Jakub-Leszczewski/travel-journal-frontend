@@ -8,17 +8,10 @@ import { NewPasswordFields } from '../NewPasswordFields/NewPasswordFields';
 import { LongTextInput } from '../../common/LongTextInput/LongTextInput';
 import { Validation } from '../../../utils/Validation';
 import { FileInput } from '../../FileInput/FileInput';
+import { UpdateAccountFormInterface } from '../../../views/UserAccountView/UserAccountView';
 
 interface Props {
-  form: {
-    firstName: string;
-    lastName: string;
-    newPassword: string;
-    repeatNewPassword: string;
-    password: string;
-    bio: string
-    photo: any
-  }
+  form: UpdateAccountFormInterface;
 
   changeFormHandler: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   changeFromHandlerFile: (e: any) => void;

@@ -2,7 +2,7 @@ import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
 import './UserAccountView.css';
-import { ErrorResponse, UpdateUserResponse } from 'types';
+import { ErrorResponse, UpdateUserDtoInterface, UpdateUserResponse } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
@@ -14,15 +14,7 @@ import { apiFormData } from '../../utils/apiFormData';
 import { CreateFormData } from '../../utils/create-form-data';
 import { UserDynamicData } from '../../components/UserDynamicData/UserDynamicData';
 
-interface SignupData {
-  firstName: string;
-  lastName: string;
-  bio: string;
-  newPassword: string;
-  repeatNewPassword: string;
-  password: string;
-  photo: any;
-}
+export type UpdateAccountFormInterface = UpdateUserDtoInterface & {repeatNewPassword: string}
 
 export function UserAccountView() {
   const user = useUser();
@@ -31,7 +23,7 @@ export function UserAccountView() {
   const [isConfirm, setIsConfirm] = useState<boolean>(false);
   const [message, setMessage] = useState<string | string[] | null>(null);
 
-  const initialForm = {
+  const initialForm: UpdateAccountFormInterface = {
     firstName: user?.firstName ?? '',
     lastName: user?.lastName ?? '',
     bio: user?.bio ?? '',
@@ -40,7 +32,8 @@ export function UserAccountView() {
     password: '',
     photo: undefined,
   };
-  const [form, setForm] = useState<SignupData>(initialForm);
+  const [form, setForm] = useState<UpdateAccountFormInterface>(initialForm);
+
   useEffect(() => {
     setForm(initialForm);
     setIsEditView(false);
