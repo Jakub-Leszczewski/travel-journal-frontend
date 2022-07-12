@@ -85,6 +85,12 @@ export function UpdatePostView() {
     }));
   };
 
+  const cancelHandler = () => {
+    if (postStatus === 200 && postBody && !('error' in postBody)) {
+      navigate(`/travel/${postBody.travelId}`);
+    }
+  };
+
   return (
     <main className="UpdatePostView">
       <section className="UpdatePostView__window">
@@ -93,6 +99,7 @@ export function UpdatePostView() {
           <ErrorMessage message={message} />
           <PostForm
             required
+            cancelHandler={cancelHandler}
             changeFromHandlerFile={changeFromHandlerFile}
             onSubmitHandler={onSubmitHandler}
             changeFormHandler={changeFormHandler}

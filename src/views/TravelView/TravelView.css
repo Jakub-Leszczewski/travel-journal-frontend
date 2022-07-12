@@ -36,6 +36,13 @@
     border: 1px solid rgba(255, 255, 255, 0.87);
 }
 
+.TravelView__window>.GoBackButton {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    margin: 10px;
+}
+
 @media only screen and (min-width: 350px) {
     .TravelView__post-container {
         padding: 5px 20px;

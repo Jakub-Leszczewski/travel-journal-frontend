@@ -8,7 +8,13 @@
 
 .PostForm>.FileInput  {margin-bottom: 35px;}
 
-.PostForm>.WhiteButton {
-    left: 50%;
-    transform: translateX(-50%);
+.PostForm__button-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.PostForm__button-container>.WhiteButton {
+    margin: 10px;
 }

@@ -15,10 +15,11 @@ interface Props {
   changeFormHandler: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   changeFromHandlerFile: (e: any) => void;
   onSubmitHandler: (e: FormEvent<HTMLFormElement>) => void;
+  cancelHandler: () => void;
 }
 
 export function TravelForm({
-  form, onSubmitHandler, changeFormHandler, changeFromHandlerFile, required,
+  form, onSubmitHandler, changeFormHandler, changeFromHandlerFile, required, cancelHandler,
 }: Props) {
   return (
     <form className="TravelForm" onSubmit={onSubmitHandler}>
@@ -67,7 +68,15 @@ export function TravelForm({
         changeFromHandlerFile={changeFromHandlerFile}
       />
 
-      <WhiteButton>Zapisz</WhiteButton>
+      <div className="TravelForm__button-container">
+        <WhiteButton>Zapisz</WhiteButton>
+        <WhiteButton
+          onClick={cancelHandler}
+          type="button"
+        >
+          Anuluj
+        </WhiteButton>
+      </div>
     </form>
   );
 }

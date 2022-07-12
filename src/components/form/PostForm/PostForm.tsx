@@ -14,10 +14,11 @@ interface Props {
   changeFormHandler: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   changeFromHandlerFile: (e: any) => void;
   onSubmitHandler: (e: FormEvent<HTMLFormElement>) => void;
+  cancelHandler: () => void;
 }
 
 export function PostForm({
-  form, onSubmitHandler, changeFormHandler, changeFromHandlerFile, required,
+  form, onSubmitHandler, changeFormHandler, changeFromHandlerFile, required, cancelHandler,
 }: Props) {
   return (
     <form className="PostForm" onSubmit={onSubmitHandler}>
@@ -57,7 +58,10 @@ export function PostForm({
         placeholder="Dodaj zdjęcie"
       />
 
-      <WhiteButton>Zapisz</WhiteButton>
+      <div className="PostForm__button-container">
+        <WhiteButton>Zapisz</WhiteButton>
+        <WhiteButton type="button" onClick={cancelHandler}>Anuluj</WhiteButton>
+      </div>
     </form>
   );
 }

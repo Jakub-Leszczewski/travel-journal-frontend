@@ -8,6 +8,7 @@ import { apiUrl } from '../../config';
 import { TravelInfo } from '../../components/TravelInfo/TravelInfo';
 import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
 import { PostTransparent } from '../../components/PostTransparent/PostTransparent';
+import { GoBackButton } from '../../components/GoBackButton/GoBackButton';
 
 export function TravelView() {
   const params = useParams();
@@ -33,6 +34,7 @@ export function TravelView() {
   return (
     <main className="UserAccountView">
       <section className="TravelView__window">
+        <GoBackButton to="/profile" />
         {
           travelStatus === 200 && travelBody && !('error' in travelBody)
             ? (

@@ -6,9 +6,15 @@
 
 .TravelForm>.PasswordInput  {margin-bottom: 25px;}
 
-.TravelForm>.FileInput  {margin-bottom: 35px;}
+.TravelForm>.FileInput  {margin-bottom: 15px;}
 
-.TravelForm>.WhiteButton {
-    left: 50%;
-    transform: translateX(-50%);
+.TravelForm__button-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.TravelForm__button-container>.WhiteButton {
+    margin: 10px;
 }

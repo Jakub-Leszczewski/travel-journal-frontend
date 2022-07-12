@@ -68,6 +68,10 @@ export function AddPostView() {
     }));
   };
 
+  const cancelHandler = () => {
+    navigate(`/travel/${params.id}`);
+  };
+
   return (
     <main className="AddPostView">
       <section className="AddPostView__window">
@@ -76,6 +80,7 @@ export function AddPostView() {
           <ErrorMessage message={message} />
           <PostForm
             required
+            cancelHandler={cancelHandler}
             changeFromHandlerFile={changeFromHandlerFile}
             onSubmitHandler={onSubmitHandler}
             changeFormHandler={changeFormHandler}

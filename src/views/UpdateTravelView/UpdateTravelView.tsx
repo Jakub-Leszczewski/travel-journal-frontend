@@ -87,6 +87,10 @@ export function UpdateTravelView() {
     }));
   };
 
+  const cancelHandler = () => {
+    navigate('/profile');
+  };
+
   return (
     <main className="UpdateTravelView">
       <section className="UpdateTravelView__window">
@@ -94,6 +98,7 @@ export function UpdateTravelView() {
         <div className="UpdateTravelView__container">
           <ErrorMessage message={message} />
           <TravelForm
+            cancelHandler={cancelHandler}
             changeFromHandlerFile={changeFromHandlerFile}
             onSubmitHandler={onSubmitHandler}
             changeFormHandler={changeFormHandler}
