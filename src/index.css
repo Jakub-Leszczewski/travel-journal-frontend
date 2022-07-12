@@ -29,6 +29,7 @@ body {
   line-height: 1;
   background: url('./assets/images/bg.webp') center / cover fixed;
   overflow: hidden;
+  min-height: 100vh;
 }
 ol, ul {
   list-style: none;

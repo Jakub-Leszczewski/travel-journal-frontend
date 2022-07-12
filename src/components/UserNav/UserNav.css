@@ -1,0 +1,9 @@
+.UserNav {
+    background: rgba(0, 0, 0, 0.89);
+    width: 350px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.48);
+    border-radius: 15px;
+    min-height: 100px;
+    backdrop-filter: blur(15px);
+    padding: 10px;
+}
