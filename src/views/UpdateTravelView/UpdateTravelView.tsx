@@ -5,7 +5,7 @@ import './UpdateTravelView.css';
 import {
   ErrorResponse, GetTravelResponse, UpdateTravelDtoInterface, UpdateTravelResponse,
 } from 'types';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { TravelForm } from '../../components/form/TravelForm/TravelForm';
 import { apiFormData } from '../../utils/apiFormData';
@@ -16,6 +16,7 @@ import { useApi } from '../../hooks/useApi';
 import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
 
 export function UpdateTravelView() {
+  const navigate = useNavigate();
   const params = useParams();
   const [travelStatus, travelBody] = useApi<GetTravelResponse | ErrorResponse>(`${apiUrl}/api/travel/${params.id}`);
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
@@ -45,6 +46,10 @@ export function UpdateTravelView() {
       }));
     }
   }, [travelBody]);
+
+  useEffect(() => {
+    if (submitStatus === 200 || (travelStatus !== 200 && travelStatus !== null)) navigate('/profile');
+  }, [submitStatus]);
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -84,8 +89,6 @@ export function UpdateTravelView() {
 
   return (
     <main className="UpdateTravelView">
-      {(travelStatus !== 200 && travelStatus !== null) && <Navigate to="/profile" />}
-      {(submitStatus === 200) && <Navigate to="/profile" />}
       <section className="UpdateTravelView__window">
         <ViewTitle>Edytuj podróż</ViewTitle>
         <div className="UpdateTravelView__container">

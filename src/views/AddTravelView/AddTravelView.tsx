@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import './AddTravelView.css';
 import { CreateTravelDtoInterface, ErrorResponse } from 'types';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { TravelForm } from '../../components/form/TravelForm/TravelForm';
 import { apiFormData } from '../../utils/apiFormData';
@@ -15,6 +15,7 @@ import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
 
 export function AddTravelView() {
   const user = useUser();
+  const navigate = useNavigate();
   const [message, setMessage] = useState<string | string[] | null>(null);
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
 
@@ -32,6 +33,10 @@ export function AddTravelView() {
   useEffect(() => {
     setForm(initialForm);
   }, [user]);
+
+  useEffect(() => {
+    if (submitStatus === 201) navigate('/profile');
+  }, [submitStatus]);
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -73,7 +78,6 @@ export function AddTravelView() {
 
   return (
     <main className="AddTravelView">
-      {submitStatus === 201 && <Navigate to="/profile" />}
       <section className="AddTravelView__window">
         <ViewTitle>Nowa podróż</ViewTitle>
         <div className="AddTravelView__container">

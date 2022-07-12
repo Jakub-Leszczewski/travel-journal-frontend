@@ -1,9 +1,9 @@
 import React, {
-  ChangeEvent, FormEvent, useState,
+  ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
 import './AddPostView.css';
 import { CreatePostDtoInterface, CreateTravelResponse, ErrorResponse } from 'types';
-import { Navigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { apiFormData } from '../../utils/apiFormData';
 import { apiUrl } from '../../config';
@@ -14,6 +14,7 @@ import { PostForm } from '../../components/form/PostForm/PostForm';
 
 export function AddPostView() {
   const params = useParams();
+  const navigate = useNavigate();
   const [message, setMessage] = useState<string | string[] | null>(null);
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
 
@@ -25,6 +26,10 @@ export function AddPostView() {
   };
 
   const [form, setForm] = useState<CreatePostDtoInterface>(initialForm);
+
+  useEffect(() => {
+    if (submitStatus === 201) navigate(`/travel/${params.id}`);
+  }, [submitStatus]);
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -65,7 +70,6 @@ export function AddPostView() {
 
   return (
     <main className="AddPostView">
-      {submitStatus === 201 && <Navigate to={`/travel/${params.id}`} />}
       <section className="AddPostView__window">
         <ViewTitle>Nowy post</ViewTitle>
         <div className="AddPostView__container">

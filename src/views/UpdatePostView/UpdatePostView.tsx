@@ -5,7 +5,7 @@ import './UpdatePostView.css';
 import {
   ErrorResponse, GetPostResponse, UpdatePostDtoInterface, UpdateTravelResponse,
 } from 'types';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { apiFormData } from '../../utils/apiFormData';
 import { apiUrl } from '../../config';
@@ -16,6 +16,7 @@ import { PostForm } from '../../components/form/PostForm/PostForm';
 import { useApi } from '../../hooks/useApi';
 
 export function UpdatePostView() {
+  const navigate = useNavigate();
   const params = useParams();
   const [message, setMessage] = useState<string | string[] | null>(null);
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
@@ -40,6 +41,12 @@ export function UpdatePostView() {
       }));
     }
   }, [postBody]);
+
+  useEffect(() => {
+    if (submitStatus === 200 && postStatus === 200 && postBody && !('error' in postBody)) {
+      navigate(`/travel/${postBody.travelId}`);
+    }
+  }, [submitStatus]);
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -80,13 +87,6 @@ export function UpdatePostView() {
 
   return (
     <main className="UpdatePostView">
-      {
-        submitStatus === 200
-        && postStatus === 200
-        && postBody
-        && !('error' in postBody)
-        && <Navigate to={`/travel/${postBody.travelId}`} />
-      }
       <section className="UpdatePostView__window">
         <ViewTitle>Edytuj post</ViewTitle>
         <div className="UpdatePostView__container">

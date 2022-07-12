@@ -1,6 +1,8 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, {
+  ChangeEvent, FormEvent, useEffect, useState,
+} from 'react';
 import './SignupView.css';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { LoginResponse, ErrorResponse, CreateUserDtoInterface } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { api, HttpMethod } from '../../utils/api';
@@ -11,6 +13,7 @@ import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
 type CreateUser = CreateUserDtoInterface & {repeatPassword: string};
 
 export function SignupView() {
+  const navigate = useNavigate();
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
   const [message, setMessage] = useState<string | string[] | null>(null);
   const [form, setForm] = useState<CreateUser>({
@@ -21,6 +24,10 @@ export function SignupView() {
     password: '',
     repeatPassword: '',
   });
+
+  useEffect(() => {
+    if (submitStatus === 201) navigate('/login');
+  }, [submitStatus]);
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,9 +54,7 @@ export function SignupView() {
 
   return (
     <main className="SignupView">
-
       <section className="SignupView__window">
-        {submitStatus === 201 && <Navigate to="/login" />}
         <ViewTitle>Rejestracja</ViewTitle>
 
         <div className="SignupView__container">

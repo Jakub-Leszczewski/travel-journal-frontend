@@ -8,7 +8,6 @@ import { apiUrl } from '../../config';
 import { TravelInfo } from '../../components/TravelInfo/TravelInfo';
 import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
 import { PostTransparent } from '../../components/PostTransparent/PostTransparent';
-import { ReactComponent } from '*.svg';
 
 export function TravelView() {
   const params = useParams();
@@ -47,7 +46,7 @@ export function TravelView() {
                 photoUrl={travelBody.photo}
               />
             )
-            : (<ForbiddenWindow />)
+            : travelStatus !== null && (<ForbiddenWindow />)
         }
 
         <Link to={`/travel/${params.id}/post/add`}><AddButton /></Link>
@@ -69,7 +68,7 @@ export function TravelView() {
 
                 {i < postBody.length - 1 && <hr className="TravelView__hr" />}
               </React.Fragment>
-              )) : (<ForbiddenWindow />)
+              )) : postStatus !== null && (<ForbiddenWindow />)
           }
         </div>
       </section>
