@@ -2,7 +2,7 @@ import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
 import './SignupView.css';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LoginResponse, ErrorResponse, CreateUserDtoInterface } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { api, HttpMethod } from '../../utils/api';
@@ -25,10 +25,6 @@ export function SignupView() {
     repeatPassword: '',
   });
 
-  useEffect(() => {
-    if (submitStatus === 201) navigate('/login');
-  }, [submitStatus]);
-
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -41,6 +37,9 @@ export function SignupView() {
     if (status !== 201 && body && 'message' in body) {
       setMessage(body.message ?? null);
     }
+
+    if (status === 201) navigate('/login');
+
     setSubmitStatus(status);
   };
 

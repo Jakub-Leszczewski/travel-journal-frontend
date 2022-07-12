@@ -1,6 +1,8 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, {
+  ChangeEvent, FormEvent, useEffect, useState,
+} from 'react';
 import './LoginView.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ErrorResponse, LoginResponse } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { LoginForm } from '../../components/form/LoginForm/LoginForm';
@@ -15,13 +17,13 @@ interface LoginData {
 }
 
 export function LoginView() {
+  const navigate = useNavigate();
+  const saveUserData = useSaveUserData();
   const [message, setMessage] = useState<string | string[] | null>(null);
   const [form, setForm] = useState<LoginData>({
     username: '',
     password: '',
   });
-
-  const saveUserData = useSaveUserData();
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,8 +33,9 @@ export function LoginView() {
       payload: form,
     });
 
-    if (status === 200) saveUserData(body as LoginResponse);
-    else if (body && 'message' in body) setMessage(body.message ?? null);
+    if (status === 200) {
+      saveUserData(body as LoginResponse);
+    } else if (body && 'message' in body) setMessage(body.message ?? null);
   };
 
   const changeFormHandler = (e: ChangeEvent<HTMLInputElement>) => {

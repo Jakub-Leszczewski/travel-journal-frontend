@@ -11,8 +11,6 @@ export function MainNav() {
   const userData = useUser();
   const [openNav, setOpenNav] = useState<boolean>(false);
 
-  if (!isAuth) return null;
-
   useEffect(() => {
     document.body.addEventListener('click', (event) => {
       if (
@@ -33,6 +31,8 @@ export function MainNav() {
   const closeUserNav = () => {
     setOpenNav(false);
   };
+
+  if (!isAuth) return null;
 
   return (
     <nav className="MainNav">
