@@ -1,0 +1,35 @@
+.FriendsView {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    width: 100vw;
+}
+
+.FriendsView__window {
+    background: rgba(0, 0, 0, 0.84);
+    height: fit-content;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: 100px 20px 20px 20px;
+}
+
+.FriendsView__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 30px auto 0 auto;
+}
+
+.FriendsView__button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.FriendsView__button-container>.IconButton {
+    margin: 20px 5px;
+}
+
