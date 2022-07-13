@@ -1,0 +1,47 @@
+.ComradesAndPhotoFields {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.ComradesAndPhotoFields>label {
+    width: 100%;
+    font-size: .85rem;
+}
+
+.ComradesAndPhotoFields>label {
+    margin-bottom: 25px;
+}
+
+@media only screen and (min-width: 570px) {
+    .ComradesAndPhotoFields {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 25px;
+    }
+
+    .ComradesAndPhotoFields>label {
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+    }
+
+    .ComradesAndPhotoFields>label:first-child {
+        margin-right: 10px;
+    }
+
+    .ComradesAndPhotoFields>label>.ShortTextInput {
+        margin: 0;
+        height: 35px;
+    }
+
+    .ComradesAndPhotoFields>label>.FileInput {
+        height: 30px;
+        margin-top: 5px;
+    }
+
+    .ComradesAndPhotoFields>label:last-child {
+        margin-left: 10px;
+    }
+}

@@ -1,0 +1,20 @@
+.PostForm {width: 100%;}
+
+.PostForm>.ShortTextInput  {margin-bottom: 25px;}
+
+.PostForm>.LongTextInput  {margin-bottom: 15px;}
+
+.PostForm>.PasswordInput  {margin-bottom: 25px;}
+
+.PostForm>.FileInput  {margin-bottom: 35px;}
+
+.PostForm__button-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.PostForm__button-container>.WhiteButton {
+    margin: 10px;
+}

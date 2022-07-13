@@ -1,0 +1,21 @@
+.AddButton {
+    background: rgba(0, 0, 0, 0.84);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform .25s;
+}
+
+.AddButton>i {
+    font-size: 1.5rem;
+}
+
+.AddButton:hover {
+    transform: scale(1.05);
+}
+
+.AddButton:active {
+    transform: scale(1.1);
+}

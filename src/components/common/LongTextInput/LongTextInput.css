@@ -1,0 +1,18 @@
+.LongTextInput {
+    background: none;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    resize: vertical;
+    height: 80px;
+    width: 100%;
+    font-size: .9rem;
+}
+
+.LongTextInput:focus {
+    outline: none;
+}
+
+.LongTextInput::placeholder {
+    color: rgba(255, 255, 255, 0.67);
+    font-size: .8rem;
+    font-weight: 100;
+}

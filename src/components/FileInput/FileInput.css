@@ -1,0 +1,21 @@
+.FileInput {
+    border: 2px solid #ccc;
+    padding: 3px 6px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    font-size: .75rem;
+}
+
+.FileInput>input[type="file"] {
+    display: none;
+}
+
+.FileInput>i {
+    font-size: 1.35rem;
+    margin-right: 20px;
+}
+

@@ -1,0 +1,20 @@
+.WhiteButton {
+    height: 26px;
+    border-radius: 17px;
+    color: rgba(0, 0, 0, 0.94);
+    font-weight: 700;
+    border: none;
+    background: rgba(255, 255, 255, 0.96);
+    padding: 0 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color .25s;
+}
+
+.WhiteButton:hover {
+    background: rgba(227, 227, 227, 0.96);
+}
+
+.WhiteButton:active {
+    background: rgba(190, 190, 190, 0.96);
+}
