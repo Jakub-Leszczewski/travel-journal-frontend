@@ -16,6 +16,7 @@ import { AddPostView } from '../../views/AddPostView/AddPostView';
 import { UpdatePostView } from '../../views/UpdatePostView/UpdatePostView';
 import { MainNav } from '../MainNav/MainNav';
 import { FriendsView } from '../../views/FriendsView/FriendsView';
+import { FindFriendsView } from '../../views/FindFriendsView/FindFriendsView';
 
 function App() {
   const isAuth = useAuth();
@@ -128,6 +129,15 @@ function App() {
           element={(
             <ProtectRoute navigateTo="/login" isAuth={isAuth}>
               <FriendsView />
+            </ProtectRoute>
+          )}
+        />
+
+        <Route
+          path="/friends/find"
+          element={(
+            <ProtectRoute navigateTo="/login" isAuth={isAuth}>
+              <FindFriendsView />
             </ProtectRoute>
           )}
         />

@@ -12,7 +12,7 @@ export function FriendsView() {
   const user = useUser();
   const navigate = useNavigate();
 
-  const goAddFriendsHandler = () => navigate('/friends/add');
+  const goAddFriendsHandler = () => navigate('/friends/find');
 
   return (
     <main className="FriendsView">
