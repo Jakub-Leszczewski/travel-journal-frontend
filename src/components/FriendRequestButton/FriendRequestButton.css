@@ -1,0 +1,56 @@
+.FriendRequestButton {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.FriendRequestButton:hover{
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.FriendRequestButton>a{
+    width: 80%;
+}
+
+.FriendRequestButton__container-right {
+    display: flex;
+    align-items: center;
+}
+
+.FriendRequestButton__container-right>.UserAvatar {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.FriendRequestButton__name {
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 0 10px;
+}
+
+.FriendRequestButton__username {
+    font-weight: 300;
+    text-align: center;
+    margin: 0 0 0 10px;
+    font-size: .8rem;
+}
+
+.FriendRequestButton__container-right{}
+
+.FriendRequestButton__container-right>.IconButton {
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+}
+
+.FriendRequestButton__container-right>.IconButton>i{
+    font-size: 1rem;
+}
+
+@media only screen and (max-width: 350px) {
+    .FriendRequestButton__container-right>.UserAvatar {
+        display: none;
+    }
+}
