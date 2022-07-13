@@ -35,6 +35,7 @@ export function LoginView() {
 
     if (status === 200) {
       saveUserData(body as LoginResponse);
+      navigate('/');
     } else if (body && 'message' in body) setMessage(body.message ?? null);
   };
 
