@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './TravelView.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ErrorResponse, GetPostsResponse, GetTravelResponse } from 'types';
 import { AddButton } from '../../components/common/AddButton/AddButton';
 import { useApi } from '../../hooks/useApi';
@@ -8,9 +8,10 @@ import { apiUrl } from '../../config';
 import { TravelInfo } from '../../components/TravelInfo/TravelInfo';
 import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
 import { PostTransparent } from '../../components/PostTransparent/PostTransparent';
-import { GoBackButton } from '../../components/GoBackButton/GoBackButton';
+import { IconButtonBlack } from '../../components/common/IconButtonBlack/IconButtonBlack';
 
 export function TravelView() {
+  const navigate = useNavigate();
   const params = useParams();
   const [refreshFlag, setRefreshFlag] = useState<boolean>();
   const [excludedPostId, setExcludedPostId] = useState<string | null>(null);
@@ -31,10 +32,17 @@ export function TravelView() {
     setExcludedPostId(postId);
   };
 
+  const goBackHandler = () => {
+    navigate(`/profile/${travelStatus === 200 && travelBody && !('error' in travelBody) && travelBody.authorId}`);
+  };
+
   return (
     <main className="UserAccountView">
       <section className="TravelView__window">
-        <GoBackButton to="/profile" />
+        <IconButtonBlack
+          onCLick={goBackHandler}
+          bootstrapIcon="bi bi-arrow-left-short"
+        />
         {
           travelStatus === 200 && travelBody && !('error' in travelBody)
             ? (
