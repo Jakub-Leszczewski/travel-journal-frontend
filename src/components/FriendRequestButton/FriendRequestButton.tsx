@@ -23,7 +23,7 @@ export function FriendRequestButton({
         <div className="FriendRequestButton__container-right">
           <UserAvatar
             imageUrl={avatar}
-            alt={`${firstName} ${lastName} - avatar`}
+            alt={`${firstName} ${lastName}`}
           />
 
           <div className="FriendRequestButton__name-container">

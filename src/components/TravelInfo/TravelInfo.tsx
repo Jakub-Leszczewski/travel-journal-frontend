@@ -1,6 +1,6 @@
 import React from 'react';
 import './TravelInfo.css';
-import { UserInfo } from '../UserInfo/UserInfo';
+import { InfoBarList } from '../InfoBarList/InfoBarList';
 import { apiUrl } from '../../config';
 
 interface Props {
@@ -20,7 +20,7 @@ export function TravelInfo({
     <section className="TravelInfo">
       <header className="TravelInfo__header">
         <div className="TravelInfo__img-container">
-          <img src={`${apiUrl}${photoUrl}`} alt={`${title} - photo`} />
+          <img src={`${apiUrl}${photoUrl}`} alt={`${title}`} />
         </div>
         <div className="TravelInfo__title-container">
           <h2>{title}</h2>
@@ -28,7 +28,7 @@ export function TravelInfo({
       </header>
 
       <div className="TravelInfo__content">
-        <UserInfo
+        <InfoBarList
           info={[
             { text: destination, bootstrapIconName: 'bi bi-geo-alt-fill' },
             {

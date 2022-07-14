@@ -22,7 +22,7 @@ export function AddFriendButton({
         <div className="AddFriendButton__container-right">
           <UserAvatar
             imageUrl={avatar}
-            alt={`${firstName} ${lastName}-avatar`}
+            alt={`${firstName} ${lastName}`}
           />
 
           <div className="AddFriendButton__name-container">

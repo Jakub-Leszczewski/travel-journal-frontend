@@ -1,6 +1,6 @@
 import React from 'react';
 import './UserStaticData.css';
-import { UserInfo } from '../UserInfo/UserInfo';
+import { InfoBarList } from '../InfoBarList/InfoBarList';
 import { UserAvatar } from '../UserAvatar/UserAvatar';
 
 interface Props {
@@ -22,7 +22,7 @@ export function UserStaticData({
         imageUrl={imageUrl}
       />
       <h2 className="UserStaticData__name">{`${firstName} ${lastName}`}</h2>
-      <UserInfo
+      <InfoBarList
         info={[
           { text: `podróże - ${travelsCount}`, bootstrapIconName: 'bi bi-signpost-fill' },
           { text: `wpisy - ${postsCount}`, bootstrapIconName: 'bi bi-postcard-heart-fill' },

@@ -24,7 +24,7 @@ export function FriendButton({
         <div className="FriendButton__container-right">
           <UserAvatar
             imageUrl={avatar}
-            alt={`${firstName} ${lastName}-avatar`}
+            alt={`${firstName} ${lastName}`}
           />
 
           <div className="FriendButton__name-container">

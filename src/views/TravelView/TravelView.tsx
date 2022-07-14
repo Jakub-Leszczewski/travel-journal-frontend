@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './TravelView.css';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ErrorResponse, GetPostsResponse, GetTravelResponse } from 'types';
 import { AddButton } from '../../components/common/AddButton/AddButton';
 import { useApi } from '../../hooks/useApi';
@@ -9,8 +9,10 @@ import { TravelInfo } from '../../components/TravelInfo/TravelInfo';
 import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
 import { PostTransparent } from '../../components/PostTransparent/PostTransparent';
 import { IconButtonBlack } from '../../components/common/IconButtonBlack/IconButtonBlack';
+import { useUser } from '../../hooks/useUser';
 
 export function TravelView() {
+  const user = useUser();
   const navigate = useNavigate();
   const params = useParams();
   const [refreshFlag, setRefreshFlag] = useState<boolean>();
@@ -36,6 +38,10 @@ export function TravelView() {
     navigate(`/profile/${travelStatus === 200 && travelBody && !('error' in travelBody) && travelBody.authorId}`);
   };
 
+  const goAddPost = () => {
+    navigate(`/travel/${params.id}/post/add`);
+  };
+
   return (
     <main className="UserAccountView">
       <section className="TravelView__window">
@@ -59,7 +65,11 @@ export function TravelView() {
             : travelStatus !== null && (<ForbiddenWindow />)
         }
 
-        <Link to={`/travel/${params.id}/post/add`}><AddButton /></Link>
+        {
+          travelStatus === 200 && travelBody && !('error' in travelBody) && user?.id === travelBody.authorId && (
+            <AddButton onClick={goAddPost} />
+          )
+        }
         <div className="TravelView__post-container">
           {
             postStatus === 200 && postBody && !('error' in postBody) ? postBody.map((e, i) => e.id !== excludedPostId
@@ -72,6 +82,7 @@ export function TravelView() {
                   createdAt={new Date(e.createdAt)}
                   description={e.description}
                   photoUrl={e.photo}
+                  authorId={travelStatus === 200 && travelBody && !('error' in travelBody) ? travelBody.authorId : ''}
                   refreshPostHandler={refreshPostHandler}
                   excludePost={excludePost}
                 />

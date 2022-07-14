@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserInfo.css';
+import './InfoBarList.css';
 import { InfoBar } from '../InfoBar/InfoBar';
 
 interface Props {
@@ -9,9 +9,9 @@ interface Props {
   }[];
 }
 
-export function UserInfo({ info }: Props) {
+export function InfoBarList({ info }: Props) {
   return (
-    <div className="UserInfo">
+    <div className="InfoBarList">
       {
         info.map((e, i) => (
           <InfoBar

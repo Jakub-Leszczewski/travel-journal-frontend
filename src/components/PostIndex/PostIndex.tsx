@@ -2,7 +2,7 @@ import React from 'react';
 import './PostIndex.css';
 import { useNavigate } from 'react-router-dom';
 import { apiUrl } from '../../config';
-import { UserInfo } from '../UserInfo/UserInfo';
+import { InfoBarList } from '../InfoBarList/InfoBarList';
 import { UserHeader } from '../UserHeader/UserHeader';
 import { IconButtonBlack } from '../common/IconButtonBlack/IconButtonBlack';
 
@@ -42,7 +42,7 @@ export function PostIndex({
       />
       <header className="PostIndex__header">
         <div className="PostIndex__img-container">
-          <img src={postPhotoUrl} alt={`${postTitle} - photo`} />
+          <img src={postPhotoUrl} alt={`${postTitle}`} />
         </div>
         <div className="PostIndex__title-container">
           <h2>{postTitle}</h2>
@@ -50,7 +50,7 @@ export function PostIndex({
       </header>
 
       <div className="PostIndex__content">
-        <UserInfo
+        <InfoBarList
           info={[
             { text: postDestination, bootstrapIconName: 'bi bi-geo-alt-fill' },
             {

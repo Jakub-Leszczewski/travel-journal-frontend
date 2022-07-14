@@ -1,6 +1,6 @@
 import React from 'react';
 import './UserHeader.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { UserAvatar } from '../UserAvatar/UserAvatar';
 
 interface Props {
@@ -17,7 +17,7 @@ export function UserHeader({
   return (
     <div className="UserHeader">
       <UserAvatar
-        alt={`${firstName} ${lastName} - avatar`}
+        alt={`${firstName} ${lastName}`}
         imageUrl={imageUrl}
         onClick={() => navigate(`/profile/${userId}`)}
       />
