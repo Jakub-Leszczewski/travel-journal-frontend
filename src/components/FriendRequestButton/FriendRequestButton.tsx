@@ -5,33 +5,44 @@ import { UserAvatar } from '../UserAvatar/UserAvatar';
 import { IconButton } from '../common/IconButton/IconButton';
 
 interface Props {
-  id: string;
+  friendshipId: string;
   firstName: string;
   lastName: string;
   username: string;
   avatar: string;
+  removeFriendHandler: (friendshipId: string) => void;
+  acceptFriendHandler: (friendshipId: string) => void;
 }
 
-export function FriendRequestButton() {
+export function FriendRequestButton({
+  friendshipId, firstName, lastName, username, avatar, removeFriendHandler, acceptFriendHandler,
+}: Props) {
   return (
     <div className="FriendRequestButton">
       <Link to="/profile">
         <div className="FriendRequestButton__container-right">
           <UserAvatar
-            imageUrl="/user.png"
-            alt="abc"
+            imageUrl={avatar}
+            alt={`${firstName} ${lastName} - avatar`}
           />
 
           <div className="FriendRequestButton__name-container">
-            <p className="FriendRequestButton__name">Jan Kowalski</p>
-            <p className="FriendRequestButton__username">ezter</p>
+            <p className="FriendRequestButton__name">{`${firstName} ${lastName}`}</p>
+            <p className="FriendRequestButton__username">{username}</p>
           </div>
         </div>
       </Link>
 
       <div className="FriendRequestButton__container-right">
-        <IconButton bootstrapIcon="bi bi-person-check-fill" />
-        <IconButton bootstrapIcon="bi bi-person-x-fill" />
+        <IconButton
+          bootstrapIcon="bi bi-person-check-fill"
+          onClick={() => acceptFriendHandler(friendshipId)}
+        />
+
+        <IconButton
+          bootstrapIcon="bi bi-person-x-fill"
+          onClick={() => removeFriendHandler(friendshipId)}
+        />
       </div>
     </div>
   );

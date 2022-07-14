@@ -5,32 +5,40 @@ import { UserAvatar } from '../UserAvatar/UserAvatar';
 import { IconButton } from '../common/IconButton/IconButton';
 
 interface Props {
-  id: string;
+  friendshipId: string;
   firstName: string;
   lastName: string;
   username: string;
   avatar: string;
+  to?: string;
+  onClick: (friendshipId: string) => void;
+  bootstrapIcon: string;
 }
 
-export function FriendButton() {
+export function FriendButton({
+  friendshipId, firstName, lastName, username, avatar, onClick, bootstrapIcon, to,
+}: Props) {
   return (
     <div className="FriendButton">
-      <Link to="/profile">
+      <Link to={to ?? '#'}>
         <div className="FriendButton__container-right">
           <UserAvatar
-            imageUrl="/user.png"
-            alt="abc"
+            imageUrl={avatar}
+            alt={`${firstName} ${lastName}-avatar`}
           />
 
           <div className="FriendButton__name-container">
-            <p className="FriendButton__name">Jan Kowalski</p>
-            <p className="FriendButton__username">ezter</p>
+            <p className="FriendButton__name">{`${firstName} ${lastName}`}</p>
+            <p className="FriendButton__username">{username}</p>
           </div>
         </div>
       </Link>
 
       <div className="FriendButton__container-right">
-        <IconButton bootstrapIcon="bi bi-person-x-fill" />
+        <IconButton
+          bootstrapIcon={bootstrapIcon}
+          onClick={() => onClick(friendshipId)}
+        />
       </div>
     </div>
   );

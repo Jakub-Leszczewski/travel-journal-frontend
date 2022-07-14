@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78620042-1b04-475e-8b7e-484fe5117c05" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddFriendButton/AddFriendButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddFriendButton/AddFriendButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FoundFriendsList/FoundFriendsList.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FoundFriendsList/FoundFriendsList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/ShortTextInput/ShortTextInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/ShortTextInput/ShortTextInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendButton/FriendButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendButton/FriendButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendRequestButton/FriendRequestButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendRequestButton/FriendRequestButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useApi.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/FindFriendsView/FindFriendsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/FindFriendsView/FindFriendsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/FriendsView/FriendsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/FriendsView/FriendsView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657802279080</updated>
       <workItem from="1657802280349" duration="839000" />
-      <workItem from="1657803380357" duration="5151000" />
+      <workItem from="1657803380357" duration="13046000" />
     </task>
     <servers />
   </component>
