@@ -1,9 +1,0 @@
-.FriendRequestsList {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.FriendRequestsList>h3 {
-    margin: 7px;
-}

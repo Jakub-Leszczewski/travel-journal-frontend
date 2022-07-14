@@ -10,27 +10,30 @@ interface Props {
   lastName: string;
   username: string;
   avatar: string;
+  addFriendHandler: (id: string) => void;
 }
 
-export function AddFriendButton() {
+export function AddFriendButton({
+  id, firstName, lastName, username, avatar, addFriendHandler,
+}: Props) {
   return (
     <div className="AddFriendButton">
       <Link to="/profile">
         <div className="AddFriendButton__container-right">
           <UserAvatar
-            imageUrl="/user.png"
-            alt="abc"
+            imageUrl={avatar}
+            alt={`${firstName} ${lastName}-avatar`}
           />
 
           <div className="AddFriendButton__name-container">
-            <p className="AddFriendButton__name">Jan Kowalski</p>
-            <p className="AddFriendButton__username">ezter</p>
+            <p className="AddFriendButton__name">{`${firstName} ${lastName}`}</p>
+            <p className="AddFriendButton__username">{username}</p>
           </div>
         </div>
       </Link>
 
       <div className="AddFriendButton__container-right">
-        <IconButton bootstrapIcon="bi bi-person-plus-fill" />
+        <IconButton bootstrapIcon="bi bi-person-plus-fill" onClick={() => addFriendHandler(id)} />
       </div>
     </div>
   );
