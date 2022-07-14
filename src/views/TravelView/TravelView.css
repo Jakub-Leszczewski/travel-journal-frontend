@@ -36,7 +36,7 @@
     border: 1px solid rgba(255, 255, 255, 0.87);
 }
 
-.TravelView__window>.GoBackButton {
+.TravelView__window>.IconButtonBlack {
     position: absolute;
     z-index: 999;
     left: 0;

@@ -3,23 +3,35 @@
   <component name="ChangeListManager">
     <list default="true" id="78620042-1b04-475e-8b7e-484fe5117c05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendButton/FriendButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendButton/FriendButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendRequestButton/FriendRequestButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendRequestButton/FriendRequestButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/FindFriendsView/FindFriendsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/FindFriendsView/FindFriendsView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/FriendsView/FriendsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/FriendsView/FriendsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ShortTravelInfo/ShortTravelInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShortTravelInfo/ShortTravelInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/IconButtonBlack/IconButtonBlack.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/IconButtonBlack/IconButtonBlack.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/IndexView/IndexView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/IndexView/IndexView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/ProfileView/ProfileView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ProfileView/ProfileView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/TravelView/TravelView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TravelView/TravelView.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="2Bw1LfWF18cKrP1Y5ppJkIrCgny" />
   <component name="ProjectViewState">
@@ -32,7 +44,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.15.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.44" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/UserHeader" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -42,6 +55,15 @@
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="ts.external.directory.path" value="F:\oneDrive\projekty\Travel Journal\travel-journal-frontend\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\oneDrive\projekty\Travel Journal\travel-journal-frontend\src\components\UserHeader" />
+      <recent name="F:\oneDrive\projekty\Travel Journal\travel-journal-frontend\src\components\PostIndex" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\oneDrive\projekty\Travel Journal\travel-journal-frontend\src\components\common" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -69,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657802279080</updated>
       <workItem from="1657802280349" duration="839000" />
-      <workItem from="1657803380357" duration="13046000" />
+      <workItem from="1657803380357" duration="19675000" />
     </task>
     <servers />
   </component>

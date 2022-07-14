@@ -1,0 +1,75 @@
+.PostIndex {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.84);
+    margin: 30px 0;
+    border-radius: 28px;
+    transition: transform .25s ease;
+    backdrop-filter: blur(15px);
+}
+
+.PostIndex:hover {
+    transform: scale(1.01);
+}
+
+.PostIndex__header {
+    width: 100%;
+    padding: 5px;
+}
+
+.PostIndex__img-container {
+    width: 100%;
+    height: 150px;
+}
+
+.PostIndex__img-container>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px 25px 10px 10px;
+}
+
+.PostIndex__img-container::after {
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0.61);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px 25px 10px 10px;
+}
+
+.PostIndex__title-container {
+    position: absolute;
+    top: 100%;
+    font-size: 1.3rem;
+    transform: translateY(-100%);
+    padding: 10px;
+}
+
+.PostIndex__header h2 {
+    font-size: 1rem;
+}
+
+.PostIndex__content>.UserInfo {
+    padding: 5px;
+}
+
+.PostIndex__content {
+    padding: 5px;
+}
+
+.PostIndex>.UserHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 10px;
+}
+
+.PostIndex>.IconButtonBlack {
+    margin: 10px;
+    position: absolute;
+    right: 0;
+    z-index: 999;
+}

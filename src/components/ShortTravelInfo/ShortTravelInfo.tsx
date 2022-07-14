@@ -64,7 +64,7 @@ export function ShortTravelInfo({
       <Link to={to}>
         <header className="ShortTravelInfo__header">
           <div className="ShortTravelInfo__img-container">
-            <img src={`${apiUrl}${photoUrl}`} alt={`${title} - photo`} />
+            <img src={photoUrl} alt={`${title} - photo`} />
           </div>
           <div className="ShortTravelInfo__title-container">
             <h2>{title}</h2>

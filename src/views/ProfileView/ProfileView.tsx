@@ -51,7 +51,7 @@ export function ProfileView() {
                 comradesCount={e.comradesCount}
                 travelStartAt={new Date(e.startAt)}
                 travelEndAt={new Date(e.endAt)}
-                photoUrl={e.photo}
+                photoUrl={`${apiUrl}${e.photo}`}
                 authorId={e.authorId}
                 excludeTravel={excludeTravel}
                 refreshTravels={refreshTravelsHandler}

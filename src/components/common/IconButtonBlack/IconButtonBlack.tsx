@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './IconButtonBlack.css';
 
 interface Props {
@@ -9,7 +8,11 @@ interface Props {
 
 export function IconButtonBlack({ onCLick, bootstrapIcon }: Props) {
   return (
-    <button type="button" className="GoBackButton" onClick={onCLick}>
+    <button
+      type="button"
+      className="IconButtonBlack"
+      onClick={onCLick}
+    >
       <i className={bootstrapIcon} />
     </button>
   );
