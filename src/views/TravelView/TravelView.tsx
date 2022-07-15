@@ -11,21 +11,24 @@ import { PostTransparent } from '../../components/PostTransparent/PostTransparen
 import { IconButtonBlack } from '../../components/common/IconButtonBlack/IconButtonBlack';
 import { useUser } from '../../hooks/useUser';
 import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
+import { Pagination } from '../../components/common/Pagination/Pagination';
 
 export function TravelView() {
   const user = useUser();
   const navigate = useNavigate();
   const params = useParams();
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [refreshFlag, setRefreshFlag] = useState<boolean>();
   const [excludedPostId, setExcludedPostId] = useState<string | null>(null);
   const [travelStatus, travelBody] = useApi<GetTravelResponse | ErrorResponse>(`${apiUrl}/api/travel/${params.id}`);
-  const [postStatus, postBody] = useApi<GetPostsResponse | ErrorResponse>(`${apiUrl}/api/travel/${params.id}/post`, [
-    params, refreshFlag,
-  ]);
+  const [postsStatus, postsBody] = useApi<GetPostsResponse | ErrorResponse>(
+    `${apiUrl}/api/travel/${params.id}/post?page=${currentPage}`,
+    [params, refreshFlag, currentPage],
+  );
 
   useEffect(() => {
     setExcludedPostId(null);
-  }, [postBody]);
+  }, [postsBody]);
 
   const refreshPostHandler = () => {
     setRefreshFlag((prev) => !prev);
@@ -41,6 +44,14 @@ export function TravelView() {
 
   const goAddPost = () => {
     navigate(`/travel/${params.id}/post/add`);
+  };
+
+  const changePageHandler = (page: number) => {
+    const elementPosition = document.querySelector('#scrollTo')?.getBoundingClientRect().top ?? 0;
+    const scrollY = elementPosition ? elementPosition + window.scrollY : 0;
+
+    setCurrentPage(page);
+    window.scrollTo(0, scrollY);
   };
 
   return (
@@ -73,28 +84,41 @@ export function TravelView() {
             <AddButton onClick={goAddPost} />
           )
         }
+        <div id="scrollTo" />
         <div className="TravelView__post-container">
           {
-            postStatus === 200 && postBody && !('error' in postBody) ? postBody.map((e, i) => e.id !== excludedPostId
-              && (
-              <React.Fragment key={e.id}>
-                <PostTransparent
-                  id={e.id}
-                  title={e.title}
-                  destination={e.destination}
-                  createdAt={new Date(e.createdAt)}
-                  description={e.description}
-                  photoUrl={e.photo}
-                  authorId={travelStatus === 200 && travelBody && !('error' in travelBody) ? travelBody.authorId : ''}
-                  refreshPostHandler={refreshPostHandler}
-                  excludePost={excludePost}
-                />
+            postsStatus === 200 && postsBody && !('error' in postsBody)
+              ? postsBody.posts.map((e, i) => e.id !== excludedPostId
+                && (
+                <React.Fragment key={e.id}>
+                  <PostTransparent
+                    id={e.id}
+                    title={e.title}
+                    destination={e.destination}
+                    createdAt={new Date(e.createdAt)}
+                    description={e.description}
+                    photoUrl={e.photo}
+                    authorId={travelStatus === 200 && travelBody && !('error' in travelBody) ? travelBody.authorId : ''}
+                    refreshPostHandler={refreshPostHandler}
+                    excludePost={excludePost}
+                  />
 
-                {i < postBody.length - 1 && <hr className="TravelView__hr" />}
-              </React.Fragment>
-              )) : postStatus !== null && (<ForbiddenWindow />)
+                  {i < postsBody.posts.length - 1 && <hr className="TravelView__hr" />}
+                </React.Fragment>
+                ))
+              : postsStatus !== null && (<ForbiddenWindow />)
           }
         </div>
+
+        <Pagination
+          totalPages={
+            postsStatus === 200 && postsBody && !('error' in postsBody)
+              ? postsBody.totalPostsCount
+              : 0
+          }
+          onChangePage={changePageHandler}
+          itemPerPage={10}
+        />
       </section>
     </main>
   );
