@@ -1,4 +1,5 @@
 import React from 'react';
+import { ErrorResponse, GetUserIndexResponse } from 'types';
 import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
 import { useApi } from '../../hooks/useApi';
 import { apiUrl } from '../../config';
@@ -8,9 +9,10 @@ import { PostIndex } from '../../components/PostIndex/PostIndex';
 
 export function IndexView() {
   const user = useUser();
-  const [indexStatus, indexBody] = useApi<any>(`${apiUrl}/api/user/${user?.id ?? ''}/index`);
+  const [indexStatus, indexBody] = useApi<GetUserIndexResponse | ErrorResponse>(
+    `${apiUrl}/api/user/${user?.id ?? ''}/index`,
+  );
 
-  console.log(indexBody);
   return (
     <main className="IndexView">
       <section className="IndexView__window">

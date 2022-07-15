@@ -28,7 +28,7 @@ export function PostForm({
         onChange={changeFormHandler}
         value={form.title}
         minLength={2}
-        maxLength={128}
+        maxLength={64}
         required={required}
       />
 
@@ -38,7 +38,7 @@ export function PostForm({
         onChange={changeFormHandler}
         value={form.destination}
         minLength={2}
-        maxLength={128}
+        maxLength={64}
         required={required}
       />
 

@@ -3,23 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="78620042-1b04-475e-8b7e-484fe5117c05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddFriendButton/AddFriendButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddFriendButton/AddFriendButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendButton/FriendButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendButton/FriendButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendRequestButton/FriendRequestButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendRequestButton/FriendRequestButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostIndex/PostIndex.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostIndex/PostIndex.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostIndex/PostIndex.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostIndex/PostIndex.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostTransparent/PostTransparent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostTransparent/PostTransparent.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostTransparent/PostTransparent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostTransparent/PostTransparent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShortTravelInfo/ShortTravelInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShortTravelInfo/ShortTravelInfo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShortTravelInfo/ShortTravelInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShortTravelInfo/ShortTravelInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TravelInfo/TravelInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TravelInfo/TravelInfo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TravelInfo/TravelInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TravelInfo/TravelInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserHeader/UserHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserHeader/UserHeader.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserHeader/UserHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserHeader/UserHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserInfo/UserInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InfoBarList/InfoBarList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserInfo/UserInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InfoBarList/InfoBarList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserStaticData/UserStaticData.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserStaticData/UserStaticData.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TravelView/TravelView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TravelView/TravelView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ForbiddenWindow/ForbiddenWindow.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ForbiddenWindow/ForbiddenWindow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/PostForm/PostForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/PostForm/PostForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/TravelForm/TravelForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/TravelForm/TravelForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/IndexView/IndexView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/IndexView/IndexView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/IndexView/IndexView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/IndexView/IndexView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657802279080</updated>
       <workItem from="1657802280349" duration="839000" />
-      <workItem from="1657803380357" duration="21180000" />
+      <workItem from="1657803380357" duration="23160000" />
     </task>
     <servers />
   </component>
