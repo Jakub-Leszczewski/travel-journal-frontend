@@ -13,3 +13,8 @@
 .FriendRequestsList>.LoadingSpinner div {
     background: rgba(255, 255, 255, 0.77);
 }
+
+.FriendRequestsList hr {
+    width: 90%;
+    margin: 40px auto;
+}

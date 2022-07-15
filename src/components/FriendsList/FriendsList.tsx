@@ -8,13 +8,15 @@ import { useUser } from '../../hooks/useUser';
 import { useApi } from '../../hooks/useApi';
 import { ForbiddenWindow } from '../ForbiddenWindow/ForbiddenWindow';
 import { LoadingSpinner } from '../LoadingSpinner/LoadingSpinner';
+import { Pagination } from '../common/Pagination/Pagination';
 
 export function FriendsList() {
   const user = useUser();
   const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [acceptedStatus, acceptedBody] = useApi<GetFriendsResponse | ErrorResponse>(
-    `${apiUrl}/api/user/${user?.id ?? ''}/friend?accepted=true`,
-    [refreshFlag],
+    `${apiUrl}/api/user/${user?.id ?? ''}/friend?accepted=true&page=${currentPage || 1}`,
+    [refreshFlag, currentPage],
   );
 
   const removeFriendshipHandler = async (friendshipId: string) => {
@@ -28,10 +30,15 @@ export function FriendsList() {
     if (status === 200) setRefreshFlag((prev) => !prev);
   };
 
+  const changePageHandler = (page: number) => {
+    window.scrollTo(0, 0);
+    setCurrentPage(page);
+  };
+
   return (
     <div className="FriendsList">
       {
-        acceptedStatus === 200 && acceptedBody && !('error' in acceptedBody) ? acceptedBody.map((e) => (
+        acceptedStatus === 200 && acceptedBody && !('error' in acceptedBody) ? acceptedBody.friends.map((e) => (
           <FriendButton
             to={`/profile/${e.friend.id}`}
             key={e.id}
@@ -45,7 +52,11 @@ export function FriendsList() {
           />
         )) : acceptedStatus !== null && (<ForbiddenWindow />)
       }
-
+      <Pagination
+        totalItems={acceptedBody && !('error' in acceptedBody) ? acceptedBody.totalFriendsCount : 1}
+        itemPerPage={10}
+        onChangePage={changePageHandler}
+      />
       {(acceptedStatus === null) ? <LoadingSpinner /> : null}
     </div>
   );

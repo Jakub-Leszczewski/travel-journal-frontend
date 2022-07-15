@@ -47,7 +47,7 @@ export function IndexView() {
           {(indexStatus === null) ? <LoadingSpinner /> : null}
         </div>
         <Pagination
-          totalItems={indexBody && !('error' in indexBody) ? indexBody.totalPostsCount : 0}
+          totalItems={indexBody && !('error' in indexBody) ? indexBody.totalPostsCount : 1}
           itemPerPage={10}
           onChangePage={changePageHandler}
         />

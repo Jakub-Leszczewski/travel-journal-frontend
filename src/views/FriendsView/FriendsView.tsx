@@ -7,7 +7,7 @@ import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { useUser } from '../../hooks/useUser';
 import { IconButton } from '../../components/common/IconButton/IconButton';
 import { FriendsList } from '../../components/FriendsList/FriendsList';
-import { FriendRequestsList } from '../../components/FriendRequestsList/FriendRequestsList';
+import { FriendRequestsLists } from '../../components/FriendRequestsLists/FriendRequestsLists';
 
 export function FriendsView() {
   const [isFriendList, setIsFriendList] = useState<boolean>(true);
@@ -33,7 +33,7 @@ export function FriendsView() {
         {
           isFriendList
             ? <FriendsList />
-            : <FriendRequestsList />
+            : <FriendRequestsLists />
         }
       </section>
     </main>

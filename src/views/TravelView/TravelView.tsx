@@ -111,11 +111,7 @@ export function TravelView() {
         </div>
 
         <Pagination
-          totalItems={
-            postsStatus === 200 && postsBody && !('error' in postsBody)
-              ? postsBody.totalPostsCount
-              : 0
-          }
+          totalItems={postsBody && !('error' in postsBody) ? postsBody.totalPostsCount : 0}
           onChangePage={changePageHandler}
           itemPerPage={10}
         />

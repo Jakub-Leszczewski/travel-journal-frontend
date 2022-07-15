@@ -2,10 +2,12 @@
     background: rgba(0, 0, 0, 0.82);
     border-radius: 17px;
     backdrop-filter: blur(15px);
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .rc-pagination {
-    margin: 0;
+    width: fit-content;
     padding: 0;
     font-size: 14px;
 }
