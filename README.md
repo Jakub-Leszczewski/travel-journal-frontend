@@ -1,4 +1,4 @@
-#Travel Journal
+# Travel Journal
 
 ## App Demo
 ```bash
