@@ -14,21 +14,23 @@ import { api, HttpMethod } from '../../utils/api';
 import { FriendButton } from '../../components/FriendButton/FriendButton';
 import { IconButton } from '../../components/common/IconButton/IconButton';
 import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
+import { Pagination } from '../../components/common/Pagination/Pagination';
 
 export function FindFriendsView() {
   const navigate = useNavigate();
   const user = useUser();
-  const [loading, setLoadin] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
   const [search, setSearch] = useState<string>('');
   const [searchStatus, searchBody] = useApi<GetUserSearchResponse | ErrorResponse>(
-    `${apiUrl}/api/user/${user?.id ?? ''}/search?search=${encodeURIComponent(search)}&friends=false`,
-    [search, refreshFlag],
+    `${apiUrl}/api/user/${user?.id ?? ''}/search?search=${encodeURIComponent(search)}&friends=false&page=${currentPage || 1}`,
+    [search, refreshFlag, currentPage],
   );
 
   useEffect(() => {
-    setLoadin(false);
+    setLoading(false);
   }, [searchBody]);
 
   useEffect(() => {
@@ -54,12 +56,17 @@ export function FindFriendsView() {
   };
 
   const changeSearchInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setLoadin(true);
+    setLoading(true);
     setSearchInput(e.target.value);
   };
 
   const goBackHandler = () => {
     navigate('/friends/');
+  };
+
+  const changePageHandler = (page: number) => {
+    window.scrollTo(0, 0);
+    setCurrentPage(page);
   };
 
   return (
@@ -81,7 +88,7 @@ export function FindFriendsView() {
         </div>
         <div className="FindFriendsView__container">
           {
-            searchStatus === 200 && searchBody && !('error' in searchBody) ? searchBody.map((e) => (
+            searchStatus === 200 && searchBody && !('error' in searchBody) ? searchBody.users.map((e) => (
               <FriendButton
                 bootstrapIcon="bi bi-person-plus-fill"
                 key={e.id}
@@ -94,6 +101,12 @@ export function FindFriendsView() {
               />
             )) : searchStatus !== null && (<ForbiddenWindow />)
           }
+
+          <Pagination
+            totalItems={searchBody && !('error' in searchBody) ? searchBody.totalUsersCount : 1}
+            itemPerPage={10}
+            onChangePage={changePageHandler}
+          />
 
           {(loading) ? <LoadingSpinner /> : null}
 
