@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './FriendsList.css';
 import { DeleteFriendResponse, ErrorResponse, GetFriendsResponse } from 'types';
-import { FriendButton } from '../FriendButton/FriendButton';
 import { api, HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
 import { useUser } from '../../hooks/useUser';
@@ -9,6 +8,7 @@ import { useApi } from '../../hooks/useApi';
 import { ForbiddenWindow } from '../ForbiddenWindow/ForbiddenWindow';
 import { LoadingSpinner } from '../LoadingSpinner/LoadingSpinner';
 import { Pagination } from '../common/Pagination/Pagination';
+import { RemoveFriendButton } from '../RemoveFriendButton/RemoveFriendButton';
 
 export function FriendsList() {
   const user = useUser();
@@ -39,7 +39,7 @@ export function FriendsList() {
     <div className="FriendsList">
       {
         acceptedStatus === 200 && acceptedBody && !('error' in acceptedBody) ? acceptedBody.friends.map((e) => (
-          <FriendButton
+          <RemoveFriendButton
             to={`/profile/${e.friend.id}`}
             key={e.id}
             friendshipId={e.id}
@@ -47,7 +47,6 @@ export function FriendsList() {
             lastName={e.friend.lastName}
             username={e.friend.username}
             avatar={`${apiUrl}${e.friend.avatar}`}
-            bootstrapIcon="bi bi-person-x-fill"
             onClick={removeFriendshipHandler}
           />
         )) : acceptedStatus !== null && (<ForbiddenWindow />)

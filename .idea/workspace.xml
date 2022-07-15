@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FriendButton/FriendButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendButton/FriendButton.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FriendButton/FriendButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendButton/FriendButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657802279080</updated>
       <workItem from="1657802280349" duration="839000" />
-      <workItem from="1657803380357" duration="43727000" />
+      <workItem from="1657803380357" duration="44433000" />
     </task>
     <servers />
   </component>
