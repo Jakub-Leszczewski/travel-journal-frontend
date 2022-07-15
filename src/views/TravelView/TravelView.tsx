@@ -46,7 +46,7 @@ export function TravelView() {
     <main className="UserAccountView">
       <section className="TravelView__window">
         <IconButtonBlack
-          onCLick={goBackHandler}
+          onClick={goBackHandler}
           bootstrapIcon="bi bi-arrow-left-short"
         />
         {

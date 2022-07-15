@@ -37,7 +37,7 @@ export function PostIndex({
       />
 
       <IconButtonBlack
-        onCLick={goTravelHandler}
+        onClick={goTravelHandler}
         bootstrapIcon="bi bi-geo-alt-fill"
       />
       <header className="PostIndex__header">

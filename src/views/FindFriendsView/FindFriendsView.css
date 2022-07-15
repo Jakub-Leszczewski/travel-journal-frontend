@@ -10,7 +10,7 @@
     background: rgba(0, 0, 0, 0.84);
     height: fit-content;
     backdrop-filter: blur(15px);
-    border-radius: 20px;
+    border-radius: 28px;
     padding: 20px 30px;
     width: 100%;
     max-width: 600px;
@@ -30,6 +30,14 @@
 .FindFriendsView__form-container>form>.ShortTextInput {
     width: 100%;
 }
+.FindFriendsView__window>.IconButton {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    margin: 10px;
+}
+
 
 @media only screen and (min-width: 280px) {
 

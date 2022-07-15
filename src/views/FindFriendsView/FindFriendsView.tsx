@@ -3,6 +3,7 @@ import './FindFriendsView.css';
 import {
   CreateFriendResponse, ErrorResponse, GetUserSearchResponse, CreateFriendDtoInterface,
 } from 'types';
+import { useNavigate } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { useUser } from '../../hooks/useUser';
 import { ShortTextInput } from '../../components/common/ShortTextInput/ShortTextInput';
@@ -11,8 +12,10 @@ import { apiUrl } from '../../config';
 import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
 import { api, HttpMethod } from '../../utils/api';
 import { FriendButton } from '../../components/FriendButton/FriendButton';
+import { IconButton } from '../../components/common/IconButton/IconButton';
 
 export function FindFriendsView() {
+  const navigate = useNavigate();
   const user = useUser();
   const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
@@ -48,9 +51,17 @@ export function FindFriendsView() {
     setSearchInput(e.target.value);
   };
 
+  const goBackHandler = () => {
+    navigate('/friends/');
+  };
+
   return (
     <main className="FindFriendsView">
       <section className="FindFriendsView__window">
+        <IconButton
+          onClick={goBackHandler}
+          bootstrapIcon="bi bi-arrow-left-short"
+        />
         <ViewTitle>Szukaj znajomych</ViewTitle>
         <div className="FindFriendsView__form-container">
           <form>

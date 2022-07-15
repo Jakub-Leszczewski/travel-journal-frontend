@@ -2,16 +2,16 @@ import React from 'react';
 import './IconButtonBlack.css';
 
 interface Props {
-  onCLick: () => void;
+  onClick: () => void;
   bootstrapIcon: string;
 }
 
-export function IconButtonBlack({ onCLick, bootstrapIcon }: Props) {
+export function IconButtonBlack({ onClick, bootstrapIcon }: Props) {
   return (
     <button
       type="button"
       className="IconButtonBlack"
-      onClick={onCLick}
+      onClick={onClick}
     >
       <i className={bootstrapIcon} />
     </button>
