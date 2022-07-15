@@ -50,8 +50,8 @@ export function TravelView() {
     const elementPosition = document.querySelector('#scrollTo')?.getBoundingClientRect().top ?? 0;
     const scrollY = elementPosition ? elementPosition + window.scrollY : 0;
 
-    setCurrentPage(page);
     window.scrollTo(0, scrollY);
+    setCurrentPage(page);
   };
 
   return (
@@ -111,7 +111,7 @@ export function TravelView() {
         </div>
 
         <Pagination
-          totalPages={
+          totalItems={
             postsStatus === 200 && postsBody && !('error' in postsBody)
               ? postsBody.totalPostsCount
               : 0

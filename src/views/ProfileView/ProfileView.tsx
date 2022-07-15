@@ -73,7 +73,7 @@ export function ProfileView() {
 
         </div>
         <Pagination
-          totalPages={
+          totalItems={
             travelsStatus === 200 && travelsBody && !('error' in travelsBody)
               ? travelsBody.totalTravelsCount
               : 0

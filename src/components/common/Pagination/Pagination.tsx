@@ -3,13 +3,13 @@ import './Pagination.css';
 import PaginationCore from 'rc-pagination';
 
 interface Props {
-  totalPages: number;
+  totalItems: number;
   itemPerPage: number;
   onChangePage: (page: number) => void;
 }
 
 export function Pagination({
-  totalPages, itemPerPage, onChangePage,
+  totalItems, itemPerPage, onChangePage,
 }: Props) {
   return (
     <div className="Pagination">
@@ -18,7 +18,7 @@ export function Pagination({
         hideOnSinglePage
         showTitle={false}
         showLessItems
-        total={totalPages}
+        total={totalItems}
         pageSize={itemPerPage}
         jumpNextIcon={null}
         onChange={onChangePage}
