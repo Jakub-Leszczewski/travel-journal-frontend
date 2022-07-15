@@ -13,10 +13,12 @@ import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindo
 import { api, HttpMethod } from '../../utils/api';
 import { FriendButton } from '../../components/FriendButton/FriendButton';
 import { IconButton } from '../../components/common/IconButton/IconButton';
+import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
 
 export function FindFriendsView() {
   const navigate = useNavigate();
   const user = useUser();
+  const [loading, setLoadin] = useState<boolean>(false);
   const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
   const [search, setSearch] = useState<string>('');
@@ -24,6 +26,10 @@ export function FindFriendsView() {
     `${apiUrl}/api/user/${user?.id ?? ''}/search?search=${encodeURIComponent(search)}&friends=false`,
     [search, refreshFlag],
   );
+
+  useEffect(() => {
+    setLoadin(false);
+  }, [searchBody]);
 
   useEffect(() => {
     const interval = setTimeout(async () => {
@@ -48,6 +54,7 @@ export function FindFriendsView() {
   };
 
   const changeSearchInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setLoadin(true);
     setSearchInput(e.target.value);
   };
 
@@ -87,6 +94,9 @@ export function FindFriendsView() {
               />
             )) : searchStatus !== null && (<ForbiddenWindow />)
           }
+
+          {(loading) ? <LoadingSpinner /> : null}
+
         </div>
       </section>
     </main>

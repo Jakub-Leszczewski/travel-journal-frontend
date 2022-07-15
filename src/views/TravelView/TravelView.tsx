@@ -10,6 +10,7 @@ import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindo
 import { PostTransparent } from '../../components/PostTransparent/PostTransparent';
 import { IconButtonBlack } from '../../components/common/IconButtonBlack/IconButtonBlack';
 import { useUser } from '../../hooks/useUser';
+import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
 
 export function TravelView() {
   const user = useUser();
@@ -64,6 +65,8 @@ export function TravelView() {
             )
             : travelStatus !== null && (<ForbiddenWindow />)
         }
+
+        {(travelStatus === null) ? <LoadingSpinner /> : null}
 
         {
           travelStatus === 200 && travelBody && !('error' in travelBody) && user?.id === travelBody.authorId && (

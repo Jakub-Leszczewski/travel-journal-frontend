@@ -10,6 +10,7 @@ import { apiUrl } from '../../config';
 import { useUser } from '../../hooks/useUser';
 import { ForbiddenWindow } from '../ForbiddenWindow/ForbiddenWindow';
 import { api, HttpMethod } from '../../utils/api';
+import { LoadingSpinner } from '../LoadingSpinner/LoadingSpinner';
 
 export function FriendRequestsList() {
   const user = useUser();
@@ -61,8 +62,11 @@ export function FriendRequestsList() {
               acceptFriendHandler={acceptFriendshipHandler}
               removeFriendHandler={removeFriendshipHandler}
             />
-          )) : waitingStatus !== null && (<ForbiddenWindow />)
+          )) : invitationStatus !== null && (<ForbiddenWindow />)
         }
+
+        {(invitationStatus === null) ? <LoadingSpinner /> : null}
+
       </div>
 
       <br />
@@ -84,6 +88,8 @@ export function FriendRequestsList() {
           )) : waitingStatus !== null && (<ForbiddenWindow />)
         }
       </div>
+
+      {(waitingStatus === null) ? <LoadingSpinner /> : null}
     </div>
   );
 }

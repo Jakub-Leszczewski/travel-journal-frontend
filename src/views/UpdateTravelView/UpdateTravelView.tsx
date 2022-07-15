@@ -5,7 +5,7 @@ import './UpdateTravelView.css';
 import {
   ErrorResponse, GetTravelResponse, UpdateTravelDtoInterface, UpdateTravelResponse,
 } from 'types';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { TravelForm } from '../../components/form/TravelForm/TravelForm';
 import { apiFormData } from '../../utils/apiFormData';
@@ -14,6 +14,7 @@ import { HttpMethod } from '../../utils/api';
 import { CreateFormData } from '../../utils/create-form-data';
 import { useApi } from '../../hooks/useApi';
 import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
+import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
 
 export function UpdateTravelView() {
   const navigate = useNavigate();
@@ -94,6 +95,8 @@ export function UpdateTravelView() {
   return (
     <main className="UpdateTravelView">
       <section className="UpdateTravelView__window">
+        {(travelStatus === null) ? <LoadingSpinner /> : null}
+
         <ViewTitle>Edytuj podróż</ViewTitle>
         <div className="UpdateTravelView__container">
           <ErrorMessage message={message} />

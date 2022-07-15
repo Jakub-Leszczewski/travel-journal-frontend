@@ -6,6 +6,7 @@ import { apiUrl } from '../../config';
 import { useUser } from '../../hooks/useUser';
 import './IndexView.css';
 import { PostIndex } from '../../components/PostIndex/PostIndex';
+import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
 
 export function IndexView() {
   const user = useUser();
@@ -34,6 +35,8 @@ export function IndexView() {
               />
             )) : (indexStatus !== null) && <ForbiddenWindow />
           }
+
+          {(indexStatus === null) ? <LoadingSpinner /> : null}
         </div>
       </section>
     </main>

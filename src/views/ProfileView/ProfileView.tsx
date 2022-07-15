@@ -8,20 +8,21 @@ import { AddButton } from '../../components/common/AddButton/AddButton';
 import { ShortTravelInfo } from '../../components/ShortTravelInfo/ShortTravelInfo';
 import { useCompareUserId } from '../../hooks/useCompareUserId';
 import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
+import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
 
 export function ProfileView() {
   const idCompare = useCompareUserId();
   const params = useParams();
   const [refreshFlag, setRefreshFlag] = useState<boolean>();
   const [excludedTravelId, setExcludedTravelId] = useState<string | null>(null);
-  const [status, body] = useApi<GetTravelsResponse | ErrorResponse>(
+  const [travelsStatus, travelsBody] = useApi<GetTravelsResponse | ErrorResponse>(
     `${apiUrl}/api/user/${params.id}/travel`,
     [params, refreshFlag],
   );
 
   useEffect(() => {
     setExcludedTravelId(null);
-  }, [body]);
+  }, [travelsBody]);
 
   const refreshTravelsHandler = () => {
     setRefreshFlag((prev) => !prev);
@@ -40,24 +41,29 @@ export function ProfileView() {
 
         <div className="ProfileView__container">
           {
-            status === 200 && body && !('error' in body) ? body.map((e) => e.id !== excludedTravelId && (
-              <ShortTravelInfo
-                key={e.id}
-                to={`/travel/${e.id}`}
-                id={e.id}
-                title={e.title}
-                destination={e.destination}
-                description={e.description}
-                comradesCount={e.comradesCount}
-                travelStartAt={new Date(e.startAt)}
-                travelEndAt={new Date(e.endAt)}
-                photoUrl={`${apiUrl}${e.photo}`}
-                authorId={e.authorId}
-                excludeTravel={excludeTravel}
-                refreshTravels={refreshTravelsHandler}
-              />
-            )) : (status !== null) && <ForbiddenWindow />
+            travelsStatus === 200 && travelsBody
+            && !('error' in travelsBody) ? travelsBody.map((e) => e.id !== excludedTravelId
+              && (
+                <ShortTravelInfo
+                  key={e.id}
+                  to={`/travel/${e.id}`}
+                  id={e.id}
+                  title={e.title}
+                  destination={e.destination}
+                  description={e.description}
+                  comradesCount={e.comradesCount}
+                  travelStartAt={new Date(e.startAt)}
+                  travelEndAt={new Date(e.endAt)}
+                  photoUrl={`${apiUrl}${e.photo}`}
+                  authorId={e.authorId}
+                  excludeTravel={excludeTravel}
+                  refreshTravels={refreshTravelsHandler}
+                />
+              )) : (travelsStatus !== null) && <ForbiddenWindow />
           }
+
+          {(travelsStatus === null) ? <LoadingSpinner /> : null}
+
         </div>
       </section>
     </main>

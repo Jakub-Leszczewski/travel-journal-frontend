@@ -6,6 +6,10 @@
     width: 100vw;
 }
 
+.UpdatePostView__window .LoadingSpinner div {
+    background: rgba(255, 255, 255, 0.77);
+}
+
 .UpdatePostView__window {
     background: rgba(0, 0, 0, 0.84);
     height: fit-content;

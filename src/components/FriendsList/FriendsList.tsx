@@ -7,6 +7,7 @@ import { apiUrl } from '../../config';
 import { useUser } from '../../hooks/useUser';
 import { useApi } from '../../hooks/useApi';
 import { ForbiddenWindow } from '../ForbiddenWindow/ForbiddenWindow';
+import { LoadingSpinner } from '../LoadingSpinner/LoadingSpinner';
 
 export function FriendsList() {
   const user = useUser();
@@ -44,6 +45,8 @@ export function FriendsList() {
           />
         )) : acceptedStatus !== null && (<ForbiddenWindow />)
       }
+
+      {(acceptedStatus === null) ? <LoadingSpinner /> : null}
     </div>
   );
 }
