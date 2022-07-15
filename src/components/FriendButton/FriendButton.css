@@ -48,6 +48,23 @@
     font-size: 1rem;
 }
 
+.FriendButton__confirm-remove {
+    display: flex;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.74);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.FriendButton__confirm-remove>.WhiteButton {
+    margin: 0 5px;
+}
+
 @media only screen and (max-width: 320px) {
     .FriendButton__container-right>.UserAvatar {
         display: none;
