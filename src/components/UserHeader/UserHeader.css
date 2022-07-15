@@ -1,0 +1,15 @@
+.UserHeader {
+    display: flex;
+    align-items: center;
+}
+
+.UserHeader>.UserAvatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.UserHeader>p{
+    font-weight: 600;
+    font-size: .9rem;
+}

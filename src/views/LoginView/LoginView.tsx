@@ -1,5 +1,5 @@
 import React, {
-  ChangeEvent, FormEvent, useEffect, useState,
+  ChangeEvent, FormEvent, useState,
 } from 'react';
 import './LoginView.css';
 import { Link, useNavigate } from 'react-router-dom';

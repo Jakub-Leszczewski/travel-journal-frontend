@@ -2,7 +2,7 @@ import React from 'react';
 import './ShortTravelInfo.css';
 import { Link } from 'react-router-dom';
 import { DeleteTravelResponse, ErrorResponse } from 'types';
-import { UserInfo } from '../UserInfo/UserInfo';
+import { InfoBarList } from '../InfoBarList/InfoBarList';
 import { apiUrl } from '../../config';
 import { EditRemove } from '../EditRemove/EditRemove';
 import { api, HttpMethod } from '../../utils/api';
@@ -64,7 +64,7 @@ export function ShortTravelInfo({
       <Link to={to}>
         <header className="ShortTravelInfo__header">
           <div className="ShortTravelInfo__img-container">
-            <img src={`${apiUrl}${photoUrl}`} alt={`${title} - photo`} />
+            <img src={photoUrl} alt={`${title}`} />
           </div>
           <div className="ShortTravelInfo__title-container">
             <h2>{title}</h2>
@@ -72,7 +72,7 @@ export function ShortTravelInfo({
         </header>
 
         <div className="ShortTravelInfo__content">
-          <UserInfo
+          <InfoBarList
             info={[
               { text: destination, bootstrapIconName: 'bi bi-geo-alt-fill' },
               {

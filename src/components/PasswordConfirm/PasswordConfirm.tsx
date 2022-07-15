@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent } from 'react';
 import { AccountSettingsConfirmForm } from '../form/AccountSettingsConfirmForm/AccountSettingsConfirmForm';
 import './PasswordConfirm.css';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 
 interface Props {
   header: string;
@@ -20,11 +21,7 @@ export function PasswordConfirm({
     <section className="PasswordConfirm">
       <div className="PasswordConfirm__container">
         <p className="PasswordConfirm__header">{header}</p>
-        {
-          message instanceof Array
-            ? message.map((e, i) => (<p key={i} className="PasswordConfirm__message">{e}</p>))
-            : message && <p className="PasswordConfirm__message">{message}</p>
-        }
+        <ErrorMessage message={message} />
         <AccountSettingsConfirmForm
           form={form}
           changeFormHandler={changeFormHandler}

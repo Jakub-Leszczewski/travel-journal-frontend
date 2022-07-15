@@ -15,6 +15,8 @@ import { UpdateTravelView } from '../../views/UpdateTravelView/UpdateTravelView'
 import { AddPostView } from '../../views/AddPostView/AddPostView';
 import { UpdatePostView } from '../../views/UpdatePostView/UpdatePostView';
 import { MainNav } from '../MainNav/MainNav';
+import { FriendsView } from '../../views/FriendsView/FriendsView';
+import { FindFriendsView } from '../../views/FindFriendsView/FindFriendsView';
 
 function App() {
   const isAuth = useAuth();
@@ -51,7 +53,7 @@ function App() {
         />
 
         <Route
-          path="/profile/"
+          path="/profile"
           element={(
             <ProtectRoute navigateTo="/login" isAuth={isAuth}>
               <Navigate to={`/profile/${userData?.id}`} />
@@ -118,6 +120,24 @@ function App() {
           element={(
             <ProtectRoute navigateTo="/login" isAuth={isAuth}>
               <UpdatePostView />
+            </ProtectRoute>
+          )}
+        />
+
+        <Route
+          path="/friends"
+          element={(
+            <ProtectRoute navigateTo="/login" isAuth={isAuth}>
+              <FriendsView />
+            </ProtectRoute>
+          )}
+        />
+
+        <Route
+          path="/friends/find"
+          element={(
+            <ProtectRoute navigateTo="/login" isAuth={isAuth}>
+              <FindFriendsView />
             </ProtectRoute>
           )}
         />

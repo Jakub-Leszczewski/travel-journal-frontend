@@ -1,0 +1,11 @@
+.FriendsList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.FriendsList>.LoadingSpinner div {
+    background: rgba(255, 255, 255, 0.77);
+}

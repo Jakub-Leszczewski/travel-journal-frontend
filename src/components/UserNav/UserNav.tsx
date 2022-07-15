@@ -23,6 +23,7 @@ export function UserNav({ closeUserNav }: Props) {
   const goHomeHandler = () => navigateTo('/');
   const goYourProfileHandler = () => navigateTo('/profile');
   const goAccountHandler = () => navigateTo('/account');
+  const goFriendsHandler = () => navigateTo('/friends');
 
   const logout = async () => {
     const { status } = await api<LogoutResponse | ErrorResponse>(`${apiUrl}/api/auth/logout`, {
@@ -52,6 +53,13 @@ export function UserNav({ closeUserNav }: Props) {
         bootstrapIcon="bi bi-person-rolodex"
       >
         Twoje dane
+      </MenuButton>
+
+      <MenuButton
+        onClick={goFriendsHandler}
+        bootstrapIcon="bi bi-people-fill"
+      >
+        Znajomi
       </MenuButton>
 
       <MenuButton

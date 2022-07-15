@@ -51,7 +51,7 @@
     font-size: 1rem;
 }
 
-.ShortTravelInfo__content>.UserInfo {
+.ShortTravelInfo__content>.InfoBarList {
     padding: 5px;
 }
 
@@ -76,12 +76,5 @@
 
     .ShortTravelInfo__img-container {
         height: 200px;
-    }
-}
-
-@media only screen and (min-width: 700px) {
-    .ShortTravelInfo>.EditRemove {
-        /*opacity: 0;*/
-        opacity: 1;
     }
 }

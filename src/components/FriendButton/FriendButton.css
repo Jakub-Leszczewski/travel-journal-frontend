@@ -1,0 +1,55 @@
+.FriendButton {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.FriendButton:hover{
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.FriendButton>a{
+    width: 80%;
+}
+
+.FriendButton__container-right {
+    display: flex;
+    align-items: center;
+}
+
+.FriendButton__container-right>.UserAvatar {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.FriendButton__name {
+    font-weight: 600;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.FriendButton__username {
+    font-weight: 300;
+    text-align: center;
+    margin: 0 10px;
+    font-size: .8rem;
+}
+
+.FriendButton__container-right{}
+
+.FriendButton__container-right>.IconButton {
+    width: 35px;
+    height: 35px;
+}
+
+.FriendButton__container-right>.IconButton>i{
+    font-size: 1rem;
+}
+
+@media only screen and (max-width: 320px) {
+    .FriendButton__container-right>.UserAvatar {
+        display: none;
+    }
+}

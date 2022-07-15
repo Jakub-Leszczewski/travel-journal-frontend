@@ -1,0 +1,52 @@
+.FindFriendsView {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    width: 100vw;
+}
+
+.FindFriendsView__window {
+    background: rgba(0, 0, 0, 0.84);
+    height: fit-content;
+    backdrop-filter: blur(15px);
+    border-radius: 28px;
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: 100px 20px 20px 20px;
+}
+
+.FindFriendsView__container {
+    max-width: 400px;
+    margin: 30px auto 0 auto;
+}
+
+.FindFriendsView__form-container {
+    max-width: 400px;
+    margin: 20px auto 0 auto;
+}
+
+.FindFriendsView__form-container>form>.ShortTextInput {
+    width: 100%;
+}
+.FindFriendsView__window>.IconButton {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    margin: 10px;
+}
+
+.FindFriendsView__container>.LoadingSpinner div {
+    background: rgba(255, 255, 255, 0.77);
+}
+
+
+@media only screen and (min-width: 280px) {
+
+    .FindFriendsView__button-container {
+        flex-direction: row;
+    }
+}
+

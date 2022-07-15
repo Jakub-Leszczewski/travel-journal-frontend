@@ -1,0 +1,78 @@
+.RemoveFriendButton {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.FriendButton {
+    width: 100%;
+}
+
+.FriendButton:hover{
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.FriendButton>a{
+    width: 80%;
+}
+
+.FriendButton__container-right {
+    display: flex;
+    align-items: center;
+}
+
+.FriendButton__container-right>.UserAvatar {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.FriendButton__name {
+    font-weight: 600;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.FriendButton__username {
+    font-weight: 300;
+    text-align: center;
+    margin: 0 10px;
+    font-size: .8rem;
+}
+
+.FriendButton__container-right{}
+
+.FriendButton__container-right>.IconButton {
+    width: 35px;
+    height: 35px;
+}
+
+.FriendButton__container-right>.IconButton>i{
+    font-size: 1rem;
+}
+
+.FriendButton__confirm-remove {
+    display: flex;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.74);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.FriendButton__confirm-remove>.WhiteButton {
+    margin: 0 5px;
+}
+
+@media only screen and (max-width: 320px) {
+    .FriendButton__container-right>.UserAvatar {
+        display: none;
+    }
+}

@@ -10,7 +10,7 @@
     background: rgba(0, 0, 0, 0.84);
     height: fit-content;
     backdrop-filter: blur(15px);
-    border-radius: 20px;
+    border-radius: 28px;
     padding: 0;
     width: 100%;
     max-width: 800px;
@@ -18,6 +18,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 200px;
 }
 
 .TravelView__post-container {
@@ -36,11 +37,15 @@
     border: 1px solid rgba(255, 255, 255, 0.87);
 }
 
-.TravelView__window>.GoBackButton {
+.TravelView__window>.IconButtonBlack {
     position: absolute;
     z-index: 999;
     left: 0;
     margin: 10px;
+}
+
+.TravelView__window .LoadingSpinner div {
+    background: rgba(255, 255, 255, 0.77);
 }
 
 @media only screen and (min-width: 350px) {
