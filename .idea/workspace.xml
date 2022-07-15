@@ -3,20 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="78620042-1b04-475e-8b7e-484fe5117c05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendRequestsList/FriendRequestsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/FindFriendsView/FindFriendsView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/FindFriendsView/FindFriendsView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/FindFriendsView/FindFriendsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/FindFriendsView/FindFriendsView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/IndexView/IndexView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/IndexView/IndexView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/ProfileView/ProfileView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ProfileView/ProfileView.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/ProfileView/ProfileView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ProfileView/ProfileView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TravelView/TravelView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TravelView/TravelView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TravelView/TravelView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TravelView/TravelView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/UpdatePostView/UpdatePostView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UpdatePostView/UpdatePostView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/UpdatePostView/UpdatePostView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UpdatePostView/UpdatePostView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/UpdateTravelView/UpdateTravelView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UpdateTravelView/UpdateTravelView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/UpdateTravelView/UpdateTravelView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UpdateTravelView/UpdateTravelView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="TypeScript JSX File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -101,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1657802279080</updated>
       <workItem from="1657802280349" duration="839000" />
-      <workItem from="1657803380357" duration="26298000" />
+      <workItem from="1657803380357" duration="34719000" />
     </task>
     <servers />
   </component>

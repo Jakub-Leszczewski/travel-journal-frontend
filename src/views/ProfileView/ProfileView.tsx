@@ -9,15 +9,17 @@ import { ShortTravelInfo } from '../../components/ShortTravelInfo/ShortTravelInf
 import { useCompareUserId } from '../../hooks/useCompareUserId';
 import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
 import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
+import { Pagination } from '../../components/common/Pagination/Pagination';
 
 export function ProfileView() {
   const idCompare = useCompareUserId();
   const params = useParams();
   const [refreshFlag, setRefreshFlag] = useState<boolean>();
   const [excludedTravelId, setExcludedTravelId] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [travelsStatus, travelsBody] = useApi<GetTravelsResponse | ErrorResponse>(
-    `${apiUrl}/api/user/${params.id}/travel`,
-    [params, refreshFlag],
+    `${apiUrl}/api/user/${params.id}/travel?page=${currentPage}`,
+    [params, refreshFlag, currentPage],
   );
 
   useEffect(() => {
@@ -32,6 +34,11 @@ export function ProfileView() {
     setExcludedTravelId(travelId);
   };
 
+  const changePageHandler = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <main className="ProfileView">
       <section className="ProfileView__window">
@@ -42,7 +49,7 @@ export function ProfileView() {
         <div className="ProfileView__container">
           {
             travelsStatus === 200 && travelsBody
-            && !('error' in travelsBody) ? travelsBody.map((e) => e.id !== excludedTravelId
+            && !('error' in travelsBody) ? travelsBody.travels.map((e) => e.id !== excludedTravelId
               && (
                 <ShortTravelInfo
                   key={e.id}
@@ -65,6 +72,15 @@ export function ProfileView() {
           {(travelsStatus === null) ? <LoadingSpinner /> : null}
 
         </div>
+        <Pagination
+          totalPages={
+            travelsStatus === 200 && travelsBody && !('error' in travelsBody)
+              ? travelsBody.totalTravelsCount
+              : 0
+          }
+          onChangePage={changePageHandler}
+          itemPerPage={10}
+        />
       </section>
     </main>
   );
