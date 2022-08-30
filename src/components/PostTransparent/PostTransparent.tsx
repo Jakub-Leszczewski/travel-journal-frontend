@@ -26,7 +26,7 @@ export function PostTransparent({
   const user = useUser();
 
   const deleteHandler = async () => {
-    const { status, body } = await api<DeletePostResponse | ErrorResponse>(`${apiUrl}/api/post/${id}`, {
+    const { status, body } = await api<DeletePostResponse | ErrorResponse>(`${apiUrl}/post/${id}`, {
       method: HttpMethod.DELETE,
     });
 

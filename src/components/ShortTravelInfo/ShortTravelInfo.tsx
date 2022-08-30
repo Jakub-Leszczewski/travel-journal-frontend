@@ -40,7 +40,7 @@ export function ShortTravelInfo({
   const userData = useUser();
 
   const deleteHandler = async () => {
-    await api<DeleteTravelResponse | ErrorResponse>(`${apiUrl}/api/travel/${id}`, {
+    await api<DeleteTravelResponse | ErrorResponse>(`${apiUrl}/travel/${id}`, {
       method: HttpMethod.DELETE,
     });
 

@@ -26,7 +26,7 @@ export function Auth({ children }: Props) {
   useEffect(() => {
     (async () => {
       if (user === null) {
-        const { status, body } = await api<GetUserFromTokenResponse>(`${apiUrl}/api/auth/user`);
+        const { status, body } = await api<GetUserFromTokenResponse>(`${apiUrl}/auth/user`);
 
         if (status === 200) setUser(body);
 

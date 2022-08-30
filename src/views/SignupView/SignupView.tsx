@@ -29,7 +29,7 @@ export function SignupView() {
     e.preventDefault();
 
     const { repeatPassword, ...createUserData } = form;
-    const { status, body } = await api<LoginResponse | ErrorResponse>(`${apiUrl}/api/user`, {
+    const { status, body } = await api<LoginResponse | ErrorResponse>(`${apiUrl}/user`, {
       method: HttpMethod.POST,
       payload: createUserData,
     });
@@ -66,7 +66,6 @@ export function SignupView() {
           <Link className="SignupView__TextButton" to="/login">Zaloguj się</Link>
         </div>
       </section>
-
     </main>
   );
 }

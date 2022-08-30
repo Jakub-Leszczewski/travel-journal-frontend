@@ -26,7 +26,7 @@ export function UserNav({ closeUserNav }: Props) {
   const goFriendsHandler = () => navigateTo('/friends');
 
   const logout = async () => {
-    const { status } = await api<LogoutResponse | ErrorResponse>(`${apiUrl}/api/auth/logout`, {
+    const { status } = await api<LogoutResponse | ErrorResponse>(`${apiUrl}/auth/logout`, {
       method: HttpMethod.DELETE,
     });
 

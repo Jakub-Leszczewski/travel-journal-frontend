@@ -19,7 +19,7 @@ import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
 export function UpdateTravelView() {
   const navigate = useNavigate();
   const params = useParams();
-  const [travelStatus, travelBody] = useApi<GetTravelResponse | ErrorResponse>(`${apiUrl}/api/travel/${params.id}`);
+  const [travelStatus, travelBody] = useApi<GetTravelResponse | ErrorResponse>(`${apiUrl}/travel/${params.id}`);
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
   const [message, setMessage] = useState<string | string[] | null>(null);
 
@@ -56,7 +56,7 @@ export function UpdateTravelView() {
     e.preventDefault();
     const formData = CreateFormData.createFormDataRemoveEmpty(form, ['description']);
     const { status, body } = await apiFormData<UpdateTravelResponse | ErrorResponse>(
-      `${apiUrl}/api/travel/${params.id}`,
+      `${apiUrl}/travel/${params.id}`,
       {
         method: HttpMethod.PATCH,
         payload: formData,

@@ -26,7 +26,7 @@ export function UserAccountView() {
   const [isConfirm, setIsConfirm] = useState<boolean>(false);
   const [message, setMessage] = useState<string | string[] | null>(null);
   const [userStatsStatus, userStatsBody] = useApi<GetUserStatsResponse | ErrorResponse>(
-    `${apiUrl}/api/user/${user?.id}/stats`,
+    `${apiUrl}/user/${user?.id}/stats`,
   );
 
   const initialForm: UpdateAccountFormInterface = {
@@ -49,7 +49,7 @@ export function UserAccountView() {
     if (user) {
       const { repeatNewPassword, ...createUserData } = form;
       const formData = CreateFormData.createFormDataRemoveEmpty(createUserData, ['bio']);
-      const { status, body } = await apiFormData<UpdateUserResponse | ErrorResponse>(`${apiUrl}/api/user/${user.id}`, {
+      const { status, body } = await apiFormData<UpdateUserResponse | ErrorResponse>(`${apiUrl}/user/${user.id}`, {
         method: HttpMethod.PATCH,
         payload: formData,
       });

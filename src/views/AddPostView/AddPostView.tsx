@@ -36,7 +36,7 @@ export function AddPostView() {
 
     const formData = CreateFormData.createFormData(form);
     const { status, body } = await apiFormData<CreateTravelResponse | ErrorResponse>(
-      `${apiUrl}/api/travel/${params.id}/post`,
+      `${apiUrl}/travel/${params.id}/post`,
       {
         method: HttpMethod.POST,
         payload: formData,

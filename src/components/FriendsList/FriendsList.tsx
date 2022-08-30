@@ -15,13 +15,13 @@ export function FriendsList() {
   const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [acceptedStatus, acceptedBody] = useApi<GetFriendsResponse | ErrorResponse>(
-    `${apiUrl}/api/user/${user?.id ?? ''}/friend?accepted=true&page=${currentPage || 1}`,
+    `${apiUrl}/user/${user?.id ?? ''}/friend?accepted=true&page=${currentPage || 1}`,
     [refreshFlag, currentPage],
   );
 
   const removeFriendshipHandler = async (friendshipId: string) => {
     const { status } = await api<DeleteFriendResponse | ErrorResponse>(
-      `${apiUrl}/api/friend/${friendshipId}`,
+      `${apiUrl}/friend/${friendshipId}`,
       {
         method: HttpMethod.DELETE,
       },
