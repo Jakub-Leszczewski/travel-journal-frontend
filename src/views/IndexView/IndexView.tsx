@@ -13,7 +13,7 @@ export function IndexView() {
   const user = useUser();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [indexStatus, indexBody] = useApi<GetUserIndexResponse | ErrorResponse>(
-    `${apiUrl}/api/user/${user?.id ?? ''}/index?page=${currentPage ?? 1}`,
+    `${apiUrl}/user/${user?.id ?? ''}/index?page=${currentPage ?? 1}`,
     [currentPage],
   );
 
@@ -46,6 +46,7 @@ export function IndexView() {
 
           {(indexStatus === null) ? <LoadingSpinner /> : null}
         </div>
+
         <Pagination
           totalItems={indexBody && !('error' in indexBody) ? indexBody.totalPostsCount : 1}
           itemPerPage={10}

@@ -43,7 +43,7 @@ export function AddTravelView() {
     if (user) {
       const formData = CreateFormData.createFormData(form);
       const { status, body } = await apiFormData<CreateTravelDtoInterface | ErrorResponse>(
-        `${apiUrl}/api/user/${user.id}/travel`,
+        `${apiUrl}/user/${user.id}/travel`,
         {
           method: HttpMethod.POST,
           payload: formData,

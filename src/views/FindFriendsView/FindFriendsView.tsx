@@ -25,7 +25,7 @@ export function FindFriendsView() {
   const [searchInput, setSearchInput] = useState<string>('');
   const [search, setSearch] = useState<string>('');
   const [searchStatus, searchBody] = useApi<GetUserSearchResponse | ErrorResponse>(
-    `${apiUrl}/api/user/${user?.id ?? ''}/search?search=${encodeURIComponent(search)}&friends=false&page=${currentPage || 1}`,
+    `${apiUrl}/user/${user?.id ?? ''}/friend/search?search=${encodeURIComponent(search)}&page=${currentPage || 1}`,
     [search, refreshFlag, currentPage],
   );
 
@@ -45,7 +45,7 @@ export function FindFriendsView() {
     const payload: CreateFriendDtoInterface = { friendId: id };
 
     const { status } = await api<CreateFriendResponse | ErrorResponse>(
-      `${apiUrl}/api/user/${user?.id ?? ''}/friend`,
+      `${apiUrl}/user/${user?.id ?? ''}/friend`,
       {
         method: HttpMethod.POST,
         payload,
@@ -107,7 +107,6 @@ export function FindFriendsView() {
             itemPerPage={10}
             onChangePage={changePageHandler}
           />
-
           {(loading) ? <LoadingSpinner /> : null}
 
         </div>

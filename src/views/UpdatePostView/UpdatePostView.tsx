@@ -21,7 +21,7 @@ export function UpdatePostView() {
   const params = useParams();
   const [message, setMessage] = useState<string | string[] | null>(null);
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
-  const [postStatus, postBody] = useApi<GetPostResponse | ErrorResponse>(`${apiUrl}/api/post/${params.id}`);
+  const [postStatus, postBody] = useApi<GetPostResponse | ErrorResponse>(`${apiUrl}/post/${params.id}`);
 
   const initialForm: UpdatePostDtoInterface = {
     title: '',
@@ -54,7 +54,7 @@ export function UpdatePostView() {
 
     const formData = CreateFormData.createFormData(form);
     const { status, body } = await apiFormData<UpdateTravelResponse | ErrorResponse>(
-      `${apiUrl}/api/post/${params.id}`,
+      `${apiUrl}/post/${params.id}`,
       {
         method: HttpMethod.PATCH,
         payload: formData,

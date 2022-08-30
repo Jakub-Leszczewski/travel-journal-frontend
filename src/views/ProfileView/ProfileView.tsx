@@ -18,7 +18,7 @@ export function ProfileView() {
   const [excludedTravelId, setExcludedTravelId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [travelsStatus, travelsBody] = useApi<GetTravelsResponse | ErrorResponse>(
-    `${apiUrl}/api/user/${params.id}/travel?page=${currentPage}`,
+    `${apiUrl}/user/${params.id}/travel?page=${currentPage}`,
     [params, refreshFlag, currentPage],
   );
 

@@ -20,9 +20,9 @@ export function TravelView() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [refreshFlag, setRefreshFlag] = useState<boolean>();
   const [excludedPostId, setExcludedPostId] = useState<string | null>(null);
-  const [travelStatus, travelBody] = useApi<GetTravelResponse | ErrorResponse>(`${apiUrl}/api/travel/${params.id}`);
+  const [travelStatus, travelBody] = useApi<GetTravelResponse | ErrorResponse>(`${apiUrl}/travel/${params.id}`);
   const [postsStatus, postsBody] = useApi<GetPostsResponse | ErrorResponse>(
-    `${apiUrl}/api/travel/${params.id}/post?page=${currentPage}`,
+    `${apiUrl}/travel/${params.id}/post?page=${currentPage}`,
     [params, refreshFlag, currentPage],
   );
 
