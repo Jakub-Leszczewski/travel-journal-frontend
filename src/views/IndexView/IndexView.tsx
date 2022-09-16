@@ -27,7 +27,9 @@ export function IndexView() {
       <section className="IndexView__window">
         <div className="IndexView__container">
           {
-            indexStatus === 200 && indexBody && !('error' in indexBody) ? indexBody.posts.map((e: ForeignPostSaveData) => (
+            indexStatus === 200
+            && indexBody
+            && !('error' in indexBody) ? indexBody.posts.map((e: ForeignPostSaveData) => (
               <PostIndex
                 key={e.id}
                 postTitle={e.title}
@@ -41,7 +43,7 @@ export function IndexView() {
                 userId={e.user.id}
                 travelId={e.travel.id}
               />
-            )) : (indexStatus !== null) && <ForbiddenWindow />
+              )) : (indexStatus !== null) && <ForbiddenWindow />
           }
 
           {(indexStatus === null) ? <LoadingSpinner /> : null}
