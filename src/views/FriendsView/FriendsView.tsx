@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { useUser } from '../../hooks/useUser';
 import { IconButton } from '../../components/common/IconButton/IconButton';
-import { FriendsList } from '../../components/FriendsList/FriendsList';
-import { FriendRequestsLists } from '../../components/FriendRequestsLists/FriendRequestsLists';
+import { FriendsList } from './FriendsList/FriendsList';
+import { FriendRequestsLists } from './FriendRequestsLists/FriendRequestsLists';
 
 export function FriendsView() {
   const [isFriendList, setIsFriendList] = useState<boolean>(true);

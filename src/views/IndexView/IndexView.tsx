@@ -5,7 +5,7 @@ import { useApi } from '../../hooks/useApi';
 import { apiUrl } from '../../config';
 import { useUser } from '../../hooks/useUser';
 import './IndexView.css';
-import { PostIndex } from '../../components/PostIndex/PostIndex';
+import { PostIndex } from './PostIndex/PostIndex';
 import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
 import { Pagination } from '../../components/common/Pagination/Pagination';
 

@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import { ShortTextInput } from '../../common/ShortTextInput/ShortTextInput';
+import { ShortTextInput } from '../ShortTextInput/ShortTextInput';
 import './NameFields.css';
 
 interface Props {

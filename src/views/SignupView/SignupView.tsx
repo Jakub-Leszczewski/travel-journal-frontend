@@ -7,7 +7,7 @@ import { LoginResponse, ErrorResponse, CreateUserDtoInterface } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { api, HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
-import { SignupForm } from '../../components/form/SignupForm/SignupForm';
+import { SignupForm } from './SignupForm/SignupForm';
 import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
 
 type CreateUser = CreateUserDtoInterface & {repeatPassword: string};

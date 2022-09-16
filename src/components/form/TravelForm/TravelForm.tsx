@@ -4,10 +4,10 @@ import React, {
 import './TravelForm.css';
 import { CreateTravelDtoInterface } from 'types';
 import { WhiteButton } from '../../common/WhiteButton/WhiteButton';
-import { LongTextInput } from '../../common/LongTextInput/LongTextInput';
-import { ShortTextInput } from '../../common/ShortTextInput/ShortTextInput';
-import { DateBetweenFields } from '../DateBetweenFields/DateBetweenFields';
-import { ComradesAndPhotoFields } from '../ComradesAndPhotoFields/ComradesAndPhotoFields';
+import { LongTextInput } from '../LongTextInput/LongTextInput';
+import { ShortTextInput } from '../ShortTextInput/ShortTextInput';
+import { DateBetweenFields } from './DateBetweenFields/DateBetweenFields';
+import { ComradesAndPhotoFields } from './ComradesAndPhotoFields/ComradesAndPhotoFields';
 
 interface Props {
   form: CreateTravelDtoInterface;

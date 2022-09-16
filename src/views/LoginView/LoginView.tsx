@@ -5,7 +5,7 @@ import './LoginView.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { ErrorResponse, LoginResponse } from 'types';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
-import { LoginForm } from '../../components/form/LoginForm/LoginForm';
+import { LoginForm } from './LoginForm/LoginForm';
 import { api, HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
 import { useSaveUserData } from '../../hooks/useSaveUserData';

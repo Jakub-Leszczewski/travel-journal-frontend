@@ -5,7 +5,7 @@ import { ErrorResponse, GetPostsResponse, GetTravelResponse } from 'types';
 import { AddButton } from '../../components/common/AddButton/AddButton';
 import { useApi } from '../../hooks/useApi';
 import { apiUrl } from '../../config';
-import { TravelInfo } from '../../components/TravelInfo/TravelInfo';
+import { TravelInfo } from './TravelInfo/TravelInfo';
 import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
 import { PostTransparent } from '../../components/PostTransparent/PostTransparent';
 import { IconButtonBlack } from '../../components/common/IconButtonBlack/IconButtonBlack';
