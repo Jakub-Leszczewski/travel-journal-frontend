@@ -39,7 +39,7 @@ export function TravelView() {
   };
 
   const goBackHandler = () => {
-    navigate(`/profile/${travelStatus === 200 && travelBody && !('error' in travelBody) && travelBody.authorId}`);
+    navigate(-1);
   };
 
   const goAddPost = () => {

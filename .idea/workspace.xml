@@ -2,27 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78620042-1b04-475e-8b7e-484fe5117c05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Auth.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FriendRequestsLists/FriendRequestsLists.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendRequestsLists/FriendRequestsLists.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FriendsList/FriendsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostTransparent/PostTransparent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostTransparent/PostTransparent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShortTravelInfo/ShortTravelInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ShortTravelInfo/ShortTravelInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserNav/UserNav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserNav/UserNav.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/AddPostView/AddPostView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/AddPostView/AddPostView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/AddTravelView/AddTravelView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/AddTravelView/AddTravelView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/AddButton/AddButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/AddButton/AddButton.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/FindFriendsView/FindFriendsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/FindFriendsView/FindFriendsView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/IndexView/IndexView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/IndexView/IndexView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/LoginView/LoginView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/LoginView/LoginView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/ProfileView/ProfileView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ProfileView/ProfileView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/SignupView/SignupView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/SignupView/SignupView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/TravelView/TravelView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TravelView/TravelView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/UpdatePostView/UpdatePostView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UpdatePostView/UpdatePostView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/UpdateTravelView/UpdateTravelView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UpdateTravelView/UpdateTravelView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/UserAccountView/UserAccountView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UserAccountView/UserAccountView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +56,7 @@
     <property name="nodejs_interpreter_path" value="$USER_HOME$/AppData/Local/nvs/node/16.15.1/x64/node" />
     <property name="nodejs_package_manager_path" value="C:\Users\jakub\AppData\Roaming\npm\node_modules\yarn" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
-    <property name="ts.external.directory.path" value="F:\oneDrive\projekty\Travel Journal\travel-journal-frontend\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="F:\oneDrive\Projekty\Aplikacje\Travel Journal\travel-journal-frontend\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -116,8 +103,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="npm.build:win (1)" />
         <item itemvalue="npm.build:win" />
+        <item itemvalue="npm.build:win (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -137,7 +124,9 @@
       <workItem from="1658923568793" duration="601000" />
       <workItem from="1658925059540" duration="1845000" />
       <workItem from="1659814356319" duration="547000" />
-      <workItem from="1661891712201" duration="1984000" />
+      <workItem from="1661891712201" duration="3345000" />
+      <workItem from="1662047338959" duration="1317000" />
+      <workItem from="1663325314164" duration="3792000" />
     </task>
     <servers />
   </component>

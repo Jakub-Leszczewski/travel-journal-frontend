@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import './FindFriendsView.css';
 import {
-  CreateFriendResponse, ErrorResponse, GetUserSearchResponse, CreateFriendDtoInterface,
+  CreateFriendshipResponse, ErrorResponse, GetUserSearchResponse, CreateFriendshipDtoInterface,
 } from 'types';
 import { useNavigate } from 'react-router-dom';
 import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
@@ -42,10 +42,10 @@ export function FindFriendsView() {
   }, [searchInput]);
 
   const addFriendsHandler = async (id: string) => {
-    const payload: CreateFriendDtoInterface = { friendId: id };
+    const payload: CreateFriendshipDtoInterface = { friendId: id };
 
-    const { status } = await api<CreateFriendResponse | ErrorResponse>(
-      `${apiUrl}/user/${user?.id ?? ''}/friend`,
+    const { status } = await api<CreateFriendshipResponse | ErrorResponse>(
+      `${apiUrl}/user/${user?.id ?? ''}/friendship`,
       {
         method: HttpMethod.POST,
         payload,

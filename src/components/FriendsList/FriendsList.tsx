@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './FriendsList.css';
-import { DeleteFriendResponse, ErrorResponse, GetFriendsResponse } from 'types';
+import {
+  DeleteFriendshipResponse, ErrorResponse, FriendshipStatus, GetFriendshipsResponse,
+} from 'types';
 import { api, HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
 import { useUser } from '../../hooks/useUser';
@@ -14,14 +16,14 @@ export function FriendsList() {
   const user = useUser();
   const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [acceptedStatus, acceptedBody] = useApi<GetFriendsResponse | ErrorResponse>(
-    `${apiUrl}/user/${user?.id ?? ''}/friend?accepted=true&page=${currentPage || 1}`,
+  const [acceptedStatus, acceptedBody] = useApi<GetFriendshipsResponse | ErrorResponse>(
+    `${apiUrl}/user/${user?.id ?? ''}/friend?status=${FriendshipStatus.Accepted}&page=${currentPage || 1}`,
     [refreshFlag, currentPage],
   );
 
   const removeFriendshipHandler = async (friendshipId: string) => {
-    const { status } = await api<DeleteFriendResponse | ErrorResponse>(
-      `${apiUrl}/friend/${friendshipId}`,
+    const { status } = await api<DeleteFriendshipResponse | ErrorResponse>(
+      `${apiUrl}/friendship/${friendshipId}`,
       {
         method: HttpMethod.DELETE,
       },

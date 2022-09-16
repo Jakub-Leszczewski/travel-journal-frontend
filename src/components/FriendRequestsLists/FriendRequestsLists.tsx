@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './FriendRequestsLists.css';
 import {
-  ErrorResponse, GetFriendsResponse, UpdateFriendResponse, DeleteFriendResponse,
+  ErrorResponse, GetFriendshipsResponse, UpdateFriendshipResponse, DeleteFriendshipResponse, FriendshipStatus,
 } from 'types';
 import { FriendButton } from '../FriendButton/FriendButton';
 import { FriendRequestButton } from '../FriendRequestButton/FriendRequestButton';
@@ -18,18 +18,18 @@ export function FriendRequestsLists() {
   const [currentWaitingPage, setCurrentWaitingPage] = useState<number>(1);
   const [currentInvitationPage, setCurrentInvitationPage] = useState<number>(1);
   const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
-  const [waitingStatus, waitingBody] = useApi<GetFriendsResponse | ErrorResponse>(
-    `${apiUrl}/user/${user?.id ?? ''}/friend?waiting=true&page=${currentWaitingPage || 1}`,
+  const [waitingStatus, waitingBody] = useApi<GetFriendshipsResponse | ErrorResponse>(
+    `${apiUrl}/user/${user?.id ?? ''}/friend?status=${FriendshipStatus.Waiting}&page=${currentWaitingPage || 1}`,
     [refreshFlag, currentWaitingPage],
   );
-  const [invitationStatus, invitationBody] = useApi<GetFriendsResponse | ErrorResponse>(
-    `${apiUrl}/user/${user?.id ?? ''}/friend?invitation=true&page=${currentInvitationPage || 1}`,
+  const [invitationStatus, invitationBody] = useApi<GetFriendshipsResponse | ErrorResponse>(
+    `${apiUrl}/user/${user?.id ?? ''}/friend?status=${FriendshipStatus.Invitation}&page=${currentInvitationPage || 1}`,
     [refreshFlag, currentInvitationPage],
   );
 
   const acceptFriendshipHandler = async (friendshipId: string) => {
-    const { status } = await api<UpdateFriendResponse | ErrorResponse>(
-      `${apiUrl}/friend/${friendshipId}`,
+    const { status } = await api<UpdateFriendshipResponse | ErrorResponse>(
+      `${apiUrl}/friendship/${friendshipId}`,
       {
         method: HttpMethod.PATCH,
       },
@@ -39,8 +39,8 @@ export function FriendRequestsLists() {
   };
 
   const removeFriendshipHandler = async (friendshipId: string) => {
-    const { status } = await api<DeleteFriendResponse | ErrorResponse>(
-      `${apiUrl}/friend/${friendshipId}`,
+    const { status } = await api<DeleteFriendshipResponse | ErrorResponse>(
+      `${apiUrl}/friendship/${friendshipId}`,
       {
         method: HttpMethod.DELETE,
       },

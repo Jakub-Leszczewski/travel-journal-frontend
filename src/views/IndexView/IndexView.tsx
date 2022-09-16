@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ErrorResponse, GetUserIndexResponse } from 'types';
+import { ErrorResponse, ForeignPostSaveData, GetUserIndexResponse } from 'types';
 import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
 import { useApi } from '../../hooks/useApi';
 import { apiUrl } from '../../config';
@@ -27,7 +27,7 @@ export function IndexView() {
       <section className="IndexView__window">
         <div className="IndexView__container">
           {
-            indexStatus === 200 && indexBody && !('error' in indexBody) ? indexBody.posts.map((e: any) => (
+            indexStatus === 200 && indexBody && !('error' in indexBody) ? indexBody.posts.map((e: ForeignPostSaveData) => (
               <PostIndex
                 key={e.id}
                 postTitle={e.title}
@@ -39,7 +39,7 @@ export function IndexView() {
                 userLastName={e.user.lastName}
                 userPhotoUrl={e.user.avatar}
                 userId={e.user.id}
-                travelId={e.travelId}
+                travelId={e.travel.id}
               />
             )) : (indexStatus !== null) && <ForbiddenWindow />
           }
