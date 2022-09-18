@@ -6,7 +6,6 @@ import { WhiteButton } from '../../../components/common/WhiteButton/WhiteButton'
 import { NameFields } from '../../../components/form/NamesFields/NameFields';
 import { NewPasswordFields } from '../NewPasswordFields/NewPasswordFields';
 import { LongTextInput } from '../../../components/form/LongTextInput/LongTextInput';
-import { Validation } from '../../../utils/Validation';
 import { FileInput } from '../../../components/form/FileInput/FileInput';
 import { UpdateAccountFormInterface } from '../UserAccountView';
 
@@ -22,11 +21,6 @@ interface Props {
 export function UpdateAccountForm({
   form, onSubmitHandler, changeFormHandler, changeFromHandlerFile, cancelEdit,
 }: Props) {
-  const submitDisabled = (
-    (form.newPassword && !Validation.passwordValidation(form.newPassword))
-    || (form.newPassword !== form.repeatNewPassword)
-  );
-
   return (
     <form className="UpdateAccountForm" onSubmit={onSubmitHandler}>
       <NameFields
@@ -56,7 +50,7 @@ export function UpdateAccountForm({
       />
 
       <div className="UpdateAccountForm__buton-container">
-        <WhiteButton disabled={submitDisabled}>Zapisz</WhiteButton>
+        <WhiteButton disabled={form.newPassword !== form.repeatNewPassword}>Zapisz</WhiteButton>
         <WhiteButton type="button" onClick={cancelEdit}>Anuluj</WhiteButton>
       </div>
     </form>

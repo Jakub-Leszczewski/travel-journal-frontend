@@ -1,7 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import './PasswordFields.css';
 import { PasswordInput } from '../../../components/form/PasswordInput/PasswordInput';
-import { Validation } from '../../../utils/Validation';
 
 interface Props {
     form: {
@@ -12,12 +11,10 @@ interface Props {
 }
 
 export function PasswordFields({ form, changeFormHandler }: Props) {
-  const [passwordWasFocus, setPasswordWasFocus] = useState<boolean>(false);
   const [repeatPasswordWasFocus, setRepeatPasswordWasFocus] = useState<boolean>(false);
 
-  const onPasswordBlur = () => {
-    setPasswordWasFocus(true);
-  };
+  const invalidPasswordInfo = 'Hasło powinno zawierać 8-36 znaków, co najmniej jedną małą, jedną wielką literę i'
+    + ' jedną cyfrę';
 
   const onRepeatPasswordBlur = () => {
     setRepeatPasswordWasFocus(true);
@@ -35,15 +32,6 @@ export function PasswordFields({ form, changeFormHandler }: Props) {
               </p>
             )
         }
-        {
-          Validation.passwordValidation(form.password) || !passwordWasFocus
-            ? null
-            : (
-              <p className="PasswordInputFields__validation-error">
-                Hasło powinno zawierać 8-36 znaków, co najmniej jedną małą i wielką literę i jedną cyfrę.
-              </p>
-            )
-        }
       </div>
 
       <div className="PasswordFields__container">
@@ -52,10 +40,11 @@ export function PasswordFields({ form, changeFormHandler }: Props) {
           name="password"
           onChange={changeFormHandler}
           placeholder="Hasło"
-          onBlur={onPasswordBlur}
           minLength={8}
           maxLength={36}
           required
+          pattern="((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+          title={invalidPasswordInfo}
         />
 
         <PasswordInput

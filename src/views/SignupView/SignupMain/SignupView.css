@@ -1,4 +1,4 @@
-.FriendsView {
+.SignupMain {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -6,7 +6,7 @@
     width: 100vw;
 }
 
-.FriendsView__window {
+.SignupMain__window {
     background: rgba(0, 0, 0, 0.84);
     height: fit-content;
     backdrop-filter: blur(15px);
@@ -17,9 +17,20 @@
     margin: 100px 20px 20px 20px;
 }
 
-.FriendsView__container {
+.SignupMain__container {
+    display: flex;
+    flex-direction: column;
     max-width: 400px;
-    margin: 30px auto 0 auto;
+    margin: 0 auto;
 }
 
+.SignupMain__window>.ViewTitle {margin-bottom: 30px;}
+
+.SignupMain__TextButton {
+    font-size: .8rem;
+    text-decoration: none;
+    position: relative;
+    margin: 10px auto;
+    font-weight: 500;
+}
 

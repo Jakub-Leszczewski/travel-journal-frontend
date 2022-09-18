@@ -7,6 +7,8 @@ interface Props {
   placeholder?: string;
   required?: boolean
   name?: string;
+  pattern?: string,
+  title?: string,
   maxLength?: number;
   minLength?: number;
   onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -14,7 +16,7 @@ interface Props {
 }
 
 export function PasswordInput({
-  value, onChange, placeholder, required, name, onFocus, onBlur, maxLength, minLength,
+  value, onChange, placeholder, required, name, onFocus, onBlur, maxLength, minLength, pattern, title,
 }: Props) {
   return (
     <input
@@ -29,6 +31,8 @@ export function PasswordInput({
       type="password"
       placeholder={`${placeholder ?? ''}${required ? '*' : ''}`}
       required={required}
+      pattern={pattern}
+      title={title}
     />
   );
 }

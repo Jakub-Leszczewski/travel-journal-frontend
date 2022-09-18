@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { ProtectRoute } from './ProtectRoute/ProtectRoute';
+import { ProtectRoute } from '../MainNav/ProtectRoute/ProtectRoute';
 import { LoginView } from '../../views/LoginView/LoginView';
 import { IndexView } from '../../views/IndexView/IndexView';
 import { useAuth } from '../../hooks/useAuth';
@@ -14,9 +14,10 @@ import { TravelView } from '../../views/TravelView/TravelView';
 import { UpdateTravelView } from '../../views/UpdateTravelView/UpdateTravelView';
 import { AddPostView } from '../../views/AddPostView/AddPostView';
 import { UpdatePostView } from '../../views/UpdatePostView/UpdatePostView';
-import { MainNav } from './MainNav/MainNav';
+import { MainNav } from '../MainNav/MainNav';
 import { FriendsView } from '../../views/FriendsView/FriendsView';
 import { FindFriendsView } from '../../views/FindFriendsView/FindFriendsView';
+import { FriendsRequestView } from '../../views/FriendsRequest/FriendsRequestView';
 
 function App() {
   const isAuth = useAuth();
@@ -129,6 +130,15 @@ function App() {
           element={(
             <ProtectRoute navigateTo="/login" isAuth={isAuth}>
               <FriendsView />
+            </ProtectRoute>
+          )}
+        />
+
+        <Route
+          path="/friends/request"
+          element={(
+            <ProtectRoute navigateTo="/login" isAuth={isAuth}>
+              <FriendsRequestView />
             </ProtectRoute>
           )}
         />

@@ -2,7 +2,7 @@ import React from 'react';
 import './UserNav.css';
 import { useNavigate } from 'react-router-dom';
 import { ErrorResponse, LogoutResponse } from 'types';
-import { MenuButton } from '../../common/MenuButton/MenuButton';
+import { MenuButton } from '../MenuButton/MenuButton';
 import { api, HttpMethod } from '../../../utils/api';
 import { apiUrl } from '../../../config';
 import { useSaveUserData } from '../../../hooks/useSaveUserData';

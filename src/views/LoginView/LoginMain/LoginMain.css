@@ -1,36 +1,35 @@
-.SignupView {
+.LoginMain {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    display: flex;
     width: 100vw;
+    display: flex;
 }
 
-.SignupView__window {
+.LoginMain__window {
     background: rgba(0, 0, 0, 0.84);
     height: fit-content;
     backdrop-filter: blur(15px);
     border-radius: 20px;
     padding: 20px 30px;
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     margin: 100px 20px 20px 20px;
 }
 
-.SignupView__container {
+.LoginMain__container {
     display: flex;
-    flex-direction: column;
-    max-width: 400px;
+    max-width: 300px;
     margin: 0 auto;
+    flex-direction: column;
 }
 
-.SignupView__window>.ViewTitle {margin-bottom: 30px;}
+.LoginMain__window>.ViewTitle {margin-bottom: 30px;}
 
-.SignupView__TextButton {
+.LoginMain__TextButton {
     font-size: .8rem;
     text-decoration: none;
     position: relative;
     margin: 10px auto;
     font-weight: 500;
 }
-

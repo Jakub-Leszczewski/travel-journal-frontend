@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './MainNav.css';
-import { UserAvatar } from '../../UserAvatar/UserAvatar';
-import { useAuth } from '../../../hooks/useAuth';
-import { useUser } from '../../../hooks/useUser';
-import { apiUrl } from '../../../config';
-import { UserNav } from '../UserNav/UserNav';
+import { UserAvatar } from '../UserAvatar/UserAvatar';
+import { useAuth } from '../../hooks/useAuth';
+import { useUser } from '../../hooks/useUser';
+import { apiUrl } from '../../config';
+import { UserNav } from './UserNav/UserNav';
 
 export function MainNav() {
   const isAuth = useAuth();

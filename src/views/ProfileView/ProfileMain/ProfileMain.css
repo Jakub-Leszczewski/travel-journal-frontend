@@ -1,4 +1,4 @@
-.ProfileView {
+.ProfileMain {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -6,7 +6,7 @@
     width: 100vw;
 }
 
-.ProfileView__window {
+.ProfileMain__window {
     height: fit-content;
     padding: 0;
     width: 100%;
@@ -18,7 +18,7 @@
     align-items: center;
 }
 
-.ProfileView__container {
+.ProfileMain__container {
     width: 100%;
     height: fit-content;
 }

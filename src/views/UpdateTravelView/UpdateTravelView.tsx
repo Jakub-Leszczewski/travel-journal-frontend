@@ -6,9 +6,9 @@ import {
   ErrorResponse, GetTravelResponse, UpdateTravelDtoInterface, UpdateTravelResponse,
 } from 'types';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
+import { ViewTitle } from '../../components/ViewTitle/ViewTitle';
 import { TravelForm } from '../../components/form/TravelForm/TravelForm';
-import { apiFormData } from '../../utils/apiFormData';
+import { apiFormData } from '../../utils/api-form-data';
 import { apiUrl } from '../../config';
 import { HttpMethod } from '../../utils/api';
 import { CreateFormData } from '../../utils/create-form-data';

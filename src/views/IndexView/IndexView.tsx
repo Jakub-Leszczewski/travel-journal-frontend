@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import { ErrorResponse, ForeignPostSaveData, GetUserIndexResponse } from 'types';
-import { ForbiddenWindow } from '../../components/ForbiddenWindow/ForbiddenWindow';
+import { ErrorResponse, GetUserIndexResponse } from 'types';
 import { useApi } from '../../hooks/useApi';
 import { apiUrl } from '../../config';
 import { useUser } from '../../hooks/useUser';
-import './IndexView.css';
-import { PostIndex } from './PostIndex/PostIndex';
-import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
-import { Pagination } from '../../components/common/Pagination/Pagination';
+import { IndexMain } from './IndexMain/IndexMain';
 
 export function IndexView() {
   const user = useUser();
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [indexStatus, indexBody] = useApi<GetUserIndexResponse | ErrorResponse>(
+  const [indexStatus, indexData] = useApi<GetUserIndexResponse | ErrorResponse>(
     `${apiUrl}/user/${user?.id ?? ''}/index?page=${currentPage ?? 1}`,
     [currentPage],
   );
@@ -23,38 +19,10 @@ export function IndexView() {
   };
 
   return (
-    <main className="IndexView">
-      <section className="IndexView__window">
-        <div className="IndexView__container">
-          {
-            indexStatus === 200
-            && indexBody
-            && !('error' in indexBody) ? indexBody.posts.map((e: ForeignPostSaveData) => (
-              <PostIndex
-                key={e.id}
-                postTitle={e.title}
-                postPhotoUrl={`${apiUrl}${e.photo}`}
-                postDestination={e.destination}
-                postCreatedAt={new Date(e.createdAt)}
-                postDescription={e.description}
-                userFirstName={e.user.firstName}
-                userLastName={e.user.lastName}
-                userPhotoUrl={e.user.avatar}
-                userId={e.user.id}
-                travelId={e.travel.id}
-              />
-              )) : (indexStatus !== null) && <ForbiddenWindow />
-          }
-
-          {(indexStatus === null) ? <LoadingSpinner /> : null}
-        </div>
-
-        <Pagination
-          totalItems={indexBody && !('error' in indexBody) ? indexBody.totalPostsCount : 1}
-          itemPerPage={10}
-          onChangePage={changePageHandler}
-        />
-      </section>
-    </main>
+    <IndexMain
+      indexData={indexData}
+      indexStatus={indexStatus}
+      changePageHandler={changePageHandler}
+    />
   );
 }

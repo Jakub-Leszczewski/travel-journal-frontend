@@ -5,14 +5,14 @@ import './UserAccountView.css';
 import {
   ErrorResponse, GetUserStatsResponse, UpdateUserDtoInterface, UpdateUserResponse,
 } from 'types';
-import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
+import { ViewTitle } from '../../components/ViewTitle/ViewTitle';
 import { HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
 import { UserStaticData } from './UserStaticData/UserStaticData';
 import { useUser } from '../../hooks/useUser';
 import { PasswordConfirm } from './PasswordConfirm/PasswordConfirm';
 import { useSaveUserData } from '../../hooks/useSaveUserData';
-import { apiFormData } from '../../utils/apiFormData';
+import { apiFormData } from '../../utils/api-form-data';
 import { CreateFormData } from '../../utils/create-form-data';
 import { UserDynamicData } from './UserDynamicData/UserDynamicData';
 import { useApi } from '../../hooks/useApi';

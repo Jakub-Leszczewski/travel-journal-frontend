@@ -1,7 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import './NewPasswordFields.css';
 import { PasswordInput } from '../../../components/form/PasswordInput/PasswordInput';
-import { Validation } from '../../../utils/Validation';
 
 interface Props {
     form: {
@@ -12,12 +11,10 @@ interface Props {
 }
 
 export function NewPasswordFields({ form, changeFormHandler }: Props) {
-  const [passwordWasFocus, setPasswordWasFocus] = useState<boolean>(false);
   const [repeatPasswordWasFocus, setRepeatPasswordWasFocus] = useState<boolean>(false);
 
-  const onPasswordBlur = () => {
-    setPasswordWasFocus(true);
-  };
+  const invalidPasswordInfo = 'Hasło powinno zawierać 8-36 znaków, co najmniej jedną małą, jedną wielką literę i'
+    + ' jedną cyfrę';
 
   const onRepeatPasswordBlur = () => {
     setRepeatPasswordWasFocus(true);
@@ -35,17 +32,6 @@ export function NewPasswordFields({ form, changeFormHandler }: Props) {
               </p>
             )
         }
-        {
-          Validation.passwordValidation(form.newPassword)
-          || !passwordWasFocus
-          || (!form.newPassword && !form.repeatNewPassword)
-            ? null
-            : (
-              <p className="NewPasswordFields__validation-error">
-                Hasło powinno zawierać 8-36 znaków, co najmniej jedną małą i wielką literę i jedną cyfrę.
-              </p>
-            )
-        }
       </div>
 
       <div className="NewPasswordFields__container">
@@ -54,9 +40,10 @@ export function NewPasswordFields({ form, changeFormHandler }: Props) {
           name="newPassword"
           onChange={changeFormHandler}
           placeholder="Nowe hasło"
-          onBlur={onPasswordBlur}
           minLength={8}
           maxLength={36}
+          pattern="((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+          title={invalidPasswordInfo}
         />
 
         <PasswordInput

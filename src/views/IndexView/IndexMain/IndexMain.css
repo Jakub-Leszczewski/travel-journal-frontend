@@ -1,4 +1,4 @@
-.IndexView {
+.IndexMain {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -6,7 +6,7 @@
     width: 100vw;
 }
 
-.IndexView__window {
+.IndexMain__window {
     height: fit-content;
     padding: 0;
     width: 100%;
@@ -18,7 +18,7 @@
     align-items: center;
 }
 
-.IndexView__container {
+.IndexMain__container {
     width: 100%;
     height: fit-content;
 }

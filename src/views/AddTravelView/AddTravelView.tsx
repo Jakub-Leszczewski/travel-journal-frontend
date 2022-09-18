@@ -1,17 +1,14 @@
 import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
-import './AddTravelView.css';
 import { CreateTravelDtoInterface, ErrorResponse } from 'types';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
-import { TravelForm } from '../../components/form/TravelForm/TravelForm';
-import { apiFormData } from '../../utils/apiFormData';
+import { useNavigate } from 'react-router-dom';
+import { apiFormData } from '../../utils/api-form-data';
 import { apiUrl } from '../../config';
 import { HttpMethod } from '../../utils/api';
 import { useUser } from '../../hooks/useUser';
 import { CreateFormData } from '../../utils/create-form-data';
-import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
+import { AddTravelMain } from './AddTravelMain/AddTravelMain';
 
 export function AddTravelView() {
   const user = useUser();
@@ -81,21 +78,13 @@ export function AddTravelView() {
   };
 
   return (
-    <main className="AddTravelView">
-      <section className="AddTravelView__window">
-        <ViewTitle>Nowa podróż</ViewTitle>
-        <div className="AddTravelView__container">
-          <ErrorMessage message={message} />
-          <TravelForm
-            required
-            cancelHandler={cancelHandler}
-            changeFromHandlerFile={changeFromHandlerFile}
-            onSubmitHandler={onSubmitHandler}
-            changeFormHandler={changeFormHandler}
-            form={form}
-          />
-        </div>
-      </section>
-    </main>
+    <AddTravelMain
+      message={message}
+      form={form}
+      changeFormHandler={changeFormHandler}
+      onSubmitHandler={onSubmitHandler}
+      changeFromHandlerFile={changeFromHandlerFile}
+      cancelHandler={cancelHandler}
+    />
   );
 }
