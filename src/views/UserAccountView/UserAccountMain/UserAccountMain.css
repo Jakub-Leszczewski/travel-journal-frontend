@@ -1,4 +1,4 @@
-.UserAccountView {
+.UserAccountMain {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -6,7 +6,7 @@
     width: 100vw;
 }
 
-.UserAccountView__window {
+.UserAccountMain__window {
     background: rgba(0, 0, 0, 0.84);
     height: fit-content;
     backdrop-filter: blur(15px);
@@ -17,18 +17,18 @@
     margin: 100px 20px 20px 20px;
 }
 
-.UserAccountView__container {
+.UserAccountMain__container {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     max-width: 350px;
 }
 
-.UserAccountView__window>.ViewTitle {
+.UserAccountMain__window>.ViewTitle {
     margin-bottom: 30px;
 }
 
-.UserAccountView__TextButton {
+.UserAccountMain__TextButton {
     font-size: .8rem;
     text-decoration: none;
     position: relative;
@@ -36,7 +36,7 @@
     font-weight: 500;
 }
 
-.UserAccountView_message {
+.UserAccountMain_message {
     font-size: .7rem;
 }
 

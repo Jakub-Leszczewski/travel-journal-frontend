@@ -1,25 +1,21 @@
 import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
-import './UpdateTravelView.css';
 import {
   ErrorResponse, GetTravelResponse, UpdateTravelDtoInterface, UpdateTravelResponse,
 } from 'types';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ViewTitle } from '../../components/ViewTitle/ViewTitle';
-import { TravelForm } from '../../components/form/TravelForm/TravelForm';
 import { apiFormData } from '../../utils/api-form-data';
 import { apiUrl } from '../../config';
 import { HttpMethod } from '../../utils/api';
 import { CreateFormData } from '../../utils/create-form-data';
 import { useApi } from '../../hooks/useApi';
-import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
-import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
+import { UpdateTravelMain } from './UpdateTravelMain/UpdateTravelMain';
 
 export function UpdateTravelView() {
   const navigate = useNavigate();
   const params = useParams();
-  const [travelStatus, travelBody] = useApi<GetTravelResponse | ErrorResponse>(`${apiUrl}/travel/${params.id}`);
+  const [travelStatus, travelData] = useApi<GetTravelResponse | ErrorResponse>(`${apiUrl}/travel/${params.id}`);
   const [submitStatus, setSubmitStatus] = useState<number | null>(null);
   const [message, setMessage] = useState<string | string[] | null>(null);
 
@@ -35,18 +31,18 @@ export function UpdateTravelView() {
 
   const [form, setForm] = useState<UpdateTravelDtoInterface>(initialForm);
   useEffect(() => {
-    if (travelStatus === 200 && travelBody && !('error' in travelBody)) {
+    if (travelStatus === 200 && travelData && !('error' in travelData)) {
       setForm((prev) => ({
         ...prev,
-        title: travelBody.title,
-        destination: travelBody.destination,
-        description: travelBody.description,
-        startAt: new Date(travelBody.startAt).toISOString().substring(0, 10),
-        endAt: new Date(travelBody.endAt).toISOString().substring(0, 10),
-        comradesCount: travelBody.comradesCount,
+        title: travelData.title,
+        destination: travelData.destination,
+        description: travelData.description,
+        startAt: new Date(travelData.startAt).toISOString().substring(0, 10),
+        endAt: new Date(travelData.endAt).toISOString().substring(0, 10),
+        comradesCount: travelData.comradesCount,
       }));
     }
-  }, [travelBody]);
+  }, [travelData]);
 
   useEffect(() => {
     if (submitStatus === 200 || (travelStatus !== 200 && travelStatus !== null)) navigate('/profile');
@@ -79,7 +75,7 @@ export function UpdateTravelView() {
     }));
   };
 
-  const changeFromHandlerFile = (e: any) => {
+  const changeFormHandlerFile = (e: any) => {
     setMessage(null);
     setMessage(null);
     setForm((prev) => ({
@@ -93,22 +89,14 @@ export function UpdateTravelView() {
   };
 
   return (
-    <main className="UpdateTravelView">
-      <section className="UpdateTravelView__window">
-        {(travelStatus === null) ? <LoadingSpinner /> : null}
-
-        <ViewTitle>Edytuj podróż</ViewTitle>
-        <div className="UpdateTravelView__container">
-          <ErrorMessage message={message} />
-          <TravelForm
-            cancelHandler={cancelHandler}
-            changeFromHandlerFile={changeFromHandlerFile}
-            onSubmitHandler={onSubmitHandler}
-            changeFormHandler={changeFormHandler}
-            form={form}
-          />
-        </div>
-      </section>
-    </main>
+    <UpdateTravelMain
+      travelStatus={travelStatus}
+      message={message}
+      form={form}
+      onSubmitHandler={onSubmitHandler}
+      changeFromHandlerFile={changeFormHandlerFile}
+      changeFormHandler={changeFormHandler}
+      cancelHandler={cancelHandler}
+    />
   );
 }
