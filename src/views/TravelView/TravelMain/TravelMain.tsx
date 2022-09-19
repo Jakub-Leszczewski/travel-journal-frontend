@@ -25,7 +25,7 @@ export function TravelMain({
   children,
 }: Props) {
   return (
-    <main className="UserAccountView">
+    <main className="TravelMain">
       <section className="TravelMain__window">
         <IconButtonBlack
           onClick={goBackHandler}

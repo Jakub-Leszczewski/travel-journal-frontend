@@ -2,11 +2,11 @@ import React from 'react';
 import './ShortTravelInfo.css';
 import { Link } from 'react-router-dom';
 import { DeleteTravelResponse, ErrorResponse } from 'types';
-import { InfoBarList } from '../InfoBarList/InfoBarList';
-import { apiUrl } from '../../config';
-import { EditRemove } from '../EditRemove/EditRemove';
-import { api, HttpMethod } from '../../utils/api';
-import { useUser } from '../../hooks/useUser';
+import { InfoBarList } from '../../../components/InfoBarList/InfoBarList';
+import { apiUrl } from '../../../config';
+import { EditRemove } from '../../../components/EditRemove/EditRemove';
+import { api, HttpMethod } from '../../../utils/api';
+import { useUser } from '../../../hooks/useUser';
 
 interface Props {
   id: string;

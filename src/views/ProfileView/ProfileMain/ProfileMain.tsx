@@ -7,7 +7,7 @@ import { LoadingSpinner } from '../../../components/LoadingSpinner/LoadingSpinne
 import { Pagination } from '../../../components/Pagination/Pagination';
 import { AddButton } from '../../../components/common/AddButton/AddButton';
 import { apiUrl } from '../../../config';
-import { ShortTravelInfo } from '../../../components/ShortTravelInfo/ShortTravelInfo';
+import { ShortTravelInfo } from '../ShortTravelInfo/ShortTravelInfo';
 
 interface Props {
   travelsData: GetTravelsResponse | ErrorResponse | null;

@@ -17,7 +17,7 @@ import { UpdatePostView } from '../../views/UpdatePostView/UpdatePostView';
 import { MainNav } from '../MainNav/MainNav';
 import { FriendsView } from '../../views/FriendsView/FriendsView';
 import { FindFriendsView } from '../../views/FindFriendsView/FindFriendsView';
-import { FriendsRequestView } from '../../views/FriendsRequest/FriendsRequestView';
+import { FriendsRequestView } from '../../views/FriendsRequestView/FriendsRequestView';
 
 function App() {
   const isAuth = useAuth();

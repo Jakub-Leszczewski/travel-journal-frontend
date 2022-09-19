@@ -1,11 +1,11 @@
 import React from 'react';
 import './PostTransparent.css';
 import { DeletePostResponse, ErrorResponse } from 'types';
-import { apiUrl } from '../../config';
-import { InfoBarList } from '../InfoBarList/InfoBarList';
-import { EditRemove } from '../EditRemove/EditRemove';
-import { api, HttpMethod } from '../../utils/api';
-import { useUser } from '../../hooks/useUser';
+import { apiUrl } from '../../../config';
+import { InfoBarList } from '../../../components/InfoBarList/InfoBarList';
+import { EditRemove } from '../../../components/EditRemove/EditRemove';
+import { api, HttpMethod } from '../../../utils/api';
+import { useUser } from '../../../hooks/useUser';
 
 interface Props {
   id: string;

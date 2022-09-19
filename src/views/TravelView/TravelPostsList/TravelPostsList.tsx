@@ -1,7 +1,7 @@
 import React from 'react';
 import { ErrorResponse, GetPostsResponse } from 'types';
 import { ForbiddenWindow } from '../../../components/ForbiddenWindow/ForbiddenWindow';
-import { PostTransparent } from '../../../components/PostTransparent/PostTransparent';
+import { PostTransparent } from '../PostTransparent/PostTransparent';
 import { Pagination } from '../../../components/Pagination/Pagination';
 
 interface Props {
