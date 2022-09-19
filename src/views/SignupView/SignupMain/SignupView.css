@@ -1,0 +1,36 @@
+.SignupMain {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    width: 100vw;
+}
+
+.SignupMain__window {
+    background: rgba(0, 0, 0, 0.84);
+    height: fit-content;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: 100px 20px 20px 20px;
+}
+
+.SignupMain__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.SignupMain__window>.ViewTitle {margin-bottom: 30px;}
+
+.SignupMain__TextButton {
+    font-size: .8rem;
+    text-decoration: none;
+    position: relative;
+    margin: 10px auto;
+    font-weight: 500;
+}
+

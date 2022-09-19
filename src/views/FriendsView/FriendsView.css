@@ -22,22 +22,4 @@
     margin: 30px auto 0 auto;
 }
 
-.FriendsView__button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 10px 0;
-}
-
-.FriendsView__button-container>.IconButton {
-    margin: 5px;
-}
-
-@media only screen and (min-width: 280px) {
-
-    .FriendsView__button-container {
-        flex-direction: row;
-    }
-}
 

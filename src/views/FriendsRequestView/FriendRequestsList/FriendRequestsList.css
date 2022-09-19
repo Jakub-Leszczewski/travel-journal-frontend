@@ -1,0 +1,11 @@
+.FriendRequestsList>h3 {
+    margin: 7px;
+}
+
+.FriendRequestsList__container .LoadingSpinner div {
+    background: rgba(255, 255, 255, 0.77);
+}
+
+.FriendRequestsList__container>.FriendButton .IconButton {
+    margin-left: 5px;
+}

@@ -1,0 +1,25 @@
+.Friends {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    width: 100vw;
+}
+
+.Friends__window {
+    background: rgba(0, 0, 0, 0.84);
+    height: fit-content;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: 100px 20px 20px 20px;
+}
+
+.Friends__container {
+    max-width: 400px;
+    margin: 30px auto 0 auto;
+}
+
+

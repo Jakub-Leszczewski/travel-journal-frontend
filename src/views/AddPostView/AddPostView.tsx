@@ -1,16 +1,13 @@
 import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
-import './AddPostView.css';
 import { CreatePostDtoInterface, CreateTravelResponse, ErrorResponse } from 'types';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
-import { apiFormData } from '../../utils/apiFormData';
+import { apiFormData } from '../../utils/api-form-data';
 import { apiUrl } from '../../config';
 import { HttpMethod } from '../../utils/api';
 import { CreateFormData } from '../../utils/create-form-data';
-import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
-import { PostForm } from '../../components/form/PostForm/PostForm';
+import { AddPostMain } from './AddPostMain/AddPostMain';
 
 export function AddPostView() {
   const params = useParams();
@@ -73,21 +70,13 @@ export function AddPostView() {
   };
 
   return (
-    <main className="AddPostView">
-      <section className="AddPostView__window">
-        <ViewTitle>Nowy post</ViewTitle>
-        <div className="AddPostView__container">
-          <ErrorMessage message={message} />
-          <PostForm
-            required
-            cancelHandler={cancelHandler}
-            changeFromHandlerFile={changeFromHandlerFile}
-            onSubmitHandler={onSubmitHandler}
-            changeFormHandler={changeFormHandler}
-            form={form}
-          />
-        </div>
-      </section>
-    </main>
+    <AddPostMain
+      message={message}
+      form={form}
+      changeFormHandler={changeFormHandler}
+      onSubmitHandler={onSubmitHandler}
+      cancelHandler={cancelHandler}
+      changeFromHandlerFile={changeFromHandlerFile}
+    />
   );
 }

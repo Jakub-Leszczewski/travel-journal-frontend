@@ -4,9 +4,9 @@ import React, {
 import './PostForm.css';
 import { CreatePostDtoInterface } from 'types';
 import { WhiteButton } from '../../common/WhiteButton/WhiteButton';
-import { LongTextInput } from '../../common/LongTextInput/LongTextInput';
-import { ShortTextInput } from '../../common/ShortTextInput/ShortTextInput';
-import { FileInput } from '../../FileInput/FileInput';
+import { LongTextInput } from '../LongTextInput/LongTextInput';
+import { ShortTextInput } from '../ShortTextInput/ShortTextInput';
+import { FileInput } from '../FileInput/FileInput';
 
 interface Props {
   form: CreatePostDtoInterface;

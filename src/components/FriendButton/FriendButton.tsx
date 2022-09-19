@@ -2,21 +2,18 @@ import React from 'react';
 import './FriendButton.css';
 import { Link } from 'react-router-dom';
 import { UserAvatar } from '../UserAvatar/UserAvatar';
-import { IconButton } from '../common/IconButton/IconButton';
 
 interface Props {
-  friendshipId: string;
   firstName: string;
   lastName: string;
   username: string;
   avatar: string;
   to?: string;
-  onClick: (friendshipId: string) => void;
-  bootstrapIcon: string;
+  children: React.ReactNode;
 }
 
 export function FriendButton({
-  friendshipId, firstName, lastName, username, avatar, onClick, bootstrapIcon, to,
+  firstName, lastName, username, avatar, to, children,
 }: Props) {
   return (
     <div className="FriendButton">
@@ -35,10 +32,7 @@ export function FriendButton({
       </Link>
 
       <div className="FriendButton__container-right">
-        <IconButton
-          bootstrapIcon={bootstrapIcon}
-          onClick={() => onClick(friendshipId)}
-        />
+        {children}
       </div>
     </div>
   );

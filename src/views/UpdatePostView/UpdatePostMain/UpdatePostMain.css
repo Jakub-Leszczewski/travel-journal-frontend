@@ -1,0 +1,29 @@
+.UpdatePostMain {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    width: 100vw;
+}
+
+.UpdatePostMain__window .LoadingSpinner div {
+    background: rgba(255, 255, 255, 0.77);
+}
+
+.UpdatePostMain__window {
+    background: rgba(0, 0, 0, 0.84);
+    height: fit-content;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: 100px 20px 20px 20px;
+}
+
+.UpdatePostMain__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}

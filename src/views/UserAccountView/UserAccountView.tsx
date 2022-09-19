@@ -1,21 +1,17 @@
 import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
-import './UserAccountView.css';
 import {
   ErrorResponse, GetUserStatsResponse, UpdateUserDtoInterface, UpdateUserResponse,
 } from 'types';
-import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
 import { HttpMethod } from '../../utils/api';
 import { apiUrl } from '../../config';
-import { UserStaticData } from '../../components/UserStaticData/UserStaticData';
 import { useUser } from '../../hooks/useUser';
-import { PasswordConfirm } from '../../components/PasswordConfirm/PasswordConfirm';
 import { useSaveUserData } from '../../hooks/useSaveUserData';
-import { apiFormData } from '../../utils/apiFormData';
+import { apiFormData } from '../../utils/api-form-data';
 import { CreateFormData } from '../../utils/create-form-data';
-import { UserDynamicData } from '../../components/UserDynamicData/UserDynamicData';
 import { useApi } from '../../hooks/useApi';
+import { UserAccountMain } from './UserAccountMain/UserAccountMain';
 
 export type UpdateAccountFormInterface = UpdateUserDtoInterface & {repeatNewPassword: string}
 
@@ -55,9 +51,7 @@ export function UserAccountView() {
       });
 
       if (status !== 401) setIsConfirm(false);
-
       if (status === 200 && body) saveUserData(body as UpdateUserResponse);
-
       if (status !== 200 && body && 'message' in body) {
         setMessage(body.message ?? null);
       }
@@ -107,54 +101,20 @@ export function UserAccountView() {
   };
 
   return (
-    <main className="UserAccountView">
-      <section className="UserAccountView__window">
-        <ViewTitle>Twoje konto</ViewTitle>
-
-        <div className="UserAccountView__container">
-          <UserStaticData
-            email={user?.email || ''}
-            firstName={user?.firstName || ''}
-            lastName={user?.lastName || ''}
-            imageUrl={user?.avatar ? `${apiUrl}${user.avatar}` : ''}
-            postsCount={
-              userStatsStatus === 200 && userStatsBody && !('error' in userStatsBody)
-                ? userStatsBody.postCount
-                : 0
-            }
-            travelsCount={
-              userStatsStatus === 200 && userStatsBody && !('error' in userStatsBody)
-                ? userStatsBody.travelCount
-                : 0
-            }
-          />
-
-          <UserDynamicData
-            isEditView={isEditView}
-            setEditHandler={setEditHandler}
-            message={message}
-            user={user}
-            form={form}
-            changeFormHandler={changeFormHandler}
-            changeFromHandlerFile={changeFromHandlerFile}
-            onSubmitHandler={onSubmitHandler}
-          />
-        </div>
-
-        {isConfirm && (
-          <PasswordConfirm
-            setConfirmHandler={setConfirmHandler}
-            changeFormHandler={changeFormHandler}
-            message={message}
-            form={form}
-            header="Potwierdź zmiany aktualnym hasłem"
-            onConfirmHandler={async (e) => {
-              e.preventDefault();
-              await callApi();
-            }}
-          />
-        )}
-      </section>
-    </main>
+    <UserAccountMain
+      user={user}
+      form={form}
+      userStatsStatus={userStatsStatus}
+      userStatsBody={userStatsBody}
+      isEditView={isEditView}
+      message={message}
+      isConfirm={isConfirm}
+      callApi={callApi}
+      onSubmitHandler={onSubmitHandler}
+      changeFormHandler={changeFormHandler}
+      changeFromHandlerFile={changeFromHandlerFile}
+      setConfirmHandler={setConfirmHandler}
+      setEditHandler={setEditHandler}
+    />
   );
 }

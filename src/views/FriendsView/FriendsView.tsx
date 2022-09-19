@@ -1,41 +1,47 @@
-import React, {
-  useState,
-} from 'react';
-import './FriendsView.css';
-import { useNavigate } from 'react-router-dom';
-import { ViewTitle } from '../../components/common/ViewTitle/ViewTitle';
+import React, { useState } from 'react';
+import {
+  DeleteFriendshipResponse, ErrorResponse, FriendshipStatus, GetFriendshipsResponse,
+} from 'types';
+import { FriendsList } from './FriendsList/FriendsList';
+import { Friends } from '../../components/Friends/Friends';
 import { useUser } from '../../hooks/useUser';
-import { IconButton } from '../../components/common/IconButton/IconButton';
-import { FriendsList } from '../../components/FriendsList/FriendsList';
-import { FriendRequestsLists } from '../../components/FriendRequestsLists/FriendRequestsLists';
+import { useApi } from '../../hooks/useApi';
+import { apiUrl } from '../../config';
+import { api, HttpMethod } from '../../utils/api';
 
 export function FriendsView() {
-  const [isFriendList, setIsFriendList] = useState<boolean>(true);
   const user = useUser();
-  const navigate = useNavigate();
+  const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [acceptedStatus, acceptedData] = useApi<GetFriendshipsResponse | ErrorResponse>(
+    `${apiUrl}/user/${user?.id ?? ''}/friend?status=${FriendshipStatus.Accepted}&page=${currentPage || 1}`,
+    [refreshFlag, currentPage],
+  );
 
-  const goAddFriendsHandler = () => navigate('/friends/find');
+  const removeFriendshipHandler = async (friendshipId: string) => {
+    const { status } = await api<DeleteFriendshipResponse | ErrorResponse>(
+      `${apiUrl}/friendship/${friendshipId}`,
+      {
+        method: HttpMethod.DELETE,
+      },
+    );
 
-  const toggleView = (value: boolean) => {
-    setIsFriendList(value);
+    if (status === 200) setRefreshFlag((prev) => !prev);
+  };
+
+  const changePageHandler = (page: number) => {
+    window.scrollTo(0, 0);
+    setCurrentPage(page);
   };
 
   return (
-    <main className="FriendsView">
-      <section className="FriendsView__window">
-        <ViewTitle>{isFriendList ? 'Znajomi' : 'Zaproszenia do znajomych'}</ViewTitle>
-        <div className="FriendsView__button-container">
-          <IconButton bootstrapIcon="bi bi-people-fill" onClick={() => toggleView(true)} />
-          <IconButton bootstrapIcon="bi bi-envelope-check-fill" onClick={() => toggleView(false)} />
-          <IconButton bootstrapIcon="bi bi-person-plus-fill" onClick={goAddFriendsHandler} />
-        </div>
-
-        {
-          isFriendList
-            ? <FriendsList />
-            : <FriendRequestsLists />
-        }
-      </section>
-    </main>
+    <Friends title="Znajomi">
+      <FriendsList
+        acceptedStatus={acceptedStatus}
+        acceptedData={acceptedData}
+        removeFriendshipHandler={removeFriendshipHandler}
+        changePageHandler={changePageHandler}
+      />
+    </Friends>
   );
 }

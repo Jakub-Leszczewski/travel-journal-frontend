@@ -1,5 +1,3 @@
-import { log } from 'util';
-
 export class CreateFormData {
   static createFormData(obj: any, excludedKey?: any[]) {
     const objEntries = Object.entries(obj);

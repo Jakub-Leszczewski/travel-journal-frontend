@@ -1,0 +1,24 @@
+.IndexMain {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    width: 100vw;
+}
+
+.IndexMain__window {
+    height: fit-content;
+    padding: 0;
+    width: 100%;
+    max-width: 700px;
+    margin: 100px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.IndexMain__container {
+    width: 100%;
+    height: fit-content;
+}
