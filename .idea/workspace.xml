@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78620042-1b04-475e-8b7e-484fe5117c05" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/readme/app.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostTransparent/PostTransparent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TravelView/PostTransparent/PostTransparent.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PostTransparent/PostTransparent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TravelView/PostTransparent/PostTransparent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShortTravelInfo/ShortTravelInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ProfileView/ShortTravelInfo/ShortTravelInfo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ShortTravelInfo/ShortTravelInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ProfileView/ShortTravelInfo/ShortTravelInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/FriendsRequest/FriendRequestsList/FriendRequestsList.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/FriendsRequest/FriendRequestsList/FriendRequestsList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/FriendsRequest/FriendRequestsLists/FriendRequestsLists.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/FriendsRequest/FriendRequestsLists/FriendRequestsLists.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/FriendsRequest/FriendsRequestView.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ProfileView/ProfileMain/ProfileMain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ProfileView/ProfileMain/ProfileMain.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TravelView/TravelMain/TravelMain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TravelView/TravelMain/TravelMain.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TravelView/TravelPostsList/TravelPostsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TravelView/TravelPostsList/TravelPostsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,11 +64,11 @@
       <recent name="F:\oneDrive\Projekty\Aplikacje\Travel Journal\travel-journal-frontend\src\views\IndexView\IndexMain" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\oneDrive\Projekty\Aplikacje\Travel Journal\travel-journal-frontend\readme" />
       <recent name="F:\oneDrive\Projekty\Aplikacje\Travel Journal\travel-journal-frontend\src\views\TravelView" />
       <recent name="F:\oneDrive\Projekty\Aplikacje\Travel Journal\travel-journal-frontend\src\views\ProfileView" />
       <recent name="F:\oneDrive\Projekty\Aplikacje\Travel Journal\travel-journal-frontend\src\views\UserAccountView\UserAccountMain" />
       <recent name="F:\oneDrive\Projekty\Aplikacje\Travel Journal\travel-journal-frontend\src\views\UpdateTravelView\UpdateTravelMain" />
-      <recent name="F:\oneDrive\Projekty\Aplikacje\Travel Journal\travel-journal-frontend\src\views\UpdatePostView\UpdatePostMain" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -143,7 +130,7 @@
       <workItem from="1662047338959" duration="1317000" />
       <workItem from="1663325314164" duration="8067000" />
       <workItem from="1663506380892" duration="23665000" />
-      <workItem from="1663575795918" duration="1515000" />
+      <workItem from="1663575795918" duration="5815000" />
     </task>
     <servers />
   </component>
