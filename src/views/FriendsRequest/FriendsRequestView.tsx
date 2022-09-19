@@ -69,7 +69,7 @@ export function FriendsRequestView() {
         acceptFriendshipHandler={acceptFriendshipHandler}
         removeFriendshipHandler={removeFriendshipHandler}
         changeWaitingPageHandler={changeWaitingPageHandler}
-        changePageInvitationHandler={changePageInvitationHandler}
+        changeInvitationPageHandler={changePageInvitationHandler}
       />
     </Friends>
   );

@@ -6,6 +6,7 @@ import { ForbiddenWindow } from '../../../components/ForbiddenWindow/ForbiddenWi
 import { LoadingSpinner } from '../../../components/LoadingSpinner/LoadingSpinner';
 import { apiUrl } from '../../../config';
 import './FindFriendsList.css';
+import { IconButton } from '../../../components/common/IconButton/IconButton';
 
 interface Props {
   searchFriendData: GetUserSearchResponse | ErrorResponse | null;
@@ -24,15 +25,17 @@ export function FindFriendsList({
         searchFriendStatus === 200 && searchFriendData && !('error' in searchFriendData)
           ? searchFriendData.users.map((e) => (
             <FriendButton
-              bootstrapIcon="bi bi-person-plus-fill"
               key={e.id}
-              onClick={addFriendsHandler}
-              friendshipId={e.id}
               firstName={e.firstName}
               lastName={e.lastName}
               username={e.username}
               avatar={`${apiUrl}${e.avatar}`}
-            />
+            >
+              <IconButton
+                bootstrapIcon="bi bi-person-plus-fill"
+                onClick={() => addFriendsHandler(e.id)}
+              />
+            </FriendButton>
           ))
           : searchFriendStatus !== null && (<ForbiddenWindow />)
       }

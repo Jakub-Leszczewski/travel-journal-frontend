@@ -1,0 +1,36 @@
+.RemoveConfirm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.84);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    backdrop-filter: blur(10px);
+}
+
+.RemoveConfirm>p{
+    text-align: center;
+    font-size: .9rem;
+}
+
+.RemoveConfirm__button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.RemoveConfirm__button-container>.WhiteButton {
+    top: initial;
+    left: initial;
+    transform: initial;
+    margin: 7px;
+    height: 20px;
+}

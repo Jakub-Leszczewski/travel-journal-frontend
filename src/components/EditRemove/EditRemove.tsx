@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './EditRemove.css';
 import { Link } from 'react-router-dom';
-import { WhiteButton } from '../common/WhiteButton/WhiteButton';
+import { RemoveConfirm } from '../RemoveConfirm/RemoveConfirm';
 
 interface Props {
-  deleteHandler?: () => void;
+  deleteHandler: () => void;
   editPageUrl?: string;
 }
 
@@ -22,19 +22,16 @@ export function EditRemove({ deleteHandler, editPageUrl }: Props) {
   return (
     <>
       <div className="EditRemove">
-        {deleteHandler && <button onClick={turnOnConfirmWindowHandler}>usuń</button>}
+        <button onClick={turnOnConfirmWindowHandler}>usuń</button>
         {editPageUrl && <Link to={editPageUrl}>edytuj</Link>}
       </div>
 
       {
         isConfirm && (
-          <section className="EditRemove__confirm">
-            <p>Czy na pewno chcesz to usunąć?</p>
-            <div className="EditRemove__button-container">
-              <WhiteButton onClick={deleteHandler}>Tak</WhiteButton>
-              <WhiteButton onClick={turnOfConfirmWindowHandler}>Nie</WhiteButton>
-            </div>
-          </section>
+          <RemoveConfirm
+            deleteHandler={deleteHandler}
+            turnOfConfirmWindowHandler={turnOfConfirmWindowHandler}
+          />
         )
       }
     </>

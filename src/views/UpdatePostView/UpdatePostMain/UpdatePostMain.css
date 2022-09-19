@@ -1,4 +1,4 @@
-.UpdatePostView {
+.UpdatePostMain {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -6,11 +6,11 @@
     width: 100vw;
 }
 
-.UpdatePostView__window .LoadingSpinner div {
+.UpdatePostMain__window .LoadingSpinner div {
     background: rgba(255, 255, 255, 0.77);
 }
 
-.UpdatePostView__window {
+.UpdatePostMain__window {
     background: rgba(0, 0, 0, 0.84);
     height: fit-content;
     backdrop-filter: blur(15px);
@@ -21,7 +21,7 @@
     margin: 100px 20px 20px 20px;
 }
 
-.UpdatePostView__container {
+.UpdatePostMain__container {
     display: flex;
     flex-direction: column;
     max-width: 400px;

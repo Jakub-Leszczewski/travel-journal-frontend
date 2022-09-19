@@ -13,7 +13,7 @@ export function FriendsView() {
   const user = useUser();
   const [refreshFlag, setRefreshFlag] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [acceptedStatus, acceptedBody] = useApi<GetFriendshipsResponse | ErrorResponse>(
+  const [acceptedStatus, acceptedData] = useApi<GetFriendshipsResponse | ErrorResponse>(
     `${apiUrl}/user/${user?.id ?? ''}/friend?status=${FriendshipStatus.Accepted}&page=${currentPage || 1}`,
     [refreshFlag, currentPage],
   );
@@ -36,7 +36,12 @@ export function FriendsView() {
 
   return (
     <Friends title="Znajomi">
-      <FriendsList />
+      <FriendsList
+        acceptedStatus={acceptedStatus}
+        acceptedData={acceptedData}
+        removeFriendshipHandler={removeFriendshipHandler}
+        changePageHandler={changePageHandler}
+      />
     </Friends>
   );
 }

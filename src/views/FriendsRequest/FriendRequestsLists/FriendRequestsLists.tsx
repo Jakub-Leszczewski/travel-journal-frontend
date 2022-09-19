@@ -1,12 +1,7 @@
 import React from 'react';
 import './FriendRequestsLists.css';
 import { ErrorResponse, GetFriendshipsResponse } from 'types';
-import { FriendButton } from '../../../components/FriendButton/FriendButton';
-import { apiUrl } from '../../../config';
-import { ForbiddenWindow } from '../../../components/ForbiddenWindow/ForbiddenWindow';
-import { LoadingSpinner } from '../../../components/LoadingSpinner/LoadingSpinner';
-import { Pagination } from '../../../components/Pagination/Pagination';
-import { FriendRequestButton } from '../../FriendsView/FriendRequestsButton/FriendRequestButton';
+import { FriendRequestsList } from '../FriendRequestsList/FriendRequestsList';
 
 interface Props {
   invitationStatus: number | null;
@@ -16,7 +11,7 @@ interface Props {
   acceptFriendshipHandler: (friendshipId: string) => Promise<void>;
   removeFriendshipHandler: (friendshipId: string) => Promise<void>;
   changeWaitingPageHandler: (page: number) => void;
-  changePageInvitationHandler: (page: number) => void;
+  changeInvitationPageHandler: (page: number) => void;
 }
 
 export function FriendRequestsLists({
@@ -27,61 +22,37 @@ export function FriendRequestsLists({
   acceptFriendshipHandler,
   removeFriendshipHandler,
   changeWaitingPageHandler,
-  changePageInvitationHandler,
+  changeInvitationPageHandler,
 }: Props) {
   return (
-    <div className="FriendRequestsList">
-      <h3>Przychodzące:</h3>
-      <div className="FriendRequestsList__container">
-        {
-          invitationStatus === 200 && invitationData && !('error' in invitationData) ? invitationData.friends.map((e) => (
-            <FriendRequestButton
-              key={e.friend.id}
-              friendshipId={e.id}
-              firstName={e.friend.firstName}
-              lastName={e.friend.lastName}
-              username={e.friend.username}
-              avatar={`${apiUrl}${e.friend.avatar}`}
-              acceptFriendHandler={acceptFriendshipHandler}
-              removeFriendHandler={removeFriendshipHandler}
-            />
-          )) : invitationStatus !== null && (<ForbiddenWindow />)
-        }
+    <div className="FriendRequestsLists">
+      {
+        invitationData && !('error' in invitationData) && invitationData.totalFriendsCount > 0 && (
+        <>
+          <FriendRequestsList
+            listStatus={invitationStatus}
+            title="Przychodzące:"
+            listData={invitationData}
+            acceptFriendshipHandler={acceptFriendshipHandler}
+            removeFriendshipHandler={removeFriendshipHandler}
+            changePageHandler={changeInvitationPageHandler}
+          />
+          <hr />
+        </>
+        )
+      }
 
-        {(invitationStatus === null) ? <LoadingSpinner /> : null}
-        <Pagination
-          totalItems={invitationData && !('error' in invitationData) ? invitationData.totalFriendsCount : 1}
-          itemPerPage={10}
-          onChangePage={changePageInvitationHandler}
+      {
+        waitingData && !('error' in waitingData) && waitingData.totalFriendsCount > 0 && (
+        <FriendRequestsList
+          listStatus={waitingStatus}
+          title="Wysłane:"
+          listData={waitingData}
+          removeFriendshipHandler={removeFriendshipHandler}
+          changePageHandler={changeWaitingPageHandler}
         />
-      </div>
-
-      <hr />
-
-      <h3>Wysłane:</h3>
-      <div className="FriendRequestsList__container">
-        {
-          waitingStatus === 200 && waitingData && !('error' in waitingData) ? waitingData.friends.map((e) => (
-            <FriendButton
-              key={e.friend.id}
-              friendshipId={e.id}
-              firstName={e.friend.firstName}
-              lastName={e.friend.lastName}
-              username={e.friend.username}
-              avatar={`${apiUrl}${e.friend.avatar}`}
-              bootstrapIcon="bi bi-person-x-fill"
-              onClick={removeFriendshipHandler}
-            />
-          )) : waitingStatus !== null && (<ForbiddenWindow />)
-        }
-      </div>
-      <Pagination
-        totalItems={waitingData && !('error' in waitingData) ? waitingData.totalFriendsCount : 1}
-        itemPerPage={10}
-        onChangePage={changeWaitingPageHandler}
-      />
-
-      {(waitingStatus === null) ? <LoadingSpinner /> : null}
+        )
+      }
     </div>
   );
 }

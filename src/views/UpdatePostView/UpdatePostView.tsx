@@ -1,20 +1,16 @@
 import React, {
   ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
-import './UpdatePostView.css';
 import {
   ErrorResponse, GetPostResponse, UpdatePostDtoInterface, UpdateTravelResponse,
 } from 'types';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ViewTitle } from '../../components/ViewTitle/ViewTitle';
 import { apiFormData } from '../../utils/api-form-data';
 import { apiUrl } from '../../config';
 import { HttpMethod } from '../../utils/api';
 import { CreateFormData } from '../../utils/create-form-data';
-import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage';
-import { PostForm } from '../../components/form/PostForm/PostForm';
 import { useApi } from '../../hooks/useApi';
-import { LoadingSpinner } from '../../components/LoadingSpinner/LoadingSpinner';
+import { UpdatePostMain } from './UpdatePostMain/UpdatePostMain';
 
 export function UpdatePostView() {
   const navigate = useNavigate();
@@ -93,23 +89,14 @@ export function UpdatePostView() {
   };
 
   return (
-    <main className="UpdatePostView">
-      <section className="UpdatePostView__window">
-        {(postStatus === null) ? <LoadingSpinner /> : null}
-
-        <ViewTitle>Edytuj post</ViewTitle>
-        <div className="UpdatePostView__container">
-          <ErrorMessage message={message} />
-          <PostForm
-            required
-            cancelHandler={cancelHandler}
-            changeFromHandlerFile={changeFromHandlerFile}
-            onSubmitHandler={onSubmitHandler}
-            changeFormHandler={changeFormHandler}
-            form={form}
-          />
-        </div>
-      </section>
-    </main>
+    <UpdatePostMain
+      postStatus={postStatus}
+      message={message}
+      form={form}
+      onSubmitHandler={onSubmitHandler}
+      changeFromHandlerFile={changeFromHandlerFile}
+      cancelHandler={cancelHandler}
+      changeFormHandler={changeFormHandler}
+    />
   );
 }
